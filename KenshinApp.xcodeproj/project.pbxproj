@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25D609AC202B0B2AA7B82152 /* Pods_KenshinAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFB78CB4F2D1AD857FA10A4 /* Pods_KenshinAppTests.framework */; };
-		377B3CFB086038A5C27A006A /* Pods_KenshinAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60541CFACCDECF9D99B7288D /* Pods_KenshinAppUITests.framework */; };
 		73125DB42170C29B00980E62 /* paccho1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73125DB32170C29A00980E62 /* paccho1.jpg */; };
 		732924102159D172005E4940 /* ViewController_AreaSerch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */; };
 		732924122159D181005E4940 /* ViewController_AreaSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732924112159D180005E4940 /* ViewController_AreaSerch.xib */; };
@@ -64,7 +62,6 @@
 		8AA8CEEC213BE09900D64FA1 /* CollectionViewController_Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8CEEA213BE09900D64FA1 /* CollectionViewController_Menu.xib */; };
 		8AA8CEEF213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8CEED213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift */; };
 		8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8CEEE213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib */; };
-		C31A3DBD5738906BEBE765A7 /* Pods_KenshinApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63BAB6A48386A57775AA427 /* Pods_KenshinApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,10 +82,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		077B28FA6C27193B4A2C7320 /* Pods-KenshinApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KenshinApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-KenshinApp/Pods-KenshinApp.release.xcconfig"; sourceTree = "<group>"; };
-		3AFB78CB4F2D1AD857FA10A4 /* Pods_KenshinAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KenshinAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60541CFACCDECF9D99B7288D /* Pods_KenshinAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KenshinAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F7180A518E590404EB8ED95 /* Pods-KenshinAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KenshinAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KenshinAppTests/Pods-KenshinAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		73125DB32170C29A00980E62 /* paccho1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paccho1.jpg; sourceTree = "<group>"; };
 		7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController_AreaSerch.swift; sourceTree = "<group>"; };
 		732924112159D180005E4940 /* ViewController_AreaSerch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_AreaSerch.xib; sourceTree = "<group>"; };
@@ -118,7 +111,6 @@
 		736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCustomCell.xib; sourceTree = "<group>"; };
 		736DFC092175DAE0006698FC /* sun.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpeg; sourceTree = "<group>"; };
 		73A7DE3021756B7600B70360 /* TGlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TGlogo.png; sourceTree = "<group>"; };
-		81742D3123A4020080588B56 /* Pods-KenshinAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KenshinAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KenshinAppUITests/Pods-KenshinAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A0B364A213A474D00F196AD /* KenshinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0B364D213A474D00F196AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A0B364F213A474D00F196AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,10 +143,6 @@
 		8AA8CEEA213BE09900D64FA1 /* CollectionViewController_Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController_Menu.xib; sourceTree = "<group>"; };
 		8AA8CEED213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell_Kenshin.swift; sourceTree = "<group>"; };
 		8AA8CEEE213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell_Kenshin.xib; sourceTree = "<group>"; };
-		93320B404FCF710914285E9B /* Pods-KenshinAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KenshinAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KenshinAppTests/Pods-KenshinAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		ABBECE0206B83A6DA0BAC67D /* Pods-KenshinApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KenshinApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KenshinApp/Pods-KenshinApp.debug.xcconfig"; sourceTree = "<group>"; };
-		D63BAB6A48386A57775AA427 /* Pods_KenshinApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KenshinApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9C3277AC13596ADDEEF622F /* Pods-KenshinAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KenshinAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KenshinAppUITests/Pods-KenshinAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +150,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C31A3DBD5738906BEBE765A7 /* Pods_KenshinApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +157,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25D609AC202B0B2AA7B82152 /* Pods_KenshinAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,23 +164,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				377B3CFB086038A5C27A006A /* Pods_KenshinAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		78BBA3AA733F38C24180E199 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D63BAB6A48386A57775AA427 /* Pods_KenshinApp.framework */,
-				3AFB78CB4F2D1AD857FA10A4 /* Pods_KenshinAppTests.framework */,
-				60541CFACCDECF9D99B7288D /* Pods_KenshinAppUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		8A0B3641213A474D00F196AD = {
 			isa = PBXGroup;
 			children = (
@@ -202,8 +177,6 @@
 				8A0B3661213A474E00F196AD /* KenshinAppTests */,
 				8A0B366C213A474E00F196AD /* KenshinAppUITests */,
 				8A0B364B213A474D00F196AD /* Products */,
-				78BBA3AA733F38C24180E199 /* Frameworks */,
-				CD27F23BDC2B6471B744875A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -296,19 +269,6 @@
 			path = KenshinAppUITests;
 			sourceTree = "<group>";
 		};
-		CD27F23BDC2B6471B744875A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				ABBECE0206B83A6DA0BAC67D /* Pods-KenshinApp.debug.xcconfig */,
-				077B28FA6C27193B4A2C7320 /* Pods-KenshinApp.release.xcconfig */,
-				6F7180A518E590404EB8ED95 /* Pods-KenshinAppTests.debug.xcconfig */,
-				93320B404FCF710914285E9B /* Pods-KenshinAppTests.release.xcconfig */,
-				F9C3277AC13596ADDEEF622F /* Pods-KenshinAppUITests.debug.xcconfig */,
-				81742D3123A4020080588B56 /* Pods-KenshinAppUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,7 +280,6 @@
 				8A0B3646213A474D00F196AD /* Sources */,
 				8A0B3647213A474D00F196AD /* Frameworks */,
 				8A0B3648213A474D00F196AD /* Resources */,
-				F5A0F680941A45FDEBD99344 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -335,7 +294,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A0B3675213A474E00F196AD /* Build configuration list for PBXNativeTarget "KenshinAppTests" */;
 			buildPhases = (
-				1984B90B7349859CDE58B379 /* [CP] Check Pods Manifest.lock */,
 				8A0B365A213A474E00F196AD /* Sources */,
 				8A0B365B213A474E00F196AD /* Frameworks */,
 				8A0B365C213A474E00F196AD /* Resources */,
@@ -354,7 +312,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A0B3678213A474E00F196AD /* Build configuration list for PBXNativeTarget "KenshinAppUITests" */;
 			buildPhases = (
-				A8B1DBE6CB0BA87871B7BD12 /* [CP] Check Pods Manifest.lock */,
 				8A0B3665213A474E00F196AD /* Sources */,
 				8A0B3666213A474E00F196AD /* Frameworks */,
 				8A0B3667213A474E00F196AD /* Resources */,
@@ -467,50 +424,12 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1984B90B7349859CDE58B379 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KenshinAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A8B1DBE6CB0BA87871B7BD12 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KenshinAppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		ACA407AFCEAEEDCFA9AB6FAC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
@@ -518,25 +437,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F5A0F680941A45FDEBD99344 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KenshinApp/Pods-KenshinApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KenshinApp/Pods-KenshinApp-frameworks.sh\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -739,7 +641,6 @@
 		};
 		8A0B3673213A474E00F196AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABBECE0206B83A6DA0BAC67D /* Pods-KenshinApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -757,7 +658,6 @@
 		};
 		8A0B3674213A474E00F196AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 077B28FA6C27193B4A2C7320 /* Pods-KenshinApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -776,7 +676,6 @@
 		};
 		8A0B3676213A474E00F196AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F7180A518E590404EB8ED95 /* Pods-KenshinAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -797,7 +696,6 @@
 		};
 		8A0B3677213A474E00F196AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93320B404FCF710914285E9B /* Pods-KenshinAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -818,7 +716,6 @@
 		};
 		8A0B3679213A474E00F196AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9C3277AC13596ADDEEF622F /* Pods-KenshinAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -838,7 +735,6 @@
 		};
 		8A0B367A213A474E00F196AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81742D3123A4020080588B56 /* Pods-KenshinAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

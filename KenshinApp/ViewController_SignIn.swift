@@ -49,7 +49,7 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
         */
         
         
-
+        print("テスト（後で削除）")
         let borderID = CALayer()
         let widthID = CGFloat(2.0)
         let borderPass = CALayer()

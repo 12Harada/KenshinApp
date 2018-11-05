@@ -38,7 +38,6 @@
 		736C1B0121771D8A001784BF /* WeatherCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */; };
 		736DFC0A2175DAE0006698FC /* sun.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 736DFC092175DAE0006698FC /* sun.jpeg */; };
 		73A7DE3121756B7700B70360 /* TGlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 73A7DE3021756B7600B70360 /* TGlogo.png */; };
-		73A7DE33217585B400B70360 /* AOZORA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73A7DE32217585B200B70360 /* AOZORA.jpg */; };
 		8A0B364E213A474D00F196AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364D213A474D00F196AD /* AppDelegate.swift */; };
 		8A0B3650213A474D00F196AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364F213A474D00F196AD /* ViewController.swift */; };
 		8A0B3653213A474D00F196AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B3651213A474D00F196AD /* Main.storyboard */; };
@@ -119,7 +118,6 @@
 		736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCustomCell.xib; sourceTree = "<group>"; };
 		736DFC092175DAE0006698FC /* sun.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpeg; sourceTree = "<group>"; };
 		73A7DE3021756B7600B70360 /* TGlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TGlogo.png; sourceTree = "<group>"; };
-		73A7DE32217585B200B70360 /* AOZORA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AOZORA.jpg; sourceTree = "<group>"; };
 		81742D3123A4020080588B56 /* Pods-KenshinAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KenshinAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KenshinAppUITests/Pods-KenshinAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A0B364A213A474D00F196AD /* KenshinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0B364D213A474D00F196AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 				734945772177FC8F00DAF1FD /* bicycle.png */,
 				734945782177FC8F00DAF1FD /* gear.png */,
 				736DFC092175DAE0006698FC /* sun.jpeg */,
-				73A7DE32217585B200B70360 /* AOZORA.jpg */,
 				73125DB32170C29A00980E62 /* paccho1.jpg */,
 				73A7DE3021756B7600B70360 /* TGlogo.png */,
 				735FC71A2171CC10002265FC /* pacchoKenshin.jpeg */,
@@ -437,7 +434,6 @@
 				8A0B3658213A474E00F196AD /* LaunchScreen.storyboard in Resources */,
 				8A0B3655213A474E00F196AD /* Assets.xcassets in Resources */,
 				8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */,
-				73A7DE33217585B400B70360 /* AOZORA.jpg in Resources */,
 				8A5308AB2160C4DF0039A051 /* ViewController_Kenshin.xib in Resources */,
 				8A8044A42162F9F2006DEA56 /* LoginList.json in Resources */,
 				8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */,

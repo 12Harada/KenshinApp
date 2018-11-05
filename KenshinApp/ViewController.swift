@@ -2,18 +2,24 @@
 //  ViewController.swift
 //  KenshinApp
 //
-//  Created by Harada Hiroaki on 2018/11/05.
-//  Copyright © 2018 Harada Hiroaki. All rights reserved.
+//  Created by TomonariNonaka on 2018/09/01.
+//  Copyright © 2018年 TomonariNonaka. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello world")
         // Do any additional setup after loading the view, typically from a nib.
+        print("【welocome画面】")
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
 

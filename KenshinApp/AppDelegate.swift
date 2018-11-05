@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  KenshinApp
 //
-//  Created by Harada Hiroaki on 2018/11/05.
-//  Copyright © 2018 Harada Hiroaki. All rights reserved.
+//  Created by TomonariNonaka on 2018/09/01.
+//  Copyright © 2018年 TomonariNonaka. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }

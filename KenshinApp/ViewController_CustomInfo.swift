@@ -71,19 +71,20 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
 //        let infoTableView: UITableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         
         // Cell名の登録をおこなう.
-        let infoTableView: UITableView = UITableView()
-        infoTableView.register(UITableViewCell.self, forCellReuseIdentifier: "customInfoCell")
+         customerTableView.register(UITableViewCell.self, forCellReuseIdentifier: "customInfoCell")
         // DataSourceの設定をする.
-        infoTableView.dataSource = self
+        customerTableView.dataSource = self
         // Delegateを設定する.
-        infoTableView.delegate = self
+        customerTableView.delegate = self
         // Viewに追加する.
-        self.view.addSubview(infoTableView)
+        self.view.addSubview(customerTableView)
 
         print("画面名：お客さま情報画面")
         //データが渡されているか確認
         print("selectedNumber: \(selectedNumber)")
         print("お客さま名:\(self.selectedKenshinInput[selectedNumber].s_NameJ)")
+        //ナビゲーションバーの右側に編集ボタンを表示
+        self.navigationItem.setRightBarButton(self.editButtonItem, animated: true)
 
     }
 //    // セクションの数を返す。
@@ -103,6 +104,14 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
 //    private func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> Int {
 //        return 50
 //    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        //通常走っていた処理はそのまま走らせる。
+        super.setEditing(editing, animated: true)
+        
+        //自分が持っているテーブルビューのeditingを更新する。
+        self.customerTableView.setEditing(editing, animated: animated)
+    }
     //テーブルに表示する配列の総数を返す.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return customItem.count

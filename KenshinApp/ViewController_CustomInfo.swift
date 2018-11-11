@@ -14,11 +14,9 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
     //selectedKenshinInput:選択した回分のお客さまをKenshinInputクラスの配列で保持
     var selectedKenshinInput: [KenshinInput] = []
     //selectedNumber:前画面で選択したお客さまの配列番号を保持する変数
-    //viewDidLoad()のprint文みたいな方法で検針データを利用可能です
     var selectedNumber:Int = 0
     
     @IBOutlet weak var customerTableView: UITableView!
-    
     //表示する項目名を設定
     var customItem: NSArray = ["お客さま名",
                                "住所",
@@ -30,22 +28,13 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
                                "お客さま電話番号",
                                "犬情報"]
     
-    //セクション名を設定
-//    var  s_Section = ["お客さま情報", "検針情報", "メーター情報", "その他情報"]
-//
     var customData: NSArray = []
-//
-//
-//    var kenshinData: NSArray = []
-//    var meterData: NSArray = []
-//    var etcData: NSArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //画面名を作成
         self.navigationItem.title = "CustomerInfo"
-
         //表示するデータの設定（ファイルにデータが無いものはベタ書き。後で修正）
         //お客さま情報
         customData =
@@ -62,55 +51,51 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
             "犬あり小型犬"]
         
         // Status Barの高さを取得を.する.
-//        let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
-//        // Viewの高さと幅を取得する.
-//        let displayWidth: CGFloat = self.view.frame.width
-//        let displayHeight: CGFloat = self.view.frame.height
-//
-//        // TableViewの生成( status barの高さ分ずらして表示 ).
-//        let infoTableView: UITableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
+        let barHeight = UIApplication.shared.statusBarFrame.size.height
+        // Viewの高さと幅を取得する.
+        let displayWidth: CGFloat = self.view.frame.width
+        let displayHeight: CGFloat = self.view.frame.height
+
+        // TableViewの生成( status barの高さ分ずらして表示 ).
+        let customerTableView: UITableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         
         // Cell名の登録をおこなう.
-         customerTableView.register(UITableViewCell.self, forCellReuseIdentifier: "customInfoCell")
+        customerTableView.register(UITableViewCell.self, forCellReuseIdentifier: "customInfoCell")
         // DataSourceの設定をする.
         customerTableView.dataSource = self
         // Delegateを設定する.
         customerTableView.delegate = self
+        //編集中のセルの選択を許可
+        customerTableView.allowsSelectionDuringEditing = true
         // Viewに追加する.
         self.view.addSubview(customerTableView)
 
         print("画面名：お客さま情報画面")
-        //データが渡されているか確認
-        print("selectedNumber: \(selectedNumber)")
-        print("お客さま名:\(self.selectedKenshinInput[selectedNumber].s_NameJ)")
+        print(selectedNumber)
+
         //ナビゲーションバーの右側に編集ボタンを表示
         self.navigationItem.setRightBarButton(self.editButtonItem, animated: true)
 
     }
-//    // セクションの数を返す。
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        print(s_Section.count)
-//        return s_Section.count
-//    }
-//    // セクションのタイトルを返す。
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        print(s_Section[section])
-//         return s_Section[section]
-//    }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 50
-//    }
-//    private func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> Int {
-//        return 50
-//    }
-    
+    //Editボタンが押された際に呼び出される
     override func setEditing(_ editing: Bool, animated: Bool) {
         //通常走っていた処理はそのまま走らせる。
         super.setEditing(editing, animated: true)
-        
         //自分が持っているテーブルビューのeditingを更新する。
         self.customerTableView.setEditing(editing, animated: animated)
+        // 編集中のときのみaddButtonをナビゲーションバーの左に表示する
+        if editing {
+            print("編集中")
+            let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action:#selector(ViewController_CustomInfo.addCell(sender:)))
+                
+            self.navigationItem.setLeftBarButton(addButton, animated: true)
+        } else {
+            print("通常モード")
+            self.navigationItem.setLeftBarButton(nil, animated: true)
+        }
+
+    
     }
     //テーブルに表示する配列の総数を返す.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,13 +104,20 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
     //Cellに値を設定する.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let customInfoCell = tableView.dequeueReusableCell(withIdentifier: "customInfoCell", for: indexPath as IndexPath)
-            
+        let customInfoCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "customInfoCell")
+//        customInfoCell = tableView.dequeueReusableCell(withIdentifier: "customInfoCell", for: indexPath as IndexPath)
+
+        //横1行で表示できるように自動で調整してくれる
         customInfoCell.textLabel?.adjustsFontSizeToFitWidth = true
+        //改行させない
         customInfoCell.textLabel?.numberOfLines = 0
+        //項目名のフォントサイズを指定
+        customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 27)
         print(customItem[indexPath.row])
         print(customData[indexPath.row])
         customInfoCell.textLabel?.text = customItem[indexPath.row] as? String
+        //データのフォントサイズを指定
+        customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 22)
         customInfoCell.detailTextLabel?.text = customData[indexPath.row] as? String
         return customInfoCell
     }
@@ -138,6 +130,19 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         viewController.selectedNumber = self.selectedNumber;
         
     }
+    
+    
+    @objc func addCell(sender: AnyObject) {
+        print("追加")
+        
+        // myItemsに追加.
+//        customData.add("add Cell")
+        
+        // TableViewを再読み込み.
+        customerTableView.reloadData()
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

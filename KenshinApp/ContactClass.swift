@@ -25,5 +25,6 @@ class Contact: Codable {
         self.todayNum = todayNum
         self.doneNum = doneNum
     }
+    
 }
 

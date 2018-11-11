@@ -16,6 +16,7 @@
 		733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */; };
 		733621A42197C5D6006BACE0 /* CommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621A32197C5D6006BACE0 /* CommonFunc.swift */; };
 		733621C42197D160006BACE0 /* GohObjectAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621C32197D160006BACE0 /* GohObjectAnnotation.swift */; };
+		733621C62197F1EF006BACE0 /* KenshinData.json in Resources */ = {isa = PBXBuildFile; fileRef = 733621C52197F1EE006BACE0 /* KenshinData.json */; };
 		733F6576218A8FA700657F81 /* ViewController_ToChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6575218A8FA700657F81 /* ViewController_ToChange.swift */; };
 		733F6578218A902E00657F81 /* ViewController_Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6577218A902E00657F81 /* ViewController_Contact.swift */; };
 		733F657A218A906B00657F81 /* ViewController_Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6579218A906B00657F81 /* ViewController_Setting.swift */; };
@@ -95,6 +96,7 @@
 		733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerTableViewCell.xib; sourceTree = "<group>"; };
 		733621A32197C5D6006BACE0 /* CommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunc.swift; sourceTree = "<group>"; };
 		733621C32197D160006BACE0 /* GohObjectAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohObjectAnnotation.swift; sourceTree = "<group>"; };
+		733621C52197F1EE006BACE0 /* KenshinData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KenshinData.json; sourceTree = "<group>"; };
 		733F6575218A8FA700657F81 /* ViewController_ToChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_ToChange.swift; sourceTree = "<group>"; };
 		733F6577218A902E00657F81 /* ViewController_Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Contact.swift; sourceTree = "<group>"; };
 		733F6579218A906B00657F81 /* ViewController_Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Setting.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				733F6577218A902E00657F81 /* ViewController_Contact.swift */,
 				733F6579218A906B00657F81 /* ViewController_Setting.swift */,
 				734235C82169CE2C008A213E /* KenshinData1.json */,
+				733621C52197F1EE006BACE0 /* KenshinData.json */,
 				734235C62169CE2B008A213E /* KenshinData2.json */,
 				734235C72169CE2C008A213E /* KenshinData3.json */,
 				8A0B364D213A474D00F196AD /* AppDelegate.swift */,
@@ -388,6 +391,7 @@
 			files = (
 				8A0B3682213A4DD900F196AD /* ViewController_Hello.xib in Resources */,
 				8A7AF382214297D600632788 /* ViewController_KenjunList.xib in Resources */,
+				733621C62197F1EF006BACE0 /* KenshinData.json in Resources */,
 				7349457D2177FCA600DAF1FD /* repeat.png in Resources */,
 				7349457A2177FC8F00DAF1FD /* gear.png in Resources */,
 				736DFC0A2175DAE0006698FC /* sun.jpeg in Resources */,

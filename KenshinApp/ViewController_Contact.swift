@@ -2,30 +2,38 @@
 //  ViewController_Contact.swift
 //  KenshinApp
 //
-//  Created by Harada Hiroaki on 2018/11/01.
-//  Copyright © 2018年 TomonariNonaka. All rights reserved.
+//  Created by Harada Hiroaki on 2018/11/11.
+//  Copyright © 2018 TomonariNonaka. All rights reserved.
 //
-//
-import UIKit
-import CoreLocation
 
-class ViewController_Contact: UIViewController {
+import Foundation
+import UIKit
+
+class ViewController_Contact: UIViewController, UITableViewDelegate, UITableViewDataSource{ //追加①
     
+    let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"] //追加②
     
-    
+    //最初からあるコード
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        print("【コンタクト画面】")
-        
-        //タイトル名
-        self.navigationController?.title = "コンタクト"
     }
     
+    //最初からあるコード
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    //追加③ セルの個数を指定するデリゲートメソッド（必須）
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return TODO.count
+    }
     
+    //追加④ セルに値を設定するデータソースメソッド（必須）
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // セルを取得する
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
+        // セルに表示する値を設定する
+        cell.textLabel!.text = TODO[indexPath.row]
+        return cell
+    }
 }

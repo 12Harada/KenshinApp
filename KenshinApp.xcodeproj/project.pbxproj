@@ -17,8 +17,10 @@
 		733621A42197C5D6006BACE0 /* CommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621A32197C5D6006BACE0 /* CommonFunc.swift */; };
 		733621C42197D160006BACE0 /* GohObjectAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621C32197D160006BACE0 /* GohObjectAnnotation.swift */; };
 		733621C62197F1EF006BACE0 /* KenshinData.json in Resources */ = {isa = PBXBuildFile; fileRef = 733621C52197F1EE006BACE0 /* KenshinData.json */; };
+		733621C82197FF20006BACE0 /* Contact.json in Resources */ = {isa = PBXBuildFile; fileRef = 733621C72197FF20006BACE0 /* Contact.json */; };
+		733621CA2197FF6F006BACE0 /* ContactClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621C92197FF6F006BACE0 /* ContactClass.swift */; };
+		733621D0219806B7006BACE0 /* ViewController_Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621CF219806B7006BACE0 /* ViewController_Contact.swift */; };
 		733F6576218A8FA700657F81 /* ViewController_ToChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6575218A8FA700657F81 /* ViewController_ToChange.swift */; };
-		733F6578218A902E00657F81 /* ViewController_Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6577218A902E00657F81 /* ViewController_Contact.swift */; };
 		733F657A218A906B00657F81 /* ViewController_Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6579218A906B00657F81 /* ViewController_Setting.swift */; };
 		734235A12169A61D008A213E /* WeatherClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734235A02169A61C008A213E /* WeatherClass.swift */; };
 		734235A32169A644008A213E /* GohIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734235A22169A644008A213E /* GohIndex.swift */; };
@@ -97,8 +99,10 @@
 		733621A32197C5D6006BACE0 /* CommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunc.swift; sourceTree = "<group>"; };
 		733621C32197D160006BACE0 /* GohObjectAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohObjectAnnotation.swift; sourceTree = "<group>"; };
 		733621C52197F1EE006BACE0 /* KenshinData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KenshinData.json; sourceTree = "<group>"; };
+		733621C72197FF20006BACE0 /* Contact.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contact.json; sourceTree = "<group>"; };
+		733621C92197FF6F006BACE0 /* ContactClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactClass.swift; sourceTree = "<group>"; };
+		733621CF219806B7006BACE0 /* ViewController_Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Contact.swift; sourceTree = "<group>"; };
 		733F6575218A8FA700657F81 /* ViewController_ToChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_ToChange.swift; sourceTree = "<group>"; };
-		733F6577218A902E00657F81 /* ViewController_Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Contact.swift; sourceTree = "<group>"; };
 		733F6579218A906B00657F81 /* ViewController_Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Setting.swift; sourceTree = "<group>"; };
 		734235A02169A61C008A213E /* WeatherClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherClass.swift; sourceTree = "<group>"; };
 		734235A22169A644008A213E /* GohIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohIndex.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 		8A0B364C213A474D00F196AD /* KenshinApp */ = {
 			isa = PBXGroup;
 			children = (
+				733621CF219806B7006BACE0 /* ViewController_Contact.swift */,
 				734945A72179750400DAF1FD /* Aozora2.png */,
 				7349458321782C5B00DAF1FD /* meter.png */,
 				7349457B2177FCA500DAF1FD /* repeat.png */,
@@ -216,6 +221,7 @@
 				734235A02169A61C008A213E /* WeatherClass.swift */,
 				8A8044A32162F9F2006DEA56 /* LoginList.json */,
 				734235C42169C8F8008A213E /* GohInfo.json */,
+				733621C72197FF20006BACE0 /* Contact.json */,
 				732924112159D180005E4940 /* ViewController_AreaSerch.xib */,
 				7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */,
 				733621C32197D160006BACE0 /* GohObjectAnnotation.swift */,
@@ -223,7 +229,6 @@
 				733621A32197C5D6006BACE0 /* CommonFunc.swift */,
 				733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */,
 				733F6575218A8FA700657F81 /* ViewController_ToChange.swift */,
-				733F6577218A902E00657F81 /* ViewController_Contact.swift */,
 				733F6579218A906B00657F81 /* ViewController_Setting.swift */,
 				734235C82169CE2C008A213E /* KenshinData1.json */,
 				733621C52197F1EE006BACE0 /* KenshinData.json */,
@@ -261,6 +266,7 @@
 				8A0B3659213A474E00F196AD /* Info.plist */,
 				732924152159D870005E4940 /* LoginClass.swift */,
 				734235A22169A644008A213E /* GohIndex.swift */,
+				733621C92197FF6F006BACE0 /* ContactClass.swift */,
 				734235A42169A674008A213E /* KenshinDataInput.swift */,
 			);
 			path = KenshinApp;
@@ -404,6 +410,7 @@
 				7349458421782C5B00DAF1FD /* meter.png in Resources */,
 				73125DB42170C29B00980E62 /* paccho1.jpg in Resources */,
 				734235C92169CE2D008A213E /* KenshinData2.json in Resources */,
+				733621C82197FF20006BACE0 /* Contact.json in Resources */,
 				8A0B3658213A474E00F196AD /* LaunchScreen.storyboard in Resources */,
 				8A0B3655213A474E00F196AD /* Assets.xcassets in Resources */,
 				8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */,
@@ -466,9 +473,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7AF381214297D600632788 /* ViewController_KenjunList.swift in Sources */,
+				733621CA2197FF6F006BACE0 /* ContactClass.swift in Sources */,
 				736C1B0021771D8A001784BF /* WeatherCustomCell.swift in Sources */,
 				733621C42197D160006BACE0 /* GohObjectAnnotation.swift in Sources */,
-				733F6578218A902E00657F81 /* ViewController_Contact.swift in Sources */,
 				732924102159D172005E4940 /* ViewController_AreaSerch.swift in Sources */,
 				8A5308AA2160C4DF0039A051 /* ViewController_Kenshin.swift in Sources */,
 				8A7AF37A214295E000632788 /* ViewController_CustomNumberSerch.swift in Sources */,
@@ -479,6 +486,7 @@
 				734235A52169A674008A213E /* KenshinDataInput.swift in Sources */,
 				733621A12197BB5F006BACE0 /* CustomerTableViewCell.swift in Sources */,
 				8A0B367D213A4D9F00F196AD /* ViewController_SignIn.swift in Sources */,
+				733621D0219806B7006BACE0 /* ViewController_Contact.swift in Sources */,
 				8A0B3650213A474D00F196AD /* ViewController.swift in Sources */,
 				732924162159D870005E4940 /* LoginClass.swift in Sources */,
 				8A0B364E213A474D00F196AD /* AppDelegate.swift in Sources */,

@@ -23,11 +23,14 @@ class GohObjectAnnotation: NSObject, MKAnnotation {
     
     let markerTintColor: UIColor
     
-    init(_ coordinate: CLLocationCoordinate2D, glyphText: String, glyphTintColor: UIColor, markerTintColor: UIColor) {
+    let title: String?
+    
+    init(_ coordinate: CLLocationCoordinate2D, glyphText: String, glyphTintColor: UIColor, markerTintColor: UIColor,title:String) {
         self.coordinate = coordinate
         self.glyphText = glyphText
         self.glyphTintColor = glyphTintColor
         self.markerTintColor = markerTintColor
+        self.title = title
         
 
     }

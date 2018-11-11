@@ -21,9 +21,11 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
     var devideArray:[Int] = [] //kenshinDataの全データからどこが号の区切りなのか格納する配列
     var count:Int = 0
     var i:Int = 0
+    var count2:Int = 0
     
     //アノテーションをクラスタリングさせるための変数
     var annotation:[GohObjectAnnotation] = []
+    var annotation2:[MKAnnotation] = []
     
     var selectedNumber:Int = 0
     
@@ -302,9 +304,10 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
                     
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G1", glyphTintColor: .white, markerTintColor: .red)
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G1", glyphTintColor: .white, markerTintColor: .red,title: "0")
                     
                     self.annotation.append(ano1)
+                    self.annotation2.append(ano1)
                     
                 }
             }
@@ -322,9 +325,10 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
                     
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G2", glyphTintColor: .white, markerTintColor: .red)
-                    
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G2", glyphTintColor: .white, markerTintColor: .red,title: "1")
                     self.annotation.append(ano1)
+                    self.annotation2.append(ano1)
+                    
                 }
             }
         })
@@ -337,9 +341,10 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
                     
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G3", glyphTintColor: .white, markerTintColor: .red)
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G3", glyphTintColor: .white, markerTintColor: .red,title: "2")
                     
                     self.annotation.append(ano1)
+                    self.annotation2.append(ano1)
                     self.AreaMapView.addAnnotations(self.annotation)
                     print("annotationの数")
                     print(self.annotation.count)
@@ -440,6 +445,61 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         // Dispose of any resources that can be recreated.
     }
     
+    // ピンが選択された際に入る
+    func mapView(_ mapView : MKMapView,didSelect view : MKAnnotationView){
+        print("ピンの選択")
+        print(view.annotation!.title!!)
+        print(kenshinData[0].s_GouBan)
+        //検索結果配列を空にする。
+        searchResult.removeAll()
+        count2 = 0
+        
+        //選んだ号によって表示させるデータを絞る
+        for_i:for data in self.kenshinData{
+            print("ループの中に突入")
+            if view.annotation!.title!! == data.s_GouBan.replacingOccurrences(of:"0",with:""){
+                print("ループ回数0",count2)
+                print("表示させるお客さまの名前",data.s_NameJ)
+                searchResult.append(data)
+                print("count2の値", count2)
+                count2 = count2 + 1
+                if (count2 == devideArray[0]){
+                    break
+                }
+            }
+            
+             if view.annotation!.title!! == data.s_GouBan.replacingOccurrences(of:"0",with:""){
+             if (count2 < devideArray[0]){
+             count2 = count2 + 1
+             continue for_i
+             }
+                print("ループ回数1",count2)
+                //print("表示させるお客さまの名前",data.s_NameJ)
+                print("追加したお客さまの名前",kenshinData[count2].s_NameJ)
+                searchResult.append(kenshinData[count2])
+             count2 = count2 + 1
+             if (count2 == devideArray[1]){
+             break
+             }
+             }
+             
+             if view.annotation!.title!! == data.s_GouBan.replacingOccurrences(of:"0",with:""){
+                print("ピン2")
+             if (count2 < devideArray[1]){
+             count2 = count2 + 1
+             continue for_i
+             }
+                print("ループ回数2",count2)
+                print("表示させるお客さまの名前",data.s_NameJ)
+                searchResult.append(data)
+                count2 = count2 + 1
+             }
+
+        
+        }
+        customerTableView.reloadData()
+    }
+    
     // Cell が選択された場合
     func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
         print("Cell選択処理実行")
@@ -467,7 +527,6 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         
         return markerAnnotationView
     }
-    
     
     
     //遷移先の画面を取り出す

@@ -37,6 +37,10 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         super.viewDidLoad()
         
         self.navigationController?.title = "エリア選択"
+        
+        
+        //カスタムセルを利用するためにビューに登録
+        customerTableView.register (UINib(nibName: "CustomerTableViewCell", bundle: nil),forCellReuseIdentifier:"CustomerTableViewCell")
 
         
         /*************************
@@ -353,7 +357,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
     /**************************
     テーブルビュー 処理
     ***************************/
-    //セルの個数を指定するデリゲートメソッド（必須）
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("セルの個数指定")
         return searchResult.count
@@ -362,12 +368,19 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
     //セルに値を設定するデータソースメソッド（必須）
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得する
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "KenshinDataCell", for: indexPath)
+       // let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "KenshinDataCell", for: indexPath) //旧セル
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "CustomerTableViewCell", for: indexPath) //新セル
         // セルに表示する値を設定する
-        print("セルに値を格納する")
+        /*print("セルに値を格納する")
         cell.textLabel!.text = searchResult[indexPath.row].s_GasSecchi
-        cell.detailTextLabel?.text = searchResult[indexPath.row].s_NameJ
+        cell.detailTextLabel?.text = searchResult[indexPath.row].s_NameJ*/
         // cell.textLabel!.text = self.weather[indexPath].date
+        
+        if let cell = cell as? CustomerTableViewCell {
+            cell.setupCell(model: kenshinInput1[indexPath.row])
+        }
+        
+        
         return cell
     }
     
@@ -389,6 +402,11 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 if data.s_GasSecchi.contains(customerSearchBar.text!) {
                     searchResult.append(data)
                 }
+                
+                if data.s_NameJ.contains(customerSearchBar.text!) {
+                    searchResult.append(data)
+                }
+                
             }
         }
         //テーブルを再読み込みする。

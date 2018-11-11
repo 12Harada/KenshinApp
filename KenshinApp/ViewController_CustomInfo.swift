@@ -55,7 +55,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
 //        let barHeight = UIApplication.shared.statusBarFrame.size.height
         // Viewの高さと幅を取得する.
 //        let displayWidth: CGFloat = self.view.frame.width
-        let displayHeight: CGFloat = self.view.frame.height
+//        let displayHeight: CGFloat = self.view.frame.height
 
         // TableViewの生成( status barの高さ分ずらして表示 ).
 //        let customerTableView: UITableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))

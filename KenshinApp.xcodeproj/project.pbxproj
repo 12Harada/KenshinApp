@@ -15,6 +15,7 @@
 		733621A12197BB5F006BACE0 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */; };
 		733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */; };
 		733621A42197C5D6006BACE0 /* CommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621A32197C5D6006BACE0 /* CommonFunc.swift */; };
+		733621C42197D160006BACE0 /* GohObjectAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621C32197D160006BACE0 /* GohObjectAnnotation.swift */; };
 		733F6576218A8FA700657F81 /* ViewController_ToChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6575218A8FA700657F81 /* ViewController_ToChange.swift */; };
 		733F6578218A902E00657F81 /* ViewController_Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6577218A902E00657F81 /* ViewController_Contact.swift */; };
 		733F657A218A906B00657F81 /* ViewController_Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6579218A906B00657F81 /* ViewController_Setting.swift */; };
@@ -93,6 +94,7 @@
 		7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
 		733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerTableViewCell.xib; sourceTree = "<group>"; };
 		733621A32197C5D6006BACE0 /* CommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunc.swift; sourceTree = "<group>"; };
+		733621C32197D160006BACE0 /* GohObjectAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohObjectAnnotation.swift; sourceTree = "<group>"; };
 		733F6575218A8FA700657F81 /* ViewController_ToChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_ToChange.swift; sourceTree = "<group>"; };
 		733F6577218A902E00657F81 /* ViewController_Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Contact.swift; sourceTree = "<group>"; };
 		733F6579218A906B00657F81 /* ViewController_Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Setting.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				734235C42169C8F8008A213E /* GohInfo.json */,
 				732924112159D180005E4940 /* ViewController_AreaSerch.xib */,
 				7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */,
+				733621C32197D160006BACE0 /* GohObjectAnnotation.swift */,
 				7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */,
 				733621A32197C5D6006BACE0 /* CommonFunc.swift */,
 				733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */,
@@ -460,6 +463,7 @@
 			files = (
 				8A7AF381214297D600632788 /* ViewController_KenjunList.swift in Sources */,
 				736C1B0021771D8A001784BF /* WeatherCustomCell.swift in Sources */,
+				733621C42197D160006BACE0 /* GohObjectAnnotation.swift in Sources */,
 				733F6578218A902E00657F81 /* ViewController_Contact.swift in Sources */,
 				732924102159D172005E4940 /* ViewController_AreaSerch.swift in Sources */,
 				8A5308AA2160C4DF0039A051 /* ViewController_Kenshin.swift in Sources */,

@@ -11,14 +11,16 @@ import MapKit
 import CoreLocation
 
 
-
-class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearchBarDelegate {
+class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearchBarDelegate,MKMapViewDelegate {
     
     
     var goh: [Goh] = []
     var kenshinInput1: [KenshinInput] = []
     var kenshinInput2: [KenshinInput] = []
     var kenshinInput3: [KenshinInput] = []
+    
+    //アノテーションをクラスタリングさせるための変数
+    var annotation:[GohObjectAnnotation] = []
     
     var selectedNumber:Int = 0
     
@@ -28,15 +30,13 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
     
     @IBOutlet weak var customerSearchBar: UISearchBar!
     @IBOutlet weak var customerTableView: UITableView!
-    
-    //テーブルビューインスタンス
-    
-    
     @IBOutlet weak var AreaMapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.title = "エリア選択"
+        
+        AreaMapView.delegate = self
         
         
         //カスタムセルを利用するためにビューに登録
@@ -157,6 +157,8 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         print("号情報")
         print(self.goh[0].s_MachiJ)
         
+        
+        
         /***************
          検索バーの初期実行
          ***************/
@@ -242,34 +244,17 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
                     
-                    //中心座標
-                    print("地図の座標を確認")
-                    print(location.coordinate.latitude)
-                    print(location.coordinate.longitude)
-                    let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G1", glyphTintColor: .white, markerTintColor: .red)
                     
-                    //表示範囲
-                    let span = MKCoordinateSpanMake(0.05, 0.05)
-                    
-                    //中心座標と表示範囲をマップに登録する。
-                    let region = MKCoordinateRegionMake(center, span)
-                    self.AreaMapView.setRegion(region, animated:true)
-                    
-                    //地図にピンを立てる。
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-                    self.AreaMapView.addAnnotation(annotation)
-                    annotation.title = self.goh[0].s_MachiJ
-                    
-                    /*let annotation2 = MKPointAnnotation()
-                    annotation2.coordinate = CLLocationCoordinate2DMake(35.690553, 139.699579)
-                    self.AreaMapView.addAnnotation(annotation2)*/
-                    
-                    
+                    self.annotation.append(ano1)
                     
                 }
             }
         })
+    
+        
+        
+        
         
         // 入力された住所を元に取材地の座標を登録（２カ所目）
         let geocoder2 = CLGeocoder()
@@ -279,29 +264,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
                     
-                    //中心座標
-                    print("地図の座標を確認")
-                    print(location.coordinate.latitude)
-                    print(location.coordinate.longitude)
-                    let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G2", glyphTintColor: .white, markerTintColor: .red)
                     
-                    //表示範囲
-                    let span = MKCoordinateSpanMake(0.05, 0.05)
-                    
-                    //中心座標と表示範囲をマップに登録する。
-                    let region = MKCoordinateRegionMake(center, span)
-                    self.AreaMapView.setRegion(region, animated:true)
-                    
-                    //地図にピンを立てる。
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-                    self.AreaMapView.addAnnotation(annotation)
-                    annotation.title = self.goh[1].s_MachiJ
-                    
-                    /*let annotation2 = MKPointAnnotation()
-                     annotation2.coordinate = CLLocationCoordinate2DMake(35.690553, 139.699579)
-                     self.AreaMapView.addAnnotation(annotation2)*/
-                    
+                    self.annotation.append(ano1)
                 }
             }
         })
@@ -314,6 +279,11 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
                     
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G3", glyphTintColor: .white, markerTintColor: .red)
+                    
+                    self.annotation.append(ano1)
+                    self.AreaMapView.addAnnotations(self.annotation)
+                    
                     //中心座標
                     print("地図の座標を確認")
                     print(location.coordinate.latitude)
@@ -321,22 +291,11 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                     let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                     
                     //表示範囲
-                    let span = MKCoordinateSpanMake(0.03, 0.03)
+                    let span = MKCoordinateSpanMake(0.05, 0.05)
                     
                     //中心座標と表示範囲をマップに登録する。
                     let region = MKCoordinateRegionMake(center, span)
                     self.AreaMapView.setRegion(region, animated:true)
-                    
-                    //地図にピンを立てる。
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-                    self.AreaMapView.addAnnotation(annotation)
-                    annotation.title = self.goh[2].s_MachiJ
-                    
-                    /*let annotation2 = MKPointAnnotation()
-                     annotation2.coordinate = CLLocationCoordinate2DMake(35.690553, 139.699579)
-                     self.AreaMapView.addAnnotation(annotation2)*/
-                    
                 }
             }
         })
@@ -433,6 +392,22 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
     //テーブルビュー スクロール
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         return
+    }
+    
+    //Mapクラスタリンク用に作成
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation)
+        
+        guard let markerAnnotationView = annotationView as? MKMarkerAnnotationView,
+            let gohObjectAnnotation = annotation as? GohObjectAnnotation else { return annotationView }
+        
+        markerAnnotationView.clusteringIdentifier = GohObjectAnnotation.clusteringIdentifier
+        markerAnnotationView.glyphText = gohObjectAnnotation.glyphText
+        markerAnnotationView.glyphTintColor = gohObjectAnnotation.glyphTintColor
+        markerAnnotationView.markerTintColor = gohObjectAnnotation.markerTintColor
+        
+        return markerAnnotationView
     }
     
     

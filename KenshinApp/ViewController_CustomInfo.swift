@@ -17,6 +17,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
     var selectedNumber:Int = 0
     
     @IBOutlet weak var customerTableView: UITableView!
+    @IBOutlet weak var btnKenshinDo: UIButton!
     //表示する項目名を設定
     var customItem: NSArray = ["お客さま名",
                                "住所",
@@ -51,13 +52,13 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
             "犬あり小型犬"]
         
         // Status Barの高さを取得を.する.
-        let barHeight = UIApplication.shared.statusBarFrame.size.height
+//        let barHeight = UIApplication.shared.statusBarFrame.size.height
         // Viewの高さと幅を取得する.
-        let displayWidth: CGFloat = self.view.frame.width
+//        let displayWidth: CGFloat = self.view.frame.width
         let displayHeight: CGFloat = self.view.frame.height
 
         // TableViewの生成( status barの高さ分ずらして表示 ).
-        let customerTableView: UITableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
+//        let customerTableView: UITableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         
         // Cell名の登録をおこなう.
         customerTableView.register(UITableViewCell.self, forCellReuseIdentifier: "customInfoCell")
@@ -66,12 +67,17 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         // Delegateを設定する.
         customerTableView.delegate = self
         //編集中のセルの選択を許可
-        customerTableView.allowsSelectionDuringEditing = true
+//        customerTableView.allowsSelectionDuringEditing = true
         // Viewに追加する.
         self.view.addSubview(customerTableView)
 
         print("画面名：お客さま情報画面")
         print(selectedNumber)
+
+        //button1 文字や文字色を変更する
+        btnKenshinDo.setTitle("検針実施へ", for: UIControlState.normal)
+        btnKenshinDo.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        btnKenshinDo.titleLabel?.font = UIFont.systemFont(ofSize: 27)
 
         //ナビゲーションバーの右側に編集ボタンを表示
         self.navigationItem.setRightBarButton(self.editButtonItem, animated: true)
@@ -84,6 +90,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         super.setEditing(editing, animated: true)
         //自分が持っているテーブルビューのeditingを更新する。
         self.customerTableView.setEditing(editing, animated: animated)
+
         // 編集中のときのみaddButtonをナビゲーションバーの左に表示する
         if editing {
             print("編集中")
@@ -94,7 +101,6 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
             print("通常モード")
             self.navigationItem.setLeftBarButton(nil, animated: true)
         }
-
     
     }
     //テーブルに表示する配列の総数を返す.
@@ -112,12 +118,13 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         //改行させない
         customInfoCell.textLabel?.numberOfLines = 0
         //項目名のフォントサイズを指定
-        customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 27)
+        customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+
         print(customItem[indexPath.row])
         print(customData[indexPath.row])
         customInfoCell.textLabel?.text = customItem[indexPath.row] as? String
         //データのフォントサイズを指定
-        customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 22)
+        customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 27)
         customInfoCell.detailTextLabel?.text = customData[indexPath.row] as? String
         return customInfoCell
     }
@@ -142,6 +149,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         customerTableView.reloadData()
     }
 
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

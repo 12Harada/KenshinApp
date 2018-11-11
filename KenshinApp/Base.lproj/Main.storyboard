@@ -589,7 +589,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e0h-nv-0Gl">
-                                <rect key="frame" x="0.0" y="67" width="414" height="669"/>
+                                <rect key="frame" x="0.0" y="67" width="414" height="620"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -623,11 +623,20 @@
                                     <outlet property="delegate" destination="0vZ-oo-1I3" id="b92-SJ-3W9"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AI-BH-b6G">
+                                <rect key="frame" x="20" y="691" width="319" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="d69-gN-4QX" kind="presentation" id="Opb-DG-Prc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sKn-l3-5a8"/>
                     </view>
                     <connections>
+                        <outlet property="btnKenshinDo" destination="9AI-BH-b6G" id="Azg-yp-dlh"/>
                         <outlet property="customerTableView" destination="e0h-nv-0Gl" id="5Mc-x8-rHo"/>
                     </connections>
                 </viewController>

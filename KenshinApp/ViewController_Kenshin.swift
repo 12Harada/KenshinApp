@@ -32,19 +32,22 @@ class ViewController_Kenshin: UIViewController {
 //        meterNumber.text = self.selectedKenshinInput[selectedNumber].
         beforeVolume.text = self.selectedKenshinInput[selectedNumber].s_B1Ryo
 
-        
 //        データにない（前回指示数）
 //        beforeShijiNum.text = self.selectedKenshinInput[selectedNumber].
         //前回使用量
         beforeVolume.text = self.selectedKenshinInput[selectedNumber].s_B1Ryo
-    
-        thisShijiNum.addTarget(self, action:Selector(("textFieldDidChange:")),for: UIControlEvents.editingChanged)
-    
+
+        //テキストボックスフォーカス時に数字のみのキーボード表示
+        self.thisShijiNum.keyboardType = UIKeyboardType.numberPad
+
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        thisVolume.text = String(Int(thisShijiNum.text!)! - Int(beforeShijiNum.text!)!)
+    }
 
     func textFieldDidChange(textFiled: UITextField) {
-        thisVolume.text = String(Int(thisShijiNum.text!)! - Int(beforeShijiNum.text!)!)
     }
     
     override func didReceiveMemoryWarning() {

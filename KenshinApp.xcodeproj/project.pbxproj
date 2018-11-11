@@ -12,6 +12,11 @@
 		732924122159D181005E4940 /* ViewController_AreaSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732924112159D180005E4940 /* ViewController_AreaSerch.xib */; };
 		732924162159D870005E4940 /* LoginClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732924152159D870005E4940 /* LoginClass.swift */; };
 		73292438215A5139005E4940 /* LoginListStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73292437215A5139005E4940 /* LoginListStruct.swift */; };
+		733621A12197BB5F006BACE0 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */; };
+		733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */; };
+		733621A42197C5D6006BACE0 /* CommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621A32197C5D6006BACE0 /* CommonFunc.swift */; };
+		733621C42197D160006BACE0 /* GohObjectAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621C32197D160006BACE0 /* GohObjectAnnotation.swift */; };
+		733621C62197F1EF006BACE0 /* KenshinData.json in Resources */ = {isa = PBXBuildFile; fileRef = 733621C52197F1EE006BACE0 /* KenshinData.json */; };
 		733F6576218A8FA700657F81 /* ViewController_ToChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6575218A8FA700657F81 /* ViewController_ToChange.swift */; };
 		733F6578218A902E00657F81 /* ViewController_Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6577218A902E00657F81 /* ViewController_Contact.swift */; };
 		733F657A218A906B00657F81 /* ViewController_Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6579218A906B00657F81 /* ViewController_Setting.swift */; };
@@ -88,6 +93,11 @@
 		732924112159D180005E4940 /* ViewController_AreaSerch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_AreaSerch.xib; sourceTree = "<group>"; };
 		732924152159D870005E4940 /* LoginClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginClass.swift; sourceTree = "<group>"; };
 		73292437215A5139005E4940 /* LoginListStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginListStruct.swift; sourceTree = "<group>"; };
+		7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
+		733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerTableViewCell.xib; sourceTree = "<group>"; };
+		733621A32197C5D6006BACE0 /* CommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunc.swift; sourceTree = "<group>"; };
+		733621C32197D160006BACE0 /* GohObjectAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GohObjectAnnotation.swift; sourceTree = "<group>"; };
+		733621C52197F1EE006BACE0 /* KenshinData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KenshinData.json; sourceTree = "<group>"; };
 		733F6575218A8FA700657F81 /* ViewController_ToChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_ToChange.swift; sourceTree = "<group>"; };
 		733F6577218A902E00657F81 /* ViewController_Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Contact.swift; sourceTree = "<group>"; };
 		733F6579218A906B00657F81 /* ViewController_Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Setting.swift; sourceTree = "<group>"; };
@@ -211,10 +221,15 @@
 				734235C42169C8F8008A213E /* GohInfo.json */,
 				732924112159D180005E4940 /* ViewController_AreaSerch.xib */,
 				7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */,
+				733621C32197D160006BACE0 /* GohObjectAnnotation.swift */,
+				7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */,
+				733621A32197C5D6006BACE0 /* CommonFunc.swift */,
+				733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */,
 				733F6575218A8FA700657F81 /* ViewController_ToChange.swift */,
 				733F6577218A902E00657F81 /* ViewController_Contact.swift */,
 				733F6579218A906B00657F81 /* ViewController_Setting.swift */,
 				734235C82169CE2C008A213E /* KenshinData1.json */,
+				733621C52197F1EE006BACE0 /* KenshinData.json */,
 				734235C62169CE2B008A213E /* KenshinData2.json */,
 				734235C72169CE2C008A213E /* KenshinData3.json */,
 				8A0B364D213A474D00F196AD /* AppDelegate.swift */,
@@ -379,6 +394,7 @@
 			files = (
 				8A0B3682213A4DD900F196AD /* ViewController_Hello.xib in Resources */,
 				8A7AF382214297D600632788 /* ViewController_KenjunList.xib in Resources */,
+				733621C62197F1EF006BACE0 /* KenshinData.json in Resources */,
 				7349457D2177FCA600DAF1FD /* repeat.png in Resources */,
 				7349457A2177FC8F00DAF1FD /* gear.png in Resources */,
 				736DFC0A2175DAE0006698FC /* sun.jpeg in Resources */,
@@ -396,6 +412,7 @@
 				8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */,
 				8A5308AB2160C4DF0039A051 /* ViewController_Kenshin.xib in Resources */,
 				8A8044A42162F9F2006DEA56 /* LoginList.json in Resources */,
+				733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */,
 				8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */,
 				734235C52169C8F8008A213E /* GohInfo.json in Resources */,
 				736C1B0121771D8A001784BF /* WeatherCustomCell.xib in Resources */,
@@ -453,6 +470,7 @@
 			files = (
 				8A7AF381214297D600632788 /* ViewController_KenjunList.swift in Sources */,
 				736C1B0021771D8A001784BF /* WeatherCustomCell.swift in Sources */,
+				733621C42197D160006BACE0 /* GohObjectAnnotation.swift in Sources */,
 				733F6578218A902E00657F81 /* ViewController_Contact.swift in Sources */,
 				732924102159D172005E4940 /* ViewController_AreaSerch.swift in Sources */,
 				8A5308AA2160C4DF0039A051 /* ViewController_Kenshin.swift in Sources */,
@@ -463,6 +481,7 @@
 				733F6576218A8FA700657F81 /* ViewController_ToChange.swift in Sources */,
 				93D317D32191342500BC0A95 /* PrimaryActionButton.swift in Sources */,
 				734235A52169A674008A213E /* KenshinDataInput.swift in Sources */,
+				733621A12197BB5F006BACE0 /* CustomerTableViewCell.swift in Sources */,
 				8A0B367D213A4D9F00F196AD /* ViewController_SignIn.swift in Sources */,
 				8A0B3650213A474D00F196AD /* ViewController.swift in Sources */,
 				732924162159D870005E4940 /* LoginClass.swift in Sources */,
@@ -471,6 +490,7 @@
 				8A2F7651217393C900AD7F1F /* ViewController_KenshinConform.swift in Sources */,
 				8A0B3681213A4DD900F196AD /* ViewController_Hello.swift in Sources */,
 				733F657A218A906B00657F81 /* ViewController_Setting.swift in Sources */,
+				733621A42197C5D6006BACE0 /* CommonFunc.swift in Sources */,
 				734235A12169A61D008A213E /* WeatherClass.swift in Sources */,
 				73292438215A5139005E4940 /* LoginListStruct.swift in Sources */,
 				8AA8CEEB213BE09900D64FA1 /* CollectionViewController_Menu.swift in Sources */,

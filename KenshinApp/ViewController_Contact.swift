@@ -71,6 +71,22 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    // Cell が選択された場合
+    func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
+        print("Cell選択処理実行")
+        // 選択した列を変数に格納。格納する際にInt型をString型に型変換
+        let tmpText = "tel://"
+        
+        let tmpText1 = tmpText + contact[indexPath.count].telNum
+        let url = NSURL(string: tmpText1)!
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url as URL)
+        } else {
+            UIApplication.shared.openURL(url as URL)
+        }
+    }
+    
     
     /*
     //追加①

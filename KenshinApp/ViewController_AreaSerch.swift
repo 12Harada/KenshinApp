@@ -36,6 +36,12 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
     @IBOutlet weak var customerSearchBar: UISearchBar!
     @IBOutlet weak var customerTableView: UITableView!
     @IBOutlet weak var AreaMapView: MKMapView!
+    @IBOutlet weak var gohAbb: UILabel! //号の略称を表示する
+    @IBOutlet weak var gohName: UILabel!//号の和名を格納する
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -363,7 +369,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
             }
         })
         
-        
+        //画面に号の略称と和名を表示
+        gohAbb.text = ""
+        gohName.text = "本日対象"
         
     }
     
@@ -430,11 +438,13 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 }
                 
             }
+            
+            //画面に号の略称と和名を表示
+            gohAbb.text = ""
+            gohName.text = "検索結果"
         }
-        //テーブルを再読み込みする。
-        print("テーブル再読み込み処理動いている？")
+        //テーブルを再読み込みする
         customerTableView.reloadData()
-        print("テーブル再読み込み処理動いてた")
         
         //キーボードを閉じる
         self.view.endEditing(true)
@@ -461,7 +471,20 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
             }
         }
 
+        //テーブルを再読み込みする
         customerTableView.reloadData()
+        
+        //号の略称、和名を表示させる
+        if (view.annotation!.title!! == "1"){
+            gohAbb.text = "G1"
+            gohName.text = goh[0].s_MachiJ
+        }else if (view.annotation!.title!! == "2"){
+            gohAbb.text = "G2"
+            gohName.text = goh[1].s_MachiJ
+        }else{
+            gohAbb.text = "G3"
+            gohName.text = goh[2].s_MachiJ
+        }
     }
     
     // Cell が選択された場合

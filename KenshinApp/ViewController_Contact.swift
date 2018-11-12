@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-class ViewController_Contact: UIViewController, UITableViewDelegate, UITableViewDataSource{ //追加①
+class ViewController_Contact: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"] //追加②
-    
+    //追加②
+    let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"]
     var contact: [Contact] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,13 +45,76 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //追加③ セルの個数を指定するデリゲートメソッド（必須）
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contact.count
+    }
+    
+    //追加④ セルに値を設定するデータソースメソッド（必須）
+    /*func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // セルを取得する
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        // セルに表示する値を設定する
+        cell.textLabel!.text = TODO[indexPath.row]
+        return cell
+    }*/
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("セルの取得実行")
+        // セルを取得する
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        // セルに表示する値を設定する
+        cell.textLabel!.text = contact[indexPath.row].name
+        return cell
+    }
+    
+    
+    /*
+    //追加①
+    var contact: [Contact] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        var str = ""
+        
+        let documentsPath = NSHomeDirectory() + "/Documents"
+        
+        let st1 = documentsPath + "/Contact.json"
+        let importURL:URL = URL(fileURLWithPath: st1)
+        //GohInfoのJsonファイル取得
+        do {
+            print("jsonファイルをstrに格納")
+            str = try String( contentsOf: importURL, encoding: String.Encoding.utf8 )
+            // print(str)
+        } catch {
+            print(error)
+        }
+        let lecturerData: Data = str.data(using: .utf8)!
+        
+        //デコードContact
+        let decoder: JSONDecoder = JSONDecoder()
+        do {
+            contact = try decoder.decode([Contact].self, from: lecturerData)
+        }catch{
+            print("decode error")
+        }
+        print("読み込んだコンタクトの件数",contact.count)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TODO.count
+        print("セルのカウント")
+        return contact.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("セルの取得実行")
         // セルを取得する
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
         // セルに表示する値を設定する
@@ -72,5 +136,5 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
         } else {
             UIApplication.shared.openURL(url as URL)
         }
-    }
+    }*/
 }

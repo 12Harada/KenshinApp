@@ -304,7 +304,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
                     
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G1", glyphTintColor: .white, markerTintColor: .red,title: "0")
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G1", glyphTintColor: .white, markerTintColor: .red,title: "1")
                     
                     self.annotation.append(ano1)
                     self.annotation2.append(ano1)
@@ -325,7 +325,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
                     
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G2", glyphTintColor: .white, markerTintColor: .red,title: "1")
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G2", glyphTintColor: .white, markerTintColor: .red,title: "2")
                     self.annotation.append(ano1)
                     self.annotation2.append(ano1)
                     
@@ -341,7 +341,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
                     
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G3", glyphTintColor: .white, markerTintColor: .red,title: "2")
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G3", glyphTintColor: .white, markerTintColor: .red,title: "3")
                     
                     self.annotation.append(ano1)
                     self.annotation2.append(ano1)
@@ -399,7 +399,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         // cell.textLabel!.text = self.weather[indexPath].date
         
         if let cell = cell as? CustomerTableViewCell {
-            cell.setupCell(model: kenshinData[indexPath.row])
+            cell.setupCell(model: searchResult[indexPath.row])
         }
         
         
@@ -455,48 +455,12 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         count2 = 0
         
         //選んだ号によって表示させるデータを絞る
-        for_i:for data in self.kenshinData{
-            print("ループの中に突入")
-            if view.annotation!.title!! == data.s_GouBan.replacingOccurrences(of:"0",with:""){
-                print("ループ回数0",count2)
-                print("表示させるお客さまの名前",data.s_NameJ)
+        for data in self.kenshinData{
+            if data.s_GouBan.contains(view.annotation!.title!!){
                 searchResult.append(data)
-                print("count2の値", count2)
-                count2 = count2 + 1
-                if (count2 == devideArray[0]){
-                    break
-                }
             }
-            
-             if view.annotation!.title!! == data.s_GouBan.replacingOccurrences(of:"0",with:""){
-             if (count2 < devideArray[0]){
-             count2 = count2 + 1
-             continue for_i
-             }
-                print("ループ回数1",count2)
-                //print("表示させるお客さまの名前",data.s_NameJ)
-                print("追加したお客さまの名前",kenshinData[count2].s_NameJ)
-                searchResult.append(kenshinData[count2])
-             count2 = count2 + 1
-             if (count2 == devideArray[1]){
-             break
-             }
-             }
-             
-             if view.annotation!.title!! == data.s_GouBan.replacingOccurrences(of:"0",with:""){
-                print("ピン2")
-             if (count2 < devideArray[1]){
-             count2 = count2 + 1
-             continue for_i
-             }
-                print("ループ回数2",count2)
-                print("表示させるお客さまの名前",data.s_NameJ)
-                searchResult.append(data)
-                count2 = count2 + 1
-             }
-
-        
         }
+
         customerTableView.reloadData()
     }
     

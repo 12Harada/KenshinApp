@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 
-class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearchBarDelegate,MKMapViewDelegate {
+class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,MKMapViewDelegate {
     
     
     var goh: [Goh] = []
@@ -22,6 +22,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
     var count:Int = 0
     var i:Int = 0
     var count2:Int = 0
+    var resultNumber:[Int] = [] //kenshinDataからどのデータがsearchResultに格納されたのか保管する配列
     
     //アノテーションをクラスタリングさせるための変数
     var annotation:[GohObjectAnnotation] = []
@@ -57,12 +58,15 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         /*************************
          各Json情報の取得
          *************************/
+        //端末のDocuments直下にファイルを保管する方法がわからないため、json読み込み方法を変更
+        /*
         print("Json情報の取得")
         var str = ""
         // var str2 = ""
         // var str3 = ""
         // var str4 = ""
         var str5 = ""
+        
         
         let documentsPath = NSHomeDirectory() + "/Documents"
         print("ドキュメントパスの値")
@@ -73,22 +77,13 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         // let st4 = documentsPath + "/KenshinData3.json"
         let st5 = documentsPath + "/KenshinData.json"
         
+        
         print(st1)
         let importURL:URL = URL(fileURLWithPath: st1)
         // let importURL2:URL = URL(fileURLWithPath: st2)
         // let importURL3:URL = URL(fileURLWithPath: st3)
         // let importURL4:URL = URL(fileURLWithPath: st4)
         let importURL5:URL = URL(fileURLWithPath: st5)
-        
-        //GohInfoのJsonファイル取得
-        do {
-            print("jsonファイルをstrに格納")
-            str = try String( contentsOf: importURL, encoding: String.Encoding.utf8 )
-            // print(str)
-        } catch {
-            print(error)
-        }
-        let lecturerData: Data = str.data(using: .utf8)!
         
         /*
          //KenshinData1のJsonファイル取得
@@ -188,6 +183,18 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         
         print("号情報")
         print(self.goh[0].s_MachiJ)
+ 
+ */
+        
+        //11/14 jsonファイル取り込み方法変更による追加
+        guard let data1 = try? getJSONData1() else { return }
+        goh = try! JSONDecoder().decode([Goh].self, from: data1!)
+        print(goh[0].s_GyoseiCd)
+        
+        guard let data2 = try? getJSONData2() else { return }
+        kenshinData = try! JSONDecoder().decode([KenshinInput].self, from: data2!)
+        print(kenshinData[0].s_NameJ)
+        
         
         /****************
          kenshinDataを号毎に分ける
@@ -234,6 +241,10 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         
         //検索結果配列にデータをコピーする。
         searchResult = self.kenshinData
+        
+        for (index,_) in searchResult.enumerated(){
+            resultNumber.append(index)
+        }
         
         //キャンセルボタンの追加
         customerSearchBar.showsCancelButton = true
@@ -391,7 +402,6 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("セルの個数指定")
         return searchResult.count
     }
 
@@ -401,17 +411,18 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
        // let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "KenshinDataCell", for: indexPath) //旧セル
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "CustomerTableViewCell", for: indexPath) //新セル
         // セルに表示する値を設定する
-        /*print("セルに値を格納する")
-        cell.textLabel!.text = searchResult[indexPath.row].s_GasSecchi
-        cell.detailTextLabel?.text = searchResult[indexPath.row].s_NameJ*/
-        // cell.textLabel!.text = self.weather[indexPath].date
-        
         if let cell = cell as? CustomerTableViewCell {
             cell.setupCell(model: searchResult[indexPath.row])
         }
         
         
         return cell
+    }
+    // Cell が選択された場合
+    func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
+        print("Cell選択処理実行")
+        // 選択した列を変数に格納。格納する際にInt型をString型に型変換
+        selectedNumber = resultNumber[indexPath.row]
     }
     
     //検索ボタン押下時の呼び出しメソッド
@@ -421,20 +432,23 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         
         //検索結果配列を空にする。
         searchResult.removeAll()
+        resultNumber.removeAll()
         
         if(customerSearchBar.text == "") {
             //検索文字列が空の場合はすべてを表示する。
             searchResult = self.kenshinData
         } else {
             //検索文字列を含むデータを検索結果配列に追加する。
-            for data in self.kenshinData {
+            for (index,data) in self.kenshinData.enumerated() {
                 //配列（data)の中に検索入力内容を含むデータがあるか調べる
                 if data.s_GasSecchi.contains(customerSearchBar.text!) {
                     searchResult.append(data)
+                    resultNumber.append(index)
                 }
                 
                 if data.s_NameJ.contains(customerSearchBar.text!) {
                     searchResult.append(data)
+                    resultNumber.append(index)
                 }
                 
             }
@@ -462,12 +476,15 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         print(kenshinData[0].s_GouBan)
         //検索結果配列を空にする。
         searchResult.removeAll()
+        resultNumber.removeAll()
         count2 = 0
         
         //選んだ号によって表示させるデータを絞る
-        for data in self.kenshinData{
+        for (index,data) in self.kenshinData.enumerated(){
             if data.s_GouBan.contains(view.annotation!.title!!){
                 searchResult.append(data)
+                resultNumber.append(index)
+                
             }
         }
 
@@ -487,16 +504,26 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UISearch
         }
     }
     
-    // Cell が選択された場合
-    func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
-        print("Cell選択処理実行")
-        // 選択した列を変数に格納。格納する際にInt型をString型に型変換
-        selectedNumber = indexPath.row
-    }
-    
     //テーブルビュー スクロール
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         return
+    }
+    
+    //11/14 json取り込み方法変更に伴う新規追加
+    // GohInfo.json変換用
+    func getJSONData1() throws -> Data? {
+        guard let path = Bundle.main.path(forResource: "GohInfo", ofType: "json") else { return nil }
+        let url = URL(fileURLWithPath: path)
+        
+        return try Data(contentsOf: url)
+    }
+    
+    // kenshinData.json変換用
+    func getJSONData2() throws -> Data? {
+        guard let path = Bundle.main.path(forResource: "KenshinData", ofType: "json") else { return nil }
+        let url = URL(fileURLWithPath: path)
+        
+        return try Data(contentsOf: url)
     }
     
     //Mapクラスタリンク用に作成

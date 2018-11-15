@@ -18,6 +18,8 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        /*
         var str = ""
         
         let documentsPath = NSHomeDirectory() + "/Documents"
@@ -41,6 +43,11 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
         }catch{
             print("decode error")
         }
+ */
+        
+        guard let data3 = try? getJSONData3() else { return }
+        contact = try! JSONDecoder().decode([Contact].self, from: data3!)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,6 +92,13 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
         } else {
             UIApplication.shared.openURL(url as URL)
         }
+    }
+    
+    func getJSONData3() throws -> Data? {
+        guard let path = Bundle.main.path(forResource: "Contact", ofType: "json") else { return nil }
+        let url = URL(fileURLWithPath: path)
+        
+        return try Data(contentsOf: url)
     }
     
     

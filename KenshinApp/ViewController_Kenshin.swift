@@ -17,6 +17,7 @@ class ViewController_Kenshin: UIViewController {
     @IBOutlet weak var beforeShijiNum: UILabel!
     @IBOutlet weak var beforeVolume: UILabel!
 
+    @IBOutlet weak var kenshinTableView: UITableView!
     //selectedKenshinInput:選択した回分のお客さまをKenshinInputクラスの配列で保持
     var selectedKenshinInput: [KenshinInput] = []
     //selectedNumber:前画面で選択したお客さまの配列番号を保持する変数

@@ -24,48 +24,89 @@ class ViewController_Kenshin: UIViewController {
     //viewDidLoad()のprint文みたいな方法で検針データを利用可能です
     var selectedNumber:Int = 0
     
+    var kenshinItem: NSArray = ["お客さま名",
+                                "ガスメーター設置場所番号",
+                                "ガスメーター社番",
+                               "今回指示数",
+                                "今回使用量",
+                               "回帰",
+                               "前回指示数",
+                               "前回使用量"]
+ 
+    var kenshinData: NSArray = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //前画面から受け取った情報を画面表示させる
-        customName.text = self.selectedKenshinInput[selectedNumber].s_NameJ
-//        データにない（メーター社番）
-//        meterNumber.text = self.selectedKenshinInput[selectedNumber].
-        beforeVolume.text = self.selectedKenshinInput[selectedNumber].s_B1Ryo
-
-//        データにない（前回指示数）
-//        beforeShijiNum.text = self.selectedKenshinInput[selectedNumber].
-        //前回使用量
-        beforeVolume.text = self.selectedKenshinInput[selectedNumber].s_B1Ryo
-
+ 
+        kenshinData = [self.selectedKenshinInput[selectedNumber].s_NameJ,
+                       self.selectedKenshinInput[selectedNumber].s_GasSecchi,
+                       self.selectedKenshinInput[selectedNumber].s_MeterNo,
+                       "",
+                       "",
+                       "",
+                       self.selectedKenshinInput[selectedNumber].s_OldShiji,
+                       self.selectedKenshinInput[selectedNumber].s_B1Ryo]
+        
+//        let barRightButton = UIBarButtonItem(barButtonSystemItem: "保存", target: self, action: "onClickMyBarButton:")
+        //ナビゲーションバーの右側に編集ボタンを表示
+        self.navigationItem.setRightBarButton(self.editButtonItem, animated: true)
         //テキストボックスフォーカス時に数字のみのキーボード表示
-        self.thisShijiNum.keyboardType = UIKeyboardType.numberPad
+//        self.thisShijiNum.keyboardType = UIKeyboardType.numberPad
 
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-        thisVolume.text = String(Int(thisShijiNum.text!)! - Int(beforeShijiNum.text!)!)
+ //       kenshinData["今回使用量"] = String(Int(thisShijiNum.text!)! - Int(beforeShijiNum.text!)!)
+    }
+    //テーブルに表示する配列の総数を返す.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return kenshinItem.count
+    }
+    //Cellに値を設定する.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let kenshinInfoCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "kenshinInfoCell")
+        
+        //横1行で表示できるように自動で調整してくれる
+        kenshinInfoCell.textLabel?.adjustsFontSizeToFitWidth = true
+        //改行させない
+        kenshinInfoCell.textLabel?.numberOfLines = 0
+        //項目名のフォントサイズを指定
+        kenshinInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 24)
+        
+        kenshinInfoCell.textLabel?.text = kenshinItem[indexPath.row] as? String
+        //データのフォントサイズを指定
+        kenshinInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 26)
+        kenshinInfoCell.detailTextLabel?.text = kenshinData[indexPath.row] as? String
+        return kenshinInfoCell
+    }
+ 
+    //Editボタンが押された際に呼び出される
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        //通常走っていた処理はそのまま走らせる。
+        super.setEditing(editing, animated: true)
+        //自分が持っているテーブルビューのeditingを更新する。
+        self.kenshinTableView.setEditing(editing, animated: animated)
+        
+        let kenshinAlert = UIAlertController(title: "使用量確認", message: "今回使用量：\n(kenshinData[4] as?String) \nこの使用量で登録してよろしいですか",  preferredStyle:UIAlertControllerStyle.alert)
+        
+        
     }
 
-    func textFieldDidChange(textFiled: UITextField) {
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //遷移先の画面を取り出す
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         print("次画面呼び出し実行")
         //        次の画面を取り出す
         let viewController = segue.destination as! ViewController_KenshinConform
         viewController.selectedKenshinInput = self.selectedKenshinInput
-        viewController.selectedNumber = self.selectedNumber
-        viewController.s_thisVolume = thisVolume.text!
+        viewController.selectedNumber = self.selectedNumber;
     }
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
     /*
     // MARK: - Navigation

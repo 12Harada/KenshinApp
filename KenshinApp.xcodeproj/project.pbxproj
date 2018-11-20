@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730E28E321A3A44100D8F487 /* bike2.png in Resources */ = {isa = PBXBuildFile; fileRef = 730E28E221A3A44100D8F487 /* bike2.png */; };
 		73125DB42170C29B00980E62 /* paccho1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73125DB32170C29A00980E62 /* paccho1.jpg */; };
 		732924102159D172005E4940 /* ViewController_AreaSerch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */; };
 		732924122159D181005E4940 /* ViewController_AreaSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732924112159D180005E4940 /* ViewController_AreaSerch.xib */; };
@@ -90,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		730E28E221A3A44100D8F487 /* bike2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bike2.png; sourceTree = "<group>"; };
 		73125DB32170C29A00980E62 /* paccho1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paccho1.jpg; sourceTree = "<group>"; };
 		7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController_AreaSerch.swift; sourceTree = "<group>"; };
 		732924112159D180005E4940 /* ViewController_AreaSerch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_AreaSerch.xib; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		8A0B364C213A474D00F196AD /* KenshinApp */ = {
 			isa = PBXGroup;
 			children = (
+				730E28E221A3A44100D8F487 /* bike2.png */,
 				733621CF219806B7006BACE0 /* ViewController_Contact.swift */,
 				734945A72179750400DAF1FD /* Aozora2.png */,
 				7349458321782C5B00DAF1FD /* meter.png */,
@@ -415,6 +418,7 @@
 				734235C92169CE2D008A213E /* KenshinData2.json in Resources */,
 				733621C82197FF20006BACE0 /* Contact.json in Resources */,
 				8A0B3658213A474E00F196AD /* LaunchScreen.storyboard in Resources */,
+				730E28E321A3A44100D8F487 /* bike2.png in Resources */,
 				8A0B3655213A474E00F196AD /* Assets.xcassets in Resources */,
 				8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */,
 				8A5308AB2160C4DF0039A051 /* ViewController_Kenshin.xib in Resources */,

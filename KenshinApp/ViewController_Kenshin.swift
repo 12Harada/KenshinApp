@@ -10,12 +10,6 @@ import UIKit
 
 class ViewController_Kenshin: UIViewController {
     
-    @IBOutlet weak var customName: UILabel!
-    @IBOutlet weak var meterNumber: UILabel!
-    @IBOutlet weak var thisShijiNum: UITextField!
-    @IBOutlet weak var thisVolume: UILabel!
-    @IBOutlet weak var beforeShijiNum: UILabel!
-    @IBOutlet weak var beforeVolume: UILabel!
 
     @IBOutlet weak var kenshinTableView: UITableView!
     //selectedKenshinInput:選択した回分のお客さまをKenshinInputクラスの配列で保持
@@ -27,11 +21,11 @@ class ViewController_Kenshin: UIViewController {
     var kenshinItem: NSArray = ["お客さま名",
                                 "ガスメーター設置場所番号",
                                 "ガスメーター社番",
-                               "今回指示数",
+                                "今回指示数",
                                 "今回使用量",
-                               "回帰",
-                               "前回指示数",
-                               "前回使用量"]
+                                "回帰",
+                                "前回指示数",
+                                "前回使用量"]
  
     var kenshinData: NSArray = []
     
@@ -53,6 +47,8 @@ class ViewController_Kenshin: UIViewController {
         //テキストボックスフォーカス時に数字のみのキーボード表示
 //        self.thisShijiNum.keyboardType = UIKeyboardType.numberPad
 
+        kenshinTableView.register(UINib(nibName: "kenshinCustomCell", bundle: nil), forCellReuseIdentifier: "kenshinCustomCell")
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -67,13 +63,17 @@ class ViewController_Kenshin: UIViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let kenshinInfoCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "kenshinInfoCell")
-        
         //横1行で表示できるように自動で調整してくれる
         kenshinInfoCell.textLabel?.adjustsFontSizeToFitWidth = true
         //改行させない
         kenshinInfoCell.textLabel?.numberOfLines = 0
         //項目名のフォントサイズを指定
         kenshinInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 24)
+        
+        if(indexPath.row == 4){
+            let cell = tableView.dequeueReusableCell(withIdentifier:    "kenshinCustomCell", for: indexPath) as! kenshinCustomCell
+            return cell
+        }
         
         kenshinInfoCell.textLabel?.text = kenshinItem[indexPath.row] as? String
         //データのフォントサイズを指定
@@ -89,7 +89,7 @@ class ViewController_Kenshin: UIViewController {
         //自分が持っているテーブルビューのeditingを更新する。
         self.kenshinTableView.setEditing(editing, animated: animated)
         
-        let kenshinAlert = UIAlertController(title: "使用量確認", message: "今回使用量：\n(kenshinData[4] as?String) \nこの使用量で登録してよろしいですか",  preferredStyle:UIAlertControllerStyle.alert)
+//        let kenshinAlert = UIAlertController(title: "使用量確認", message: "今回使用量：\n(kenshinData[4] as?String) \nこの使用量で登録してよろしいですか",  preferredStyle:UIAlertControllerStyle.alert)
         
         
     }

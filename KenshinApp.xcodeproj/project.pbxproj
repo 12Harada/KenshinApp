@@ -59,7 +59,8 @@
 		8A5308A62160C40D0039A051 /* ViewController_CustomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5308A42160C40D0039A051 /* ViewController_CustomInfo.swift */; };
 		8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */; };
 		8A5308AA2160C4DF0039A051 /* ViewController_Kenshin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */; };
-		8A5308AB2160C4DF0039A051 /* ViewController_Kenshin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5308A92160C4DF0039A051 /* ViewController_Kenshin.xib */; };
+		8A70356F21A3A149001A0D36 /* kenshinCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */; };
+		8A70357021A3A149001A0D36 /* kenshinCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A70356E21A3A149001A0D36 /* kenshinCustomCell.xib */; };
 		8A7AF37A214295E000632788 /* ViewController_CustomNumberSerch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7AF378214295E000632788 /* ViewController_CustomNumberSerch.swift */; };
 		8A7AF37B214295E000632788 /* ViewController_CustomNumberSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */; };
 		8A7AF381214297D600632788 /* ViewController_KenjunList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7AF37F214297D600632788 /* ViewController_KenjunList.swift */; };
@@ -148,7 +149,8 @@
 		8A5308A42160C40D0039A051 /* ViewController_CustomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_CustomInfo.swift; sourceTree = "<group>"; };
 		8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_CustomInfo.xib; sourceTree = "<group>"; };
 		8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Kenshin.swift; sourceTree = "<group>"; };
-		8A5308A92160C4DF0039A051 /* ViewController_Kenshin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_Kenshin.xib; sourceTree = "<group>"; };
+		8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kenshinCustomCell.swift; sourceTree = "<group>"; };
+		8A70356E21A3A149001A0D36 /* kenshinCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = kenshinCustomCell.xib; sourceTree = "<group>"; };
 		8A7AF378214295E000632788 /* ViewController_CustomNumberSerch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_CustomNumberSerch.swift; sourceTree = "<group>"; };
 		8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_CustomNumberSerch.xib; sourceTree = "<group>"; };
 		8A7AF37F214297D600632788 /* ViewController_KenjunList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_KenjunList.swift; sourceTree = "<group>"; };
@@ -209,6 +211,8 @@
 		8A0B364C213A474D00F196AD /* KenshinApp */ = {
 			isa = PBXGroup;
 			children = (
+				8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */,
+				8A70356E21A3A149001A0D36 /* kenshinCustomCell.xib */,
 				733621CF219806B7006BACE0 /* ViewController_Contact.swift */,
 				734945A72179750400DAF1FD /* Aozora2.png */,
 				7349458321782C5B00DAF1FD /* meter.png */,
@@ -258,7 +262,6 @@
 				8A5308A42160C40D0039A051 /* ViewController_CustomInfo.swift */,
 				8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */,
 				8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */,
-				8A5308A92160C4DF0039A051 /* ViewController_Kenshin.xib */,
 				8A2F764F217393C900AD7F1F /* ViewController_KenshinConform.swift */,
 				8A2F7650217393C900AD7F1F /* ViewController_KenshinConform.xib */,
 				8A0B3651213A474D00F196AD /* Main.storyboard */,
@@ -405,6 +408,7 @@
 				7349457A2177FC8F00DAF1FD /* gear.png in Resources */,
 				736DFC0A2175DAE0006698FC /* sun.jpeg in Resources */,
 				734945792177FC8F00DAF1FD /* bicycle.png in Resources */,
+				8A70357021A3A149001A0D36 /* kenshinCustomCell.xib in Resources */,
 				734235CA2169CE2D008A213E /* KenshinData3.json in Resources */,
 				8A0B367E213A4D9F00F196AD /* ViewController_SignIn.xib in Resources */,
 				7349457E2177FCA600DAF1FD /* secret.png in Resources */,
@@ -417,7 +421,6 @@
 				8A0B3658213A474E00F196AD /* LaunchScreen.storyboard in Resources */,
 				8A0B3655213A474E00F196AD /* Assets.xcassets in Resources */,
 				8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */,
-				8A5308AB2160C4DF0039A051 /* ViewController_Kenshin.xib in Resources */,
 				8A8044A42162F9F2006DEA56 /* LoginList.json in Resources */,
 				733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */,
 				8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */,
@@ -494,6 +497,7 @@
 				8A0B3650213A474D00F196AD /* ViewController.swift in Sources */,
 				732924162159D870005E4940 /* LoginClass.swift in Sources */,
 				8A0B364E213A474D00F196AD /* AppDelegate.swift in Sources */,
+				8A70356F21A3A149001A0D36 /* kenshinCustomCell.swift in Sources */,
 				73494581217828A200DAF1FD /* CollectionViewCell_KenshinLong.swift in Sources */,
 				8A2F7651217393C900AD7F1F /* ViewController_KenshinConform.swift in Sources */,
 				8A0B3681213A4DD900F196AD /* ViewController_Hello.swift in Sources */,

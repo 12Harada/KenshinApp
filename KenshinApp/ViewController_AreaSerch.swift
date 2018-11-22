@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 
-class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,MKMapViewDelegate {
+class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,MKMapViewDelegate,CLLocationManagerDelegate {
     
     
     var goh: [Goh] = []
@@ -24,6 +24,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     var count2:Int = 0
     var resultNumber:[Int] = [] //kenshinDataからどのデータがsearchResultに格納されたのか保管する配列
     
+    var locationManager: CLLocationManager!//位置情報の機能を管理するためのインスタンス
     //アノテーションをクラスタリングさせるための変数
     var annotation:[GohObjectAnnotation] = []
     var annotation2:[MKAnnotation] = []
@@ -52,7 +53,8 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         //カスタムセルを利用するためにビューに登録
         customerTableView.register (UINib(nibName: "CustomerTableViewCell", bundle: nil),forCellReuseIdentifier:"CustomerTableViewCell")
-
+        
+        
         
         /*************************
          各Json情報の取得
@@ -261,6 +263,10 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
           ここから地図表示
         ****************************/
         
+        //locationManagerオブジェクトの初期化
+        setupLocationManager()
+        
+        
         // 座標算出用の住所を入力します
         //市町村名：s_MachiJ
         //丁目：s_Adrs1 番地：s_Adrs2 号：s_Adrs3
@@ -366,11 +372,8 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                         self.annotation.append(ano1)
                         self.annotation2.append(ano1)
                         self.AreaMapView.addAnnotations(self.annotation)
-                        print("annotationの数")
-                        print(self.annotation.count)
                         
                         //中心座標
-                        print("地図の座標を確認")
                         let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                         
                         //表示範囲
@@ -553,6 +556,27 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         return markerAnnotationView
     }
     
+    func setupLocationManager() {
+        print("setupLocationManagerの実行")
+        locationManager = CLLocationManager()
+        guard let locationManager = locationManager else { return }
+        locationManager.requestWhenInUseAuthorization()
+        
+        let status = CLLocationManager.authorizationStatus()
+        if status == .authorizedWhenInUse {
+            locationManager.delegate = self
+            locationManager.distanceFilter = 10
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.first
+        let latitude = location?.coordinate.latitude
+        let longitude = location?.coordinate.longitude
+        
+        print("latitude: \(latitude!)\nlongitude: \(longitude!)")
+    }
     
     //遷移先の画面を取り出す
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){

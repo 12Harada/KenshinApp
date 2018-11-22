@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 
+
 class ViewController_Contact: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     //追加②
-    let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"]
+    //let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"]
     var contact: [Contact] = []
     
     
@@ -55,19 +56,10 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    //追加③ セルの個数を指定するデリゲートメソッド（必須）
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contact.count
     }
-    
-    //追加④ セルに値を設定するデータソースメソッド（必須）
-    /*func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // セルを取得する
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        // セルに表示する値を設定する
-        cell.textLabel!.text = TODO[indexPath.row]
-        return cell
-    }*/
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("セルの取得実行")
@@ -81,10 +73,12 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
     // Cell が選択された場合
     func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
         print("Cell選択処理実行")
+        print(indexPath.row)
         // 選択した列を変数に格納。格納する際にInt型をString型に型変換
         let tmpText = "tel://"
         
         let tmpText1 = tmpText + contact[indexPath.count].telNum
+        print("電話番号" ,contact[indexPath.row].telNum)
         let url = NSURL(string: tmpText1)!
         
         if #available(iOS 10.0, *) {

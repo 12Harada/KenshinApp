@@ -46,8 +46,6 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.title = "エリア選択"
-        
         AreaMapView.delegate = self
         
         
@@ -263,122 +261,125 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         //市町村名：s_MachiJ
         //丁目：s_Adrs1 番地：s_Adrs2 号：s_Adrs3
         
-        
-        
-        let city1  = self.goh[0].s_MachiJ
-        var tyome1 = self.kenshinData[0].s_Adrs1
-        var banti1 = self.kenshinData[0].s_Adrs2
-        var ggoh1  = self.kenshinData[0].s_Adrs3
-        
-        
-        let city2  = self.goh[1].s_MachiJ
-        var tyome2 = self.kenshinData[devideArray[0]].s_Adrs1
-        var banti2 = self.kenshinData[devideArray[0]].s_Adrs2
-        var ggoh2  = self.kenshinData[devideArray[0]].s_Adrs3
-        
-        
-        let city3  = self.goh[2].s_MachiJ
-        var tyome3 = self.kenshinData[devideArray[1]].s_Adrs1
-        var banti3 = self.kenshinData[devideArray[1]].s_Adrs2
-        var ggoh3  = self.kenshinData[devideArray[1]].s_Adrs3
-
-        
-        //Jsonファイルは先頭に0が含まれるので緯度、経度を求める前に事前削除しておく
-        tyome1 = tyome1.replacingOccurrences(of:"0",with:"")
-        banti1 = banti1.replacingOccurrences(of:"0",with:"")
-        ggoh1  = ggoh1.replacingOccurrences(of:"0",with:"")
-        
-        tyome2 = tyome1.replacingOccurrences(of:"0",with:"")
-        banti2 = banti1.replacingOccurrences(of:"0",with:"")
-        ggoh2  = ggoh1.replacingOccurrences(of:"0",with:"")
-        
-        
-        tyome3 = tyome1.replacingOccurrences(of:"0",with:"")
-        banti3 = banti1.replacingOccurrences(of:"0",with:"")
-        ggoh3  = ggoh1.replacingOccurrences(of:"0",with:"")
- 
-        
-        
-        let street1 = tyome1 + "-" + banti1 + "-" + ggoh1
-        let street2 = tyome2 + "-" + banti2 + "-" + ggoh2
-        let street3 = tyome3 + "-" + banti3 + "-" + ggoh3
-        
-        
-        
-        // 建物名が含まれると正しく座標が表示されないことがあるので注意が必要です
-        let addressForLocation1 = city1 + street1
-        let addressForLocation2 = city2 + street2
-        let addressForLocation3 = city3 + street3
-        
-        
-        
-        
-        // 入力された住所を元に取材地の座標を登録（１カ所目）
-        let geocoder1 = CLGeocoder()
-        geocoder1.geocodeAddressString(addressForLocation1, completionHandler: {(placemarks, error) in
+        // すぐに実行させるとjsonファイルが読み込み終わっていないので、
+        // 2秒後に実行
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+            let city1  = self.goh[0].s_MachiJ
+            var tyome1 = self.kenshinData[0].s_Adrs1
+            var banti1 = self.kenshinData[0].s_Adrs2
+            var ggoh1  = self.kenshinData[0].s_Adrs3
             
-            if(error == nil) {
-                for placemark in placemarks! {
-                    let location:CLLocation = placemark.location!
-                    
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G1", glyphTintColor: .white, markerTintColor: .red,title: "1")
-                    
-                    self.annotation.append(ano1)
-                    self.annotation2.append(ano1)
-                    
-                }
-            }
-        })
-    
-        
-        
-        
-        
-        // 入力された住所を元に取材地の座標を登録（２カ所目）
-        let geocoder2 = CLGeocoder()
-        geocoder2.geocodeAddressString(addressForLocation2, completionHandler: {(placemarks, error) in
             
-            if(error == nil) {
-                for placemark in placemarks! {
-                    let location:CLLocation = placemark.location!
-                    
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G2", glyphTintColor: .white, markerTintColor: .red,title: "2")
-                    self.annotation.append(ano1)
-                    self.annotation2.append(ano1)
-                    
-                }
-            }
-        })
-        
-        // 入力された住所を元に取材地の座標を登録（3カ所目）
-        let geocoder3 = CLGeocoder()
-        geocoder3.geocodeAddressString(addressForLocation3, completionHandler: {(placemarks, error) in
+            let city2  = self.goh[1].s_MachiJ
+            var tyome2 = self.kenshinData[self.devideArray[0]].s_Adrs1
+            var banti2 = self.kenshinData[self.devideArray[0]].s_Adrs2
+            var ggoh2  = self.kenshinData[self.devideArray[0]].s_Adrs3
             
-            if(error == nil) {
-                for placemark in placemarks! {
-                    let location:CLLocation = placemark.location!
-                    
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G3", glyphTintColor: .white, markerTintColor: .red,title: "3")
-                    
-                    self.annotation.append(ano1)
-                    self.annotation2.append(ano1)
-                    self.AreaMapView.addAnnotations(self.annotation)
-                    print("annotationの数")
-                    print(self.annotation.count)
-                    
-                    //中心座標
-                    print("地図の座標を確認")
-                    let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-                    
-                    //表示範囲
-                    let span = MKCoordinateSpanMake(0.05, 0.05)
-                    
-                    //中心座標と表示範囲をマップに登録する。
-                    let region = MKCoordinateRegionMake(center, span)
-                    self.AreaMapView.setRegion(region, animated:true)
+            
+            let city3  = self.goh[2].s_MachiJ
+            var tyome3 = self.kenshinData[self.devideArray[1]].s_Adrs1
+            var banti3 = self.kenshinData[self.devideArray[1]].s_Adrs2
+            var ggoh3  = self.kenshinData[self.devideArray[1]].s_Adrs3
+            
+            
+            //Jsonファイルは先頭に0が含まれるので緯度、経度を求める前に事前削除しておく
+            tyome1 = tyome1.replacingOccurrences(of:"0",with:"")
+            banti1 = banti1.replacingOccurrences(of:"0",with:"")
+            ggoh1  = ggoh1.replacingOccurrences(of:"0",with:"")
+            
+            tyome2 = tyome1.replacingOccurrences(of:"0",with:"")
+            banti2 = banti1.replacingOccurrences(of:"0",with:"")
+            ggoh2  = ggoh1.replacingOccurrences(of:"0",with:"")
+            
+            
+            tyome3 = tyome1.replacingOccurrences(of:"0",with:"")
+            banti3 = banti1.replacingOccurrences(of:"0",with:"")
+            ggoh3  = ggoh1.replacingOccurrences(of:"0",with:"")
+            
+            
+            
+            let street1 = tyome1 + "-" + banti1 + "-" + ggoh1
+            let street2 = tyome2 + "-" + banti2 + "-" + ggoh2
+            let street3 = tyome3 + "-" + banti3 + "-" + ggoh3
+            
+            
+            
+            // 建物名が含まれると正しく座標が表示されないことがあるので注意が必要です
+            let addressForLocation1 = city1 + street1
+            let addressForLocation2 = city2 + street2
+            let addressForLocation3 = city3 + street3
+            
+            
+            
+            
+            // 入力された住所を元に取材地の座標を登録（１カ所目）
+            let geocoder1 = CLGeocoder()
+            geocoder1.geocodeAddressString(addressForLocation1, completionHandler: {(placemarks, error) in
+                
+                if(error == nil) {
+                    for placemark in placemarks! {
+                        let location:CLLocation = placemark.location!
+                        
+                        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G1", glyphTintColor: .white, markerTintColor: .red,title: "1")
+                        
+                        self.annotation.append(ano1)
+                        self.annotation2.append(ano1)
+                        
+                    }
                 }
-            }
-        })
+            })
+            
+            
+            
+            
+            
+            // 入力された住所を元に取材地の座標を登録（２カ所目）
+            let geocoder2 = CLGeocoder()
+            geocoder2.geocodeAddressString(addressForLocation2, completionHandler: {(placemarks, error) in
+                
+                if(error == nil) {
+                    for placemark in placemarks! {
+                        let location:CLLocation = placemark.location!
+                        
+                        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G2", glyphTintColor: .white, markerTintColor: .red,title: "2")
+                        self.annotation.append(ano1)
+                        self.annotation2.append(ano1)
+                        
+                    }
+                }
+            })
+            
+            // 入力された住所を元に取材地の座標を登録（3カ所目）
+            let geocoder3 = CLGeocoder()
+            geocoder3.geocodeAddressString(addressForLocation3, completionHandler: {(placemarks, error) in
+                
+                if(error == nil) {
+                    for placemark in placemarks! {
+                        let location:CLLocation = placemark.location!
+                        
+                        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G3", glyphTintColor: .white, markerTintColor: .red,title: "3")
+                        
+                        self.annotation.append(ano1)
+                        self.annotation2.append(ano1)
+                        self.AreaMapView.addAnnotations(self.annotation)
+                        print("annotationの数")
+                        print(self.annotation.count)
+                        
+                        //中心座標
+                        print("地図の座標を確認")
+                        let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                        
+                        //表示範囲
+                        let span = MKCoordinateSpanMake(0.05, 0.05)
+                        
+                        //中心座標と表示範囲をマップに登録する。
+                        let region = MKCoordinateRegionMake(center, span)
+                        self.AreaMapView.setRegion(region, animated:true)
+                    }
+                }
+            })
+            
+        }
         
         //画面に号の略称と和名を表示
         gohAbb.text = ""

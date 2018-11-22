@@ -39,6 +39,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     @IBOutlet weak var AreaMapView: MKMapView!
     @IBOutlet weak var gohAbb: UILabel! //号の略称を表示する
     @IBOutlet weak var gohName: UILabel!//号の和名を格納する
+    @IBOutlet weak var kenNumber: UILabel!
     
     
     
@@ -192,6 +193,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         guard let data2 = try? getJSONData2() else { return }
         kenshinData = try! JSONDecoder().decode([KenshinInput].self, from: data2!)
         print(kenshinData[0].s_NameJ)
+        
+        //初期データとして対象検針数を格納
+        kenNumber.text = kenshinData.count.description
         
         
         /****************
@@ -457,6 +461,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
             //画面に号の略称と和名を表示
             gohAbb.text = ""
             gohName.text = "検索結果"
+            
+            //画面に検索結果件数を表示
+            kenNumber.text = searchResult.count.description
         }
         //テーブルを再読み込みする
         customerTableView.reloadData()
@@ -503,6 +510,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
             gohAbb.text = "G3"
             gohName.text = goh[2].s_MachiJ
         }
+        
+        //号の件数を表示させる
+        kenNumber.text = searchResult.count.description
     }
     
     //テーブルビュー スクロール

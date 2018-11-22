@@ -29,11 +29,6 @@ class ViewController_Hello: UIViewController{
     
     override func viewDidLoad() {
         
-        //タイトル名
-        self.navigationController?.title = "ホーム"
-        //名前を格納
-        //nameLabel.text = "東京　太郎"
-        
         // バンドルした画像ファイルを読み込み
         let image = UIImage(named: "paccho1.jpg")
         

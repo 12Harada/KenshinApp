@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController_Kenshin: UIViewController {
+class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
     @IBOutlet weak var kenshinTableView: UITableView!
@@ -48,6 +48,12 @@ class ViewController_Kenshin: UIViewController {
 //        self.thisShijiNum.keyboardType = UIKeyboardType.numberPad
 
         kenshinTableView.register(UINib(nibName: "kenshinCustomCell", bundle: nil), forCellReuseIdentifier: "kenshinCustomCell")
+        // DataSourceの設定をする.
+        kenshinTableView.dataSource = self
+        // Delegateを設定する.
+        kenshinTableView.delegate = self
+        // Viewに追加する.
+        self.view.addSubview(kenshinTableView)
         
     }
     
@@ -62,16 +68,17 @@ class ViewController_Kenshin: UIViewController {
     //Cellに値を設定する.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let kenshinInfoCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "kenshinInfoCell")
+        let kenshinInfoCell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "kenshinInfoCell")
         //横1行で表示できるように自動で調整してくれる
         kenshinInfoCell.textLabel?.adjustsFontSizeToFitWidth = true
         //改行させない
         kenshinInfoCell.textLabel?.numberOfLines = 0
         //項目名のフォントサイズを指定
-        kenshinInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 24)
+        kenshinInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 18)
         
         if(indexPath.row == 4){
-            let cell = tableView.dequeueReusableCell(withIdentifier:    "kenshinCustomCell", for: indexPath) as! kenshinCustomCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "kenshinCustomCell", for: indexPath) as! kenshinCustomCell
+            cell.textLabel?.text = kenshinItem[indexPath.row] as? String
             return cell
         }
         

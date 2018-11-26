@@ -111,7 +111,6 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let customInfoCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "customInfoCell")
-//        customInfoCell = tableView.dequeueReusableCell(withIdentifier: "customInfoCell", for: indexPath as IndexPath)
 
         //横1行で表示できるように自動で調整してくれる
         customInfoCell.textLabel?.adjustsFontSizeToFitWidth = true

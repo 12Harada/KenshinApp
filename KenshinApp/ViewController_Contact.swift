@@ -12,8 +12,6 @@ import UIKit
 
 class ViewController_Contact: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    //追加②
-    //let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"]
     var contact: [Contact] = []
     
     

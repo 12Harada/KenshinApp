@@ -272,8 +272,8 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         //丁目：s_Adrs1 番地：s_Adrs2 号：s_Adrs3
         
         // すぐに実行させるとjsonファイルが読み込み終わっていないので、
-        // 2秒後に実行
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+        // 3秒後に実行
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
             let city1  = self.goh[0].s_MachiJ
             var tyome1 = self.kenshinData[0].s_Adrs1
             var banti1 = self.kenshinData[0].s_Adrs2
@@ -377,7 +377,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                         let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                         
                         //表示範囲
-                        let span = MKCoordinateSpanMake(0.05, 0.05)
+                        let span = MKCoordinateSpanMake(0.03, 0.03)
                         
                         //中心座標と表示範囲をマップに登録する。
                         let region = MKCoordinateRegionMake(center, span)
@@ -385,6 +385,15 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                     }
                 }
             })
+            
+            
+            //自分の現在地座標を登録
+            let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: 35.635531, longitude: 139.706093), glyphText:"HM", glyphTintColor: .white, markerTintColor: .blue,title: "HM")
+            
+            self.annotation.append(ano1)
+            self.annotation2.append(ano1)
+            self.AreaMapView.addAnnotations(self.annotation)
+            
             
         }
         
@@ -430,7 +439,52 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
         print("Cell選択処理実行")
         // 選択した列を変数に格納。格納する際にInt型をString型に型変換
-        selectedNumber = resultNumber[indexPath.row]
+        self.selectedNumber = resultNumber[indexPath.row]
+        
+        //Cellが選択されたときに、セルの場所にピンを落とす
+        var index_Goh = 0
+        if (self.selectedNumber >= devideArray[0] && self.selectedNumber < devideArray[1]){
+            index_Goh = 0
+        }else if(self.selectedNumber >= devideArray[1] && self.selectedNumber < devideArray[2]){
+            index_Goh = 1
+        }else{
+            index_Goh = 2
+        }
+        print("Cell選択処理実行1")
+        //選択されたセルから住所を割り出す
+        let cityx  = self.goh[index_Goh].s_MachiJ
+        var tyomex = self.kenshinData[self.selectedNumber].s_Adrs1
+        var bantix = self.kenshinData[selectedNumber].s_Adrs2
+        var ggohx  = self.kenshinData[selectedNumber].s_Adrs3
+        
+        //Jsonファイルは先頭に0が含まれるので緯度、経度を求める前に事前削除しておく
+        tyomex = tyomex.replacingOccurrences(of:"0",with:"")
+        bantix = bantix.replacingOccurrences(of:"0",with:"")
+        ggohx = ggohx.replacingOccurrences(of:"0",with:"")
+        
+        let streetx = tyomex + "-" + bantix + "-" + ggohx
+        print("Cell選択処理実行2")
+        // 建物名が含まれると正しく座標が表示されないことがあるので注意が必要です
+        let addressForLocationx = cityx + streetx
+        
+        // 選択されたセルの住所を元に座標を登録
+        let geocoder1 = CLGeocoder()
+        geocoder1.geocodeAddressString(addressForLocationx, completionHandler: {(placemarks, error) in
+            
+            if(error == nil) {
+                for placemark in placemarks! {
+                    let location:CLLocation = placemark.location!
+                    
+                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:self.kenshinData[self.selectedNumber].s_NameJ, glyphTintColor: .white, markerTintColor: .black,title: "SC")
+                    
+                    self.annotation.append(ano1)
+                    self.annotation2.append(ano1)
+                    
+                }
+            }
+        })
+        print("Cell選択処理実行3")
+        
     }
     
     //検索ボタン押下時の呼び出しメソッド

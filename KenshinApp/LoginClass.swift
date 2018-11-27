@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Login {
+class Login: Codable{
     
     //検針担当者ID
     var person = ""

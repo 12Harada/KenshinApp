@@ -77,7 +77,7 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
         kenshinInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 18)
         
         if(indexPath.row == 4){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "kenshinCustomCell", for: indexPath) as! kenshinCustomCell
+            let cell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinCustomCell", for: indexPath) as! kenshinCustomCell
             cell.textLabel?.text = kenshinItem[indexPath.row] as? String
             return cell
         }

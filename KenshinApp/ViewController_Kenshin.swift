@@ -67,24 +67,27 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
     }
     //Cellに値を設定する.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("indexPath:")
+        print(indexPath.row)
+        print(kenshinItem[indexPath.row])
         
-        let kenshinInfoCell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "kenshinInfoCell")
+        if(indexPath.row == 4){
+            let cell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinCustomCell") as! kenshinCustomCell
+            cell.setupCell(lblName: kenshinItem[indexPath.row] as! String)
+            return cell
+        }
+        let kenshinInfoCell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinInfoCell", for: indexPath)
+
+//        let kenshinInfoCell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "kenshinInfoCell")
         //横1行で表示できるように自動で調整してくれる
         kenshinInfoCell.textLabel?.adjustsFontSizeToFitWidth = true
         //改行させない
         kenshinInfoCell.textLabel?.numberOfLines = 0
         //項目名のフォントサイズを指定
-        kenshinInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 18)
-        
-        if(indexPath.row == 4){
-            let cell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinCustomCell", for: indexPath) as! kenshinCustomCell
-            cell.textLabel?.text = kenshinItem[indexPath.row] as? String
-            return cell
-        }
-        
+        kenshinInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 14)
         kenshinInfoCell.textLabel?.text = kenshinItem[indexPath.row] as? String
         //データのフォントサイズを指定
-        kenshinInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 26)
+        kenshinInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 24)
         kenshinInfoCell.detailTextLabel?.text = kenshinData[indexPath.row] as? String
         return kenshinInfoCell
     }

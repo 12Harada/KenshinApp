@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:KenshinApp.xcodeproj">
+      location = "group:/Users/lincoln/Documents/20181119/KenshinApp/KenshinApp/kenshinCustomCell.xib">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

@@ -30,6 +30,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     var annotation2:[MKAnnotation] = []
     
     var selectedNumber:Int = 0
+    var cellAannotation = MKPointAnnotation() //セル選択時のピンを表示する際に利用する
     
     //検索結果配列
     var searchResult = [KenshinInput]()
@@ -330,6 +331,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                     for placemark in placemarks! {
                         let location:CLLocation = placemark.location!
                         
+                        
                         let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G1", glyphTintColor: .white, markerTintColor: .red,title: "1")
                         
                         self.annotation.append(ano1)
@@ -437,20 +439,18 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     }
     // Cell が選択された場合
     func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
-        print("Cell選択処理実行")
         // 選択した列を変数に格納。格納する際にInt型をString型に型変換
         self.selectedNumber = resultNumber[indexPath.row]
         
         //Cellが選択されたときに、セルの場所にピンを落とす
         var index_Goh = 0
-        if (self.selectedNumber >= devideArray[0] && self.selectedNumber < devideArray[1]){
+        if (self.selectedNumber < devideArray[0]){
             index_Goh = 0
-        }else if(self.selectedNumber >= devideArray[1] && self.selectedNumber < devideArray[2]){
+        }else if(self.selectedNumber >= devideArray[0] && self.selectedNumber < devideArray[1]){
             index_Goh = 1
         }else{
             index_Goh = 2
         }
-        print("Cell選択処理実行1")
         //選択されたセルから住所を割り出す
         let cityx  = self.goh[index_Goh].s_MachiJ
         var tyomex = self.kenshinData[self.selectedNumber].s_Adrs1
@@ -474,16 +474,13 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
             if(error == nil) {
                 for placemark in placemarks! {
                     let location:CLLocation = placemark.location!
-                    
-                    let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:self.kenshinData[self.selectedNumber].s_NameJ, glyphTintColor: .white, markerTintColor: .black,title: "SC")
-                    
-                    self.annotation.append(ano1)
-                    self.annotation2.append(ano1)
-                    
+                    //地図にピンを立てる。
+                   // self.AreaMapView.removeAnnotation(self.cellAannotation)
+                    self.cellAannotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                    self.AreaMapView.addAnnotation(self.cellAannotation)
                 }
             }
         })
-        print("Cell選択処理実行3")
         
     }
     
@@ -536,9 +533,6 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     
     // ピンが選択された際に入る
     func mapView(_ mapView : MKMapView,didSelect view : MKAnnotationView){
-        print("ピンの選択")
-        print(view.annotation!.title!!)
-        print(kenshinData[0].s_GouBan)
         //検索結果配列を空にする。
         searchResult.removeAll()
         resultNumber.removeAll()

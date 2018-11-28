@@ -825,7 +825,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Je-U3-DmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8485.507246376812" y="132.58928571428572"/>
+            <point key="canvasLocation" x="9165" y="133"/>
         </scene>
         <!--View Controller Kenshin Conform-->
         <scene sceneID="mAt-1Y-PGP">
@@ -920,7 +920,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9B-BT-6sr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9707.2463768115958" y="132.88043478260872"/>
+            <point key="canvasLocation" x="10432" y="814"/>
         </scene>
     </scenes>
     <resources>

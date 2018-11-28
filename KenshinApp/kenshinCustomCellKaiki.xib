@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9kO-vG-IWP">
-                        <rect key="frame" x="309" y="9" width="49" height="31"/>
+                        <rect key="frame" x="286" y="9" width="49" height="31"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="31" id="42H-Dk-Pvz"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="FLW-a4-oP5"/>
@@ -39,8 +39,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="kaikiMark" destination="ddE-Yi-pbA" id="24z-gp-hm7"/>
+                <outlet property="kaikiSwitch" destination="9kO-vG-IWP" id="gef-aY-AfZ"/>
             </connections>
-            <point key="canvasLocation" x="49.600000000000001" y="156.52173913043478"/>
+            <point key="canvasLocation" x="49.600000000000001" y="155.62218890554723"/>
         </tableViewCell>
     </objects>
 </document>

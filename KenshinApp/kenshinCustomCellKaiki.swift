@@ -11,6 +11,8 @@ import UIKit
 class kenshinCustomCellKaiki: UITableViewCell {
 
     @IBOutlet weak var kaikiMark: UILabel!
+    @IBOutlet weak var kaikiSwitch: UISwitch!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,8 +26,8 @@ class kenshinCustomCellKaiki: UITableViewCell {
     
     func setupCell(lblName: String) {
         
+        kaikiMark.font = UIFont.systemFont(ofSize: 14)
         kaikiMark.text = lblName
-        
     }
 
 }

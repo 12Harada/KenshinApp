@@ -73,17 +73,27 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
         print(indexPath.row)
         print(kenshinItem[indexPath.row])
         
+        //今回指示数の表示行
         if(indexPath.row == 4){
             let cell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinCustomCell") as! kenshinCustomCell
+            //横1行で表示できるように自動で調整してくれる
+            cell.textLabel?.adjustsFontSizeToFitWidth = true
+            //改行させない
+            cell.textLabel?.numberOfLines = 0
             cell.setupCell(lblName: kenshinItem[indexPath.row] as! String)
             return cell
         }
+        //回帰の表示行
         if(indexPath.row == 6){
             let cell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinCustomCellKaiki") as! kenshinCustomCellKaiki
+            //横1行で表示できるように自動で調整してくれる
+            cell.textLabel?.adjustsFontSizeToFitWidth = true
+            //改行させない
+            cell.textLabel?.numberOfLines = 0
             cell.setupCell(lblName: kenshinItem[indexPath.row] as! String)
             return cell
         }
-
+        //それ以外の表示行
         let kenshinInfoCell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinInfoCell", for: indexPath)
         //横1行で表示できるように自動で調整してくれる
         kenshinInfoCell.textLabel?.adjustsFontSizeToFitWidth = true

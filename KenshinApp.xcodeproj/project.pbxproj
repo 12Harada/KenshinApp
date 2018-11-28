@@ -68,6 +68,8 @@
 		8AA8CEEF213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8CEED213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift */; };
 		8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8CEEE213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib */; };
 		8AEEC64721AE77C700ED33A2 /* kenshinCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A60692A21AD36FB00DF1B25 /* kenshinCustomCell.xib */; };
+		8AEEC64A21AEA30900ED33A2 /* kenshinCustomCellKaiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEEC64821AEA30900ED33A2 /* kenshinCustomCellKaiki.swift */; };
+		8AEEC64B21AEA30900ED33A2 /* kenshinCustomCellKaiki.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AEEC64921AEA30900ED33A2 /* kenshinCustomCellKaiki.xib */; };
 		9342E6D621ACD841001A733D /* YOTO_SHOP_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D221ACD840001A733D /* YOTO_SHOP_48.png */; };
 		9342E6D721ACD841001A733D /* YOTO_HOME_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D321ACD840001A733D /* YOTO_HOME_48.png */; };
 		9342E6D821ACD841001A733D /* YOTO_BUILDING_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D421ACD841001A733D /* YOTO_BUILDING_48.png */; };
@@ -159,6 +161,8 @@
 		8AA8CEEA213BE09900D64FA1 /* CollectionViewController_Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController_Menu.xib; sourceTree = "<group>"; };
 		8AA8CEED213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell_Kenshin.swift; sourceTree = "<group>"; };
 		8AA8CEEE213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell_Kenshin.xib; sourceTree = "<group>"; };
+		8AEEC64821AEA30900ED33A2 /* kenshinCustomCellKaiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kenshinCustomCellKaiki.swift; sourceTree = "<group>"; };
+		8AEEC64921AEA30900ED33A2 /* kenshinCustomCellKaiki.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = kenshinCustomCellKaiki.xib; sourceTree = "<group>"; };
 		9342E6D221ACD840001A733D /* YOTO_SHOP_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_SHOP_48.png; sourceTree = "<group>"; };
 		9342E6D321ACD840001A733D /* YOTO_HOME_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_HOME_48.png; sourceTree = "<group>"; };
 		9342E6D421ACD841001A733D /* YOTO_BUILDING_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_BUILDING_48.png; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 				8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */,
 				8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */,
 				8A60692A21AD36FB00DF1B25 /* kenshinCustomCell.xib */,
+				8AEEC64821AEA30900ED33A2 /* kenshinCustomCellKaiki.swift */,
+				8AEEC64921AEA30900ED33A2 /* kenshinCustomCellKaiki.xib */,
 				8A2F764F217393C900AD7F1F /* ViewController_KenshinConform.swift */,
 				8A2F7650217393C900AD7F1F /* ViewController_KenshinConform.xib */,
 				8A0B3651213A474D00F196AD /* Main.storyboard */,
@@ -404,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AEEC64B21AEA30900ED33A2 /* kenshinCustomCellKaiki.xib in Resources */,
 				8AEEC64721AE77C700ED33A2 /* kenshinCustomCell.xib in Resources */,
 				8A0B3682213A4DD900F196AD /* ViewController_Hello.xib in Resources */,
 				9342E6D721ACD841001A733D /* YOTO_HOME_48.png in Resources */,
@@ -493,6 +500,7 @@
 				8AA8CEEF213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift in Sources */,
 				734945AA21797D0D00DAF1FD /* triangleButton.swift in Sources */,
 				733F6576218A8FA700657F81 /* ViewController_ToChange.swift in Sources */,
+				8AEEC64A21AEA30900ED33A2 /* kenshinCustomCellKaiki.swift in Sources */,
 				93D317D32191342500BC0A95 /* PrimaryActionButton.swift in Sources */,
 				734235A52169A674008A213E /* KenshinDataInput.swift in Sources */,
 				733621A12197BB5F006BACE0 /* CustomerTableViewCell.swift in Sources */,

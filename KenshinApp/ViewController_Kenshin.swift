@@ -48,6 +48,8 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
 //        self.thisShijiNum.keyboardType = UIKeyboardType.numberPad
 
         kenshinTableView.register(UINib(nibName: "kenshinCustomCell", bundle: nil), forCellReuseIdentifier: "kenshinCustomCell")
+        kenshinTableView.register(UINib(nibName: "kenshinCustomCellKaiki", bundle: nil), forCellReuseIdentifier: "kenshinCustomCellKaiki")
+
         // DataSourceの設定をする.
         kenshinTableView.dataSource = self
         // Delegateを設定する.
@@ -76,9 +78,13 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
             cell.setupCell(lblName: kenshinItem[indexPath.row] as! String)
             return cell
         }
-        let kenshinInfoCell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinInfoCell", for: indexPath)
+        if(indexPath.row == 6){
+            let cell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinCustomCellKaiki") as! kenshinCustomCellKaiki
+            cell.setupCell(lblName: kenshinItem[indexPath.row] as! String)
+            return cell
+        }
 
-//        let kenshinInfoCell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "kenshinInfoCell")
+        let kenshinInfoCell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinInfoCell", for: indexPath)
         //横1行で表示できるように自動で調整してくれる
         kenshinInfoCell.textLabel?.adjustsFontSizeToFitWidth = true
         //改行させない

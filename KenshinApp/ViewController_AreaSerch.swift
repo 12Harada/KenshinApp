@@ -34,6 +34,10 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     
     //検索結果配列
     var searchResult = [KenshinInput]()
+    
+    //経路を表示させるための変数
+    var userLocation: CLLocationCoordinate2D!
+    var destLocation: CLLocationCoordinate2D!
 
     
     @IBOutlet weak var customerSearchBar: UISearchBar!
@@ -371,6 +375,8 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                         
                         let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G3", glyphTintColor: .white, markerTintColor: .red,title: "3")
                         
+                        
+                        self.destLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                         self.annotation.append(ano1)
                         self.annotation2.append(ano1)
                         self.AreaMapView.addAnnotations(self.annotation)
@@ -396,6 +402,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
             self.annotation2.append(ano1)
             self.AreaMapView.addAnnotations(self.annotation)
             
+            self.userLocation = CLLocationCoordinate2DMake(35.635531, 139.706093)
             
         }
         
@@ -403,6 +410,41 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         gohAbb.text = ""
         gohName.text = "本日対象"
         
+        
+        //HMから距離を測る
+        // 現在地と目的地のMKPlacemarkを生成
+        /*
+        let fromPlacemark = MKPlacemark(coordinate:self.userLocation!, addressDictionary:nil)
+        let toPlacemark   = MKPlacemark(coordinate:self.destLocation!, addressDictionary:nil)
+        
+        // MKPlacemark から MKMapItem を生成
+        let fromItem = MKMapItem(placemark:fromPlacemark)
+        let toItem   = MKMapItem(placemark:toPlacemark)
+        
+        // MKMapItem をセットして MKDirectionsRequest を生成
+        let request = MKDirectionsRequest()
+        
+        request.source = fromItem
+        //request.setSource(fromItem)
+        request.destination = toItem
+        request.requestsAlternateRoutes = false // 単独の経路を検索
+        request.transportType = MKDirectionsTransportType.any
+        
+        let directions = MKDirections(request:request)
+        directions.calculate(completionHandler: {
+            (response:MKDirectionsResponse!, error:NSError!) -> Void in
+            
+            response.routes.count
+            if (error != nil || response.routes.isEmpty) {
+                return
+            }
+            var route: MKRoute = response.routes[0] as MKRoute
+            // 経路を描画
+           // AreaMapView.addOverlays(route.polyline)
+            self.AreaMapView.add(route.polyline)
+            
+            } as! MKDirectionsHandler)
+ */
     }
     
     func action(){
@@ -433,6 +475,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         if let cell = cell as? CustomerTableViewCell {
             cell.setupCell(model: searchResult[indexPath.row])
         }
+        
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator // ここで「>」ボタンを設定
         
         return cell
@@ -482,7 +525,18 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
             }
         })
         
+        
+        // 次画面 へ遷移するために Segue を呼び出す
+        //performSegue(withIdentifier: "CustomInfoSegue",sender: nil)
+        
     }
+    
+    /*
+    @IBAction func cellLongPressed(_ sender: UILongPressGestureRecognizer) {
+        print("セル長押し")
+        // SubViewController へ遷移するために Segue を呼び出す
+        performSegue(withIdentifier: "CustomInfoSegue",sender: nil)
+    }*/
     
     //検索ボタン押下時の呼び出しメソッド
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -624,6 +678,16 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         let longitude = location?.coordinate.longitude
         
         print("latitude: \(latitude!)\nlongitude: \(longitude!)")
+    }
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //セルの背景色を変更する
+        self.selectedNumber = resultNumber[indexPath.row]
+        print(self.kenshinData[self.selectedNumber])
+        if (self.kenshinData[self.selectedNumber].s_YusoSetteiCode == "1"){
+            cell.contentView.backgroundColor = UIColor.gray
+        }
     }
     
     //遷移先の画面を取り出す

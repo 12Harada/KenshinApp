@@ -273,8 +273,8 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         //丁目：s_Adrs1 番地：s_Adrs2 号：s_Adrs3
         
         // すぐに実行させるとjsonファイルが読み込み終わっていないので、
-        // 3秒後に実行
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
+        // 0秒後に実行
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(0)) {
             let city1  = self.goh[0].s_MachiJ
             var tyome1 = self.kenshinData[0].s_Adrs1
             var banti1 = self.kenshinData[0].s_Adrs2
@@ -383,7 +383,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                         
                         //中心座標と表示範囲をマップに登録する。
                         let region = MKCoordinateRegionMake(center, span)
-                        self.AreaMapView.setRegion(region, animated:true)
+                        self.AreaMapView.setRegion(region, animated:false)
                     }
                 }
             })
@@ -433,7 +433,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         if let cell = cell as? CustomerTableViewCell {
             cell.setupCell(model: searchResult[indexPath.row])
         }
-        
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator // ここで「>」ボタンを設定
         
         return cell
     }

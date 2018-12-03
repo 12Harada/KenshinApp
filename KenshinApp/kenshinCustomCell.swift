@@ -18,7 +18,9 @@ class kenshinCustomCell: UITableViewCell {
         
         thisSiyoRyo.font = UIFont.systemFont(ofSize: 14)
         thisSiyoRyo.text = lblName
-
+        txtThisUseRyo.font = UIFont.systemFont(ofSize: 24)
+        
     }
+
 
 }

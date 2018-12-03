@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
 
     @IBOutlet weak var kenshinTableView: UITableView!
@@ -50,6 +50,8 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
         kenshinTableView.register(UINib(nibName: "kenshinCustomCell", bundle: nil), forCellReuseIdentifier: "kenshinCustomCell")
         kenshinTableView.register(UINib(nibName: "kenshinCustomCellKaiki", bundle: nil), forCellReuseIdentifier: "kenshinCustomCellKaiki")
 
+        // TextFieldのDelegateを設定する
+        
         // DataSourceの設定をする.
         kenshinTableView.dataSource = self
         // Delegateを設定する.
@@ -58,11 +60,20 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
         self.view.addSubview(kenshinTableView)
         
     }
-    
+    //画面表示時にテキストへフォーカスし、キーボード表示
+    override func viewWillAppear(_ animated: Bool) {
+//        TextField.becomeFirstResponder()
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
- //       kenshinData["今回使用量"] = String(Int(thisShijiNum.text!)! - Int(beforeShijiNum.text!)!)
+//        let cell = txtThisUseRyo.superview?.superview as! kenshinCustomCell
+        
+ //       print(cell.addButton.titleLabel?.text)
+        
+        //        kenshinData[4] = String(Int(thisShijiNum.text!)! - Int(beforeShijiNum.text!)!)
+        
     }
+
     //テーブルに表示する配列の総数を返す.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return kenshinItem.count
@@ -74,22 +85,14 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
         print(kenshinItem[indexPath.row])
         
         //今回指示数の表示行
-        if(indexPath.row == 4){
+        if(indexPath.row == 3){
             let cell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinCustomCell") as! kenshinCustomCell
-            //横1行で表示できるように自動で調整してくれる
-            cell.textLabel?.adjustsFontSizeToFitWidth = true
-            //改行させない
-            cell.textLabel?.numberOfLines = 0
             cell.setupCell(lblName: kenshinItem[indexPath.row] as! String)
             return cell
         }
         //回帰の表示行
-        if(indexPath.row == 6){
+        if(indexPath.row == 5){
             let cell = kenshinTableView.dequeueReusableCell(withIdentifier: "kenshinCustomCellKaiki") as! kenshinCustomCellKaiki
-            //横1行で表示できるように自動で調整してくれる
-            cell.textLabel?.adjustsFontSizeToFitWidth = true
-            //改行させない
-            cell.textLabel?.numberOfLines = 0
             cell.setupCell(lblName: kenshinItem[indexPath.row] as! String)
             return cell
         }

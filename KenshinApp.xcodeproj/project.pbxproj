@@ -128,7 +128,7 @@
 		736C1AFE21771D8A001784BF /* WeatherCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCustomCell.swift; sourceTree = "<group>"; };
 		736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCustomCell.xib; sourceTree = "<group>"; };
 		736DFC092175DAE0006698FC /* sun.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpeg; sourceTree = "<group>"; };
-		7378337121B3E9E90031731F /* kenshinCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = kenshinCustomCell.xib; path = KenshinApp/kenshinCustomCell.xib; sourceTree = "<group>"; };
+		7378337121B3E9E90031731F /* kenshinCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = kenshinCustomCell.xib; sourceTree = "<group>"; };
 		8A0B364A213A474D00F196AD /* KenshinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0B364D213A474D00F196AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A0B364F213A474D00F196AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +197,6 @@
 		8A0B3641213A474D00F196AD = {
 			isa = PBXGroup;
 			children = (
-				7378337121B3E9E90031731F /* kenshinCustomCell.xib */,
 				8A0B364C213A474D00F196AD /* KenshinApp */,
 				8A0B3661213A474E00F196AD /* KenshinAppTests */,
 				8A0B366C213A474E00F196AD /* KenshinAppUITests */,
@@ -269,6 +268,7 @@
 				8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */,
 				8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */,
 				8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */,
+				7378337121B3E9E90031731F /* kenshinCustomCell.xib */,
 				8AEEC64821AEA30900ED33A2 /* kenshinCustomCellKaiki.swift */,
 				8AEEC64921AEA30900ED33A2 /* kenshinCustomCellKaiki.xib */,
 				8A2F764F217393C900AD7F1F /* ViewController_KenshinConform.swift */,

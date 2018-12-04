@@ -21,8 +21,14 @@ class CustomerTableViewCell: UITableViewCell {
         //お客さま名表示
         customerName.text = model.s_NameJ
         
+        var image = UIImage(named:"secret.png")
+        
         //用途コード画像貼り付け
-        let image = UIImage(named:"secret.png")
+        if(model.s_YotoCd == "13000"){
+            image = UIImage(named:"YOTO_HOME_48.png")
+        }else{
+            print("用途コード想定外")
+        }        
         GMTImage.image = image
         GMTImage.contentMode = UIViewContentMode.scaleAspectFill
     }

@@ -13,16 +13,14 @@ class kenshinCustomCell: UITableViewCell {
  
     @IBOutlet weak var thisSiyoRyo: UILabel!
     @IBOutlet weak var txtThisUseRyo: UITextField!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+
+    func setupCell(lblName: String) {
+        
+        thisSiyoRyo.font = UIFont.systemFont(ofSize: 14)
+        thisSiyoRyo.text = lblName
+        txtThisUseRyo.font = UIFont.systemFont(ofSize: 24)
+        
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
-    
 }

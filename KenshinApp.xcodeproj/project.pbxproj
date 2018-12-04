@@ -40,6 +40,7 @@
 		736C1B0021771D8A001784BF /* WeatherCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736C1AFE21771D8A001784BF /* WeatherCustomCell.swift */; };
 		736C1B0121771D8A001784BF /* WeatherCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */; };
 		736DFC0A2175DAE0006698FC /* sun.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 736DFC092175DAE0006698FC /* sun.jpeg */; };
+		7378337221B3E9E90031731F /* kenshinCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7378337121B3E9E90031731F /* kenshinCustomCell.xib */; };
 		8A0B364E213A474D00F196AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364D213A474D00F196AD /* AppDelegate.swift */; };
 		8A0B3650213A474D00F196AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364F213A474D00F196AD /* ViewController.swift */; };
 		8A0B3653213A474D00F196AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B3651213A474D00F196AD /* Main.storyboard */; };
@@ -66,10 +67,11 @@
 		8AA8CEEC213BE09900D64FA1 /* CollectionViewController_Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8CEEA213BE09900D64FA1 /* CollectionViewController_Menu.xib */; };
 		8AA8CEEF213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8CEED213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift */; };
 		8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8CEEE213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib */; };
+		8AEEC64A21AEA30900ED33A2 /* kenshinCustomCellKaiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEEC64821AEA30900ED33A2 /* kenshinCustomCellKaiki.swift */; };
+		8AEEC64B21AEA30900ED33A2 /* kenshinCustomCellKaiki.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AEEC64921AEA30900ED33A2 /* kenshinCustomCellKaiki.xib */; };
 		9342E6D621ACD841001A733D /* YOTO_SHOP_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D221ACD840001A733D /* YOTO_SHOP_48.png */; };
 		9342E6D721ACD841001A733D /* YOTO_HOME_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D321ACD840001A733D /* YOTO_HOME_48.png */; };
 		9342E6D821ACD841001A733D /* YOTO_BUILDING_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D421ACD841001A733D /* YOTO_BUILDING_48.png */; };
-		9342E6D921ACD841001A733D /* YOTO_FACTORY_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D521ACD841001A733D /* YOTO_FACTORY_48.png */; };
 		93D317D32191342500BC0A95 /* PrimaryActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D317D22191342500BC0A95 /* PrimaryActionButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +126,7 @@
 		736C1AFE21771D8A001784BF /* WeatherCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCustomCell.swift; sourceTree = "<group>"; };
 		736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCustomCell.xib; sourceTree = "<group>"; };
 		736DFC092175DAE0006698FC /* sun.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpeg; sourceTree = "<group>"; };
+		7378337121B3E9E90031731F /* kenshinCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = kenshinCustomCell.xib; sourceTree = "<group>"; };
 		8A0B364A213A474D00F196AD /* KenshinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0B364D213A474D00F196AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A0B364F213A474D00F196AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +150,6 @@
 		8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_CustomInfo.xib; sourceTree = "<group>"; };
 		8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Kenshin.swift; sourceTree = "<group>"; };
 		8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kenshinCustomCell.swift; sourceTree = "<group>"; };
-		8A70356E21A3A149001A0D36 /* kenshinCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = kenshinCustomCell.xib; sourceTree = "<group>"; };
 		8A7AF378214295E000632788 /* ViewController_CustomNumberSerch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_CustomNumberSerch.swift; sourceTree = "<group>"; };
 		8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_CustomNumberSerch.xib; sourceTree = "<group>"; };
 		8A7AF37F214297D600632788 /* ViewController_KenjunList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_KenjunList.swift; sourceTree = "<group>"; };
@@ -157,10 +159,11 @@
 		8AA8CEEA213BE09900D64FA1 /* CollectionViewController_Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController_Menu.xib; sourceTree = "<group>"; };
 		8AA8CEED213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell_Kenshin.swift; sourceTree = "<group>"; };
 		8AA8CEEE213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell_Kenshin.xib; sourceTree = "<group>"; };
+		8AEEC64821AEA30900ED33A2 /* kenshinCustomCellKaiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kenshinCustomCellKaiki.swift; sourceTree = "<group>"; };
+		8AEEC64921AEA30900ED33A2 /* kenshinCustomCellKaiki.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = kenshinCustomCellKaiki.xib; sourceTree = "<group>"; };
 		9342E6D221ACD840001A733D /* YOTO_SHOP_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_SHOP_48.png; sourceTree = "<group>"; };
 		9342E6D321ACD840001A733D /* YOTO_HOME_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_HOME_48.png; sourceTree = "<group>"; };
 		9342E6D421ACD841001A733D /* YOTO_BUILDING_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_BUILDING_48.png; sourceTree = "<group>"; };
-		9342E6D521ACD841001A733D /* YOTO_FACTORY_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_FACTORY_48.png; sourceTree = "<group>"; };
 		93D317D22191342500BC0A95 /* PrimaryActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,8 +215,6 @@
 		8A0B364C213A474D00F196AD /* KenshinApp */ = {
 			isa = PBXGroup;
 			children = (
-				8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */,
-				8A70356E21A3A149001A0D36 /* kenshinCustomCell.xib */,
 				733621CF219806B7006BACE0 /* ViewController_Contact.swift */,
 				7349458321782C5B00DAF1FD /* meter.png */,
 				7349457B2177FCA500DAF1FD /* repeat.png */,
@@ -221,7 +222,6 @@
 				734945772177FC8F00DAF1FD /* bicycle.png */,
 				734945782177FC8F00DAF1FD /* gear.png */,
 				9342E6D421ACD841001A733D /* YOTO_BUILDING_48.png */,
-				9342E6D521ACD841001A733D /* YOTO_FACTORY_48.png */,
 				9342E6D321ACD840001A733D /* YOTO_HOME_48.png */,
 				9342E6D221ACD840001A733D /* YOTO_SHOP_48.png */,
 				93D317D22191342500BC0A95 /* PrimaryActionButton.swift */,
@@ -245,13 +245,13 @@
 				734235C62169CE2B008A213E /* KenshinData2.json */,
 				734235C72169CE2C008A213E /* KenshinData3.json */,
 				8A0B364D213A474D00F196AD /* AppDelegate.swift */,
-				8A0B364F213A474D00F196AD /* ViewController.swift */,
 				8A0B367B213A4D9F00F196AD /* ViewController_SignIn.swift */,
 				8A0B367C213A4D9F00F196AD /* ViewController_SignIn.xib */,
 				8A0B367F213A4DD900F196AD /* ViewController_Hello.swift */,
 				8A0B3680213A4DD900F196AD /* ViewController_Hello.xib */,
 				8AA8CEE9213BE09900D64FA1 /* CollectionViewController_Menu.swift */,
 				734945A921797D0D00DAF1FD /* triangleButton.swift */,
+				8A0B364F213A474D00F196AD /* ViewController.swift */,
 				8AA8CEEA213BE09900D64FA1 /* CollectionViewController_Menu.xib */,
 				8AA8CEED213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift */,
 				8AA8CEEE213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib */,
@@ -264,6 +264,10 @@
 				8A5308A42160C40D0039A051 /* ViewController_CustomInfo.swift */,
 				8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */,
 				8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */,
+				8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */,
+				7378337121B3E9E90031731F /* kenshinCustomCell.xib */,
+				8AEEC64821AEA30900ED33A2 /* kenshinCustomCellKaiki.swift */,
+				8AEEC64921AEA30900ED33A2 /* kenshinCustomCellKaiki.xib */,
 				8A2F764F217393C900AD7F1F /* ViewController_KenshinConform.swift */,
 				8A2F7650217393C900AD7F1F /* ViewController_KenshinConform.xib */,
 				8A0B3651213A474D00F196AD /* Main.storyboard */,
@@ -362,7 +366,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = TomonariNonaka;
 				TargetAttributes = {
 					8A0B3649213A474D00F196AD = {
@@ -403,6 +407,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7378337221B3E9E90031731F /* kenshinCustomCell.xib in Resources */,
+				8AEEC64B21AEA30900ED33A2 /* kenshinCustomCellKaiki.xib in Resources */,
 				8A0B3682213A4DD900F196AD /* ViewController_Hello.xib in Resources */,
 				9342E6D721ACD841001A733D /* YOTO_HOME_48.png in Resources */,
 				8A7AF382214297D600632788 /* ViewController_KenjunList.xib in Resources */,
@@ -436,7 +442,6 @@
 				9342E6D621ACD841001A733D /* YOTO_SHOP_48.png in Resources */,
 				732924122159D181005E4940 /* ViewController_AreaSerch.xib in Resources */,
 				8AA8CEEC213BE09900D64FA1 /* CollectionViewController_Menu.xib in Resources */,
-				9342E6D921ACD841001A733D /* YOTO_FACTORY_48.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +497,7 @@
 				8AA8CEEF213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift in Sources */,
 				734945AA21797D0D00DAF1FD /* triangleButton.swift in Sources */,
 				733F6576218A8FA700657F81 /* ViewController_ToChange.swift in Sources */,
+				8AEEC64A21AEA30900ED33A2 /* kenshinCustomCellKaiki.swift in Sources */,
 				93D317D32191342500BC0A95 /* PrimaryActionButton.swift in Sources */,
 				734235A52169A674008A213E /* KenshinDataInput.swift in Sources */,
 				733621A12197BB5F006BACE0 /* CustomerTableViewCell.swift in Sources */,
@@ -671,7 +677,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
 			};

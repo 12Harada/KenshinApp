@@ -81,7 +81,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
 
         //ナビゲーションバーの右側に編集ボタンを表示
         self.navigationItem.setRightBarButton(self.editButtonItem, animated: true)
-
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "編集", style: .plain, target: nil, action: nil)
     }
     
     //Editボタンが押された際に呼び出される

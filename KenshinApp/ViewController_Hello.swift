@@ -22,7 +22,7 @@ class ViewController_Hello: UIViewController{
     
     
     //ログイン管理用変数
-    let login = Login()
+    let loginUser = [Login]()
     var weather = [Weather]()
     
     
@@ -67,8 +67,8 @@ class ViewController_Hello: UIViewController{
         self.navigationItem.hidesBackButton = true
         
         //前画面からのログインデータ連携確認
-        print("DukeIDの値：" + login.person)
-        print("パスワードの値：" + login.password)
+        //print("DukeIDの値：" + loginUser.person)
+        //print("パスワードの値：" + login.password)
         
         //お知らせ情報
         infoMessage.text = "ここにシステム側からのお知らせを記載したい"

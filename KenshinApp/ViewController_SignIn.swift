@@ -29,7 +29,9 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
   
   //原田追加
   var weather = [Weather]()
-  var login = login
+  var login: [Login] = []
+  var loginUser = [Login]()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -78,6 +80,13 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     passText.layer.addSublayer(borderPass)
     //テキストボックスフォーカス時に英字のみのキーボード表示
     passText.keyboardType = UIKeyboardType.numbersAndPunctuation
+    
+    //11/14 jsonファイル取り込み方法変更による追加
+    //11/14 jsonファイル取り込み方法変更による追加
+    guard let data = try? getJSONData() else { return }
+    login = try! JSONDecoder().decode([Login].self, from: data!)
+    print(login[0].person)
+  
     
     
     // Do any additional setup after loading the view.
@@ -189,10 +198,9 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     //        }
     
     //ファイルの内容読み込み(ユーザー情報)
-    //11/14 jsonファイル取り込み方法変更による追加
-    guard let data = try? getJSONData() else { return }
-    LoginList = try! JSONDecoder().decode([LoginList].self, from: data!)
-    print(goh[0].s_GyoseiCd)
+
+
+    
     var str = ""
     let importURL:URL = URL(fileURLWithPath: "/LoginList.json")
     do {
@@ -205,7 +213,7 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     //デコード２
     let decoder: JSONDecoder = JSONDecoder()
     do {
-      let newJson: [LoginList] = try decoder.decode([LoginList].self, from: lecturerData)
+      let newJson: [Login] = try decoder.decode([Login].self, from: lecturerData)
       //print(newJson[0]) //Success!!!
       
       // let loginlists = (newJson["loginlist"] as? NSArray)!
@@ -240,10 +248,19 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     //        }
     
     //ID、パスワードを次画面遷移用変数に格納
-    login.person = signText.text!
-    login.password = passText.text!
+    //loginUser.person = signText.text!
+    //loginUser.password = passText.text!
     
     
+  }
+  
+  //11/14 json取り込み方法変更に伴う新規追加
+  // GohInfo.json変換用
+  func getJSONData() throws -> Data? {
+    guard let path = Bundle.main.path(forResource: "LoginList", ofType: "json") else { return nil }
+    let url = URL(fileURLWithPath: path)
+    
+    return try Data(contentsOf: url)
   }
   
 }

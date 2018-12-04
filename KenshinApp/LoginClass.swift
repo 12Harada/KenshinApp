@@ -9,9 +9,13 @@
 import Foundation
 
 class Login: Codable{
-    
     //検針担当者ID
-    var person = ""
+    let person: String
     //パスワード
-    var password = ""
+    let password: String
+  
+    init(person: String, password: String){
+      self.person = person
+      self.password = password
+  }
 }

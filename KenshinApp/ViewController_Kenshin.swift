@@ -41,9 +41,9 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
                        self.selectedKenshinInput[selectedNumber].s_OldShiji,
                        self.selectedKenshinInput[selectedNumber].s_B1Ryo]
         
-//        let barRightButton = UIBarButtonItem(barButtonSystemItem: "保存", target: self, action: "onClickMyBarButton:")
         //ナビゲーションバーの右側に編集ボタンを表示
-        self.navigationItem.setRightBarButton(self.editButtonItem, animated: true)
+        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(rightBarBtnClicked(sender:))), animated: true)
+ 
         //テキストボックスフォーカス時に数字のみのキーボード表示
 //        self.thisShijiNum.keyboardType = UIKeyboardType.numberPad
 
@@ -66,11 +66,11 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-//        let cell = txtThisUseRyo.superview?.superview as! kenshinCustomCell
+ //       let thisUseRyoTxt: UITextField = kenshinTableView.kenshinCustomCell.txtThisUseRyo
         
  //       print(cell.addButton.titleLabel?.text)
         
-        //        kenshinData[4] = String(Int(thisShijiNum.text!)! - Int(beforeShijiNum.text!)!)
+ //       kenshinData[4] = String(Int(.text!)! - Int(beforeShijiNum.text!)!)
         
     }
 
@@ -111,14 +111,11 @@ class ViewController_Kenshin: UIViewController, UITableViewDelegate, UITableView
         return kenshinInfoCell
     }
  
-    //Editボタンが押された際に呼び出される
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        //通常走っていた処理はそのまま走らせる。
-        super.setEditing(editing, animated: true)
-        //自分が持っているテーブルビューのeditingを更新する。
-        self.kenshinTableView.setEditing(editing, animated: animated)
+    //保存ボタンが押された際に呼び出される
+    @objc internal func rightBarBtnClicked(sender: UIButton) {
+
         
-//        let kenshinAlert = UIAlertController(title: "使用量確認", message: "今回使用量：\n(kenshinData[4] as?String) \nこの使用量で登録してよろしいですか",  preferredStyle:UIAlertControllerStyle.alert)
+        _ = UIAlertController(title: "使用量確認", message: "今回使用量：\n(kenshinData[4] as?String) \nこの使用量で登録してよろしいですか",  preferredStyle:UIAlertControllerStyle.alert)
         
         
     }

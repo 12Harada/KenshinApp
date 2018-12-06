@@ -45,10 +45,10 @@ class PrimaryActionButton: UIButton {
   }
   
   private func configure() {
-    backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-    layer.cornerRadius = 10
+    backgroundColor = #colorLiteral(red: 0, green: 0.5008062124, blue: 1, alpha: 1)
+    //layer.cornerRadius = 20
     titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
-    setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+    setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
     
     layer.shadowOpacity = 0.3
     layer.shadowOffset = CGSize(width: 0, height: 1)

@@ -13,6 +13,7 @@ class CustomerTableViewCell: UITableViewCell {
     @IBOutlet weak var GMTImage: UIImageView!
     @IBOutlet weak var gmtsetNumber: UILabel!
     @IBOutlet weak var customerName: UILabel!
+    @IBOutlet weak var checkImage: UIImageView!
     
     func setupCell(model:KenshinInput ) {
         //タイトル表示
@@ -31,6 +32,8 @@ class CustomerTableViewCell: UITableViewCell {
         }        
         GMTImage.image = image
         GMTImage.contentMode = UIViewContentMode.scaleAspectFill
+        
+        
     }
     
 }

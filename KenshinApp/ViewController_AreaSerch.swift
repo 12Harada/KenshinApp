@@ -686,6 +686,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         self.selectedNumber = resultNumber[indexPath.row]
         print(self.kenshinData[self.selectedNumber])
         if (self.kenshinData[self.selectedNumber].s_YusoSetteiCode == "1"){
+            //cell.accessoryType = .checkmark
             cell.contentView.backgroundColor = UIColor.gray
         }
     }

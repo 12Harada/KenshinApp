@@ -23,15 +23,25 @@ class CustomerTableViewCell: UITableViewCell {
         customerName.text = model.s_NameJ
         
         var image = UIImage(named:"secret.png")
+        var image2 = UIImage(named:"Secret.png")
         
         //用途コード画像貼り付け
-        if(model.s_YotoCd == "13000"){
+        if(model.s_YotoCd == "11000"){
             image = UIImage(named:"YOTO_HOME_48.png")
+        }else if(model.s_YotoCd == "13000"){
+            image = UIImage(named:"YOTO_BUILDING_48.png")
         }else{
-            print("用途コード想定外")
-        }        
+            image = UIImage(named:"YOTO_SHOP_48.png")
+        }
         GMTImage.image = image
         GMTImage.contentMode = UIViewContentMode.scaleAspectFill
+        
+        if(model.s_ShiyouRyo != ""){
+            print("使用量チェック")
+            image2 = UIImage(named:"check.png")
+            checkImage.image = image2
+            checkImage.contentMode = UIViewContentMode.scaleAspectFill
+        }
         
         
     }

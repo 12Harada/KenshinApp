@@ -190,6 +190,7 @@
                 <navigationController id="iLX-0t-1mW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Nh6-UP-5fH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="22I-M7-B7D">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -263,6 +264,7 @@
                 <navigationController id="HeK-0z-9B8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="gq2-Lk-eeY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1QO-kQ-hSc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -279,6 +281,7 @@
                 <navigationController id="wrS-pm-8h3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="uKX-Og-GC1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H2t-Hr-x24">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -334,6 +337,7 @@
                 <navigationController id="geV-GF-g5U" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="ホーム" id="wqm-fA-cUw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D9v-cI-a7l">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

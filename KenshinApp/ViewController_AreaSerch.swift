@@ -336,7 +336,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                         let location:CLLocation = placemark.location!
                         
                         
-                        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G1", glyphTintColor: .white, markerTintColor: .red,title: "1")
+                        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"号1", glyphTintColor: .white, markerTintColor: .red,title: "1")
                         
                         self.annotation.append(ano1)
                         self.annotation2.append(ano1)
@@ -357,7 +357,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                     for placemark in placemarks! {
                         let location:CLLocation = placemark.location!
                         
-                        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G2", glyphTintColor: .white, markerTintColor: .red,title: "2")
+                        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"号2", glyphTintColor: .white, markerTintColor: .red,title: "2")
                         self.annotation.append(ano1)
                         self.annotation2.append(ano1)
                         
@@ -373,7 +373,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                     for placemark in placemarks! {
                         let location:CLLocation = placemark.location!
                         
-                        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"G3", glyphTintColor: .white, markerTintColor: .red,title: "3")
+                        let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), glyphText:"号3", glyphTintColor: .white, markerTintColor: .red,title: "3")
                         
                         
                         self.destLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
@@ -594,10 +594,12 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         //選んだ号によって表示させるデータを絞る
         for (index,data) in self.kenshinData.enumerated(){
+            if(view.annotation!.title!! != "HM"){
             if data.s_GouBan.contains(view.annotation!.title!!){
                 searchResult.append(data)
                 resultNumber.append(index)
                 
+            }
             }
         }
 
@@ -606,13 +608,13 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         //号の略称、和名を表示させる
         if (view.annotation!.title!! == "1"){
-            gohAbb.text = "G1"
+            gohAbb.text = "号1"
             gohName.text = goh[0].s_MachiJ
         }else if (view.annotation!.title!! == "2"){
-            gohAbb.text = "G2"
+            gohAbb.text = "号2"
             gohName.text = goh[1].s_MachiJ
         }else{
-            gohAbb.text = "G3"
+            gohAbb.text = "号3"
             gohName.text = goh[2].s_MachiJ
         }
         
@@ -685,9 +687,13 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         //セルの背景色を変更する
         self.selectedNumber = resultNumber[indexPath.row]
         print(self.kenshinData[self.selectedNumber])
-        if (self.kenshinData[self.selectedNumber].s_YusoSetteiCode == "1"){
+        if (self.kenshinData[self.selectedNumber].s_YusoSetteiCode == "2"){
             //cell.accessoryType = .checkmark
             cell.contentView.backgroundColor = UIColor.gray
+        }
+        if (self.kenshinData[self.selectedNumber].s_YusoSetteiCode == "3"){
+            //cell.accessoryType = .checkmark
+            cell.contentView.backgroundColor = UIColor.yellow
         }
     }
     

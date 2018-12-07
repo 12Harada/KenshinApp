@@ -37,6 +37,13 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     super.viewDidLoad()
     print("【ログイン画面】")
     
+    let str = "abcdefghijklmnopqrstuvwxyz"
+    let array = str.splitInto(1)
+    print(array)
+    
+    let str2 = array[0] + "-" + array[1] + "-" + array[2]
+    print(str2)
+    
     /***************
      背景の設定
      ***************/

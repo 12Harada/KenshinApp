@@ -16,8 +16,9 @@ class CustomerTableViewCell: UITableViewCell {
     @IBOutlet weak var checkImage: UIImageView!
     
     func setupCell(model:KenshinInput ) {
-        //タイトル表示
-        gmtsetNumber.text = model.s_GasSecchi
+        //ガスメータ設置場所コード表示
+        let array = model.s_GasSecchi.splitInto(1)
+        gmtsetNumber.text = array[0] + array[1] + array[2] + array[3] + "-" + array[4] + array[5] + array[6] + "-" + array[7] + array[8] + array[9] + array[10]
         
         //お客さま名表示
         customerName.text = model.s_NameJ

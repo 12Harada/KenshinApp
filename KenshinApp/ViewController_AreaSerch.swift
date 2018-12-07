@@ -60,6 +60,17 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         customerTableView.register (UINib(nibName: "CustomerTableViewCell", bundle: nil),forCellReuseIdentifier:"CustomerTableViewCell")
         
         
+        //セルの長押しで画面遷移を処理する
+        // UILongPressGestureRecognizer宣言
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: Selector(("cellLongPressed:")))
+        
+        // `UIGestureRecognizerDelegate`を設定するのをお忘れなく
+        longPressRecognizer.delegate = self as? UIGestureRecognizerDelegate
+        
+        // tableViewにrecognizerを設定
+        customerTableView.addGestureRecognizer(longPressRecognizer)
+        
+        
         
         /*************************
          各Json情報の取得
@@ -524,19 +535,16 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                 }
             }
         })
-        
-        
-        // 次画面 へ遷移するために Segue を呼び出す
-        //performSegue(withIdentifier: "CustomInfoSegue",sender: nil)
-        
     }
     
-    /*
-    @IBAction func cellLongPressed(_ sender: UILongPressGestureRecognizer) {
-        print("セル長押し")
-        // SubViewController へ遷移するために Segue を呼び出す
+    
+    //セルを二回タップした場合（セル選択を解除した場合）
+    /*func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "CustomInfoSegue",sender: nil)
     }*/
+    
+    
+
     
     //検索ボタン押下時の呼び出しメソッド
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -594,7 +602,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         //選んだ号によって表示させるデータを絞る
         for (index,data) in self.kenshinData.enumerated(){
-            if(view.annotation!.title!! != "HM"){
+            if(view.annotation!.title!! != "HM"){  //HM以外を出力させる
             if data.s_GouBan.contains(view.annotation!.title!!){
                 searchResult.append(data)
                 resultNumber.append(index)
@@ -625,6 +633,30 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     //テーブルビュー スクロール
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         return
+    }
+    
+    /* 長押しした際に呼ばれるメソッド */
+    @objc func cellLongPressed(sender: UIGestureRecognizer) {
+        
+        // 押された位置でcellのPathを取得
+        /*let point = recognizer.location(in: customerTableView)
+        let indexPath = customerTableView.indexPathForRow(at: point)
+        
+        if indexPath == nil {
+            
+        } else if recognizer.state == UIGestureRecognizerState.began  {
+            // 長押しされた場合の処理
+            print("長押しされたcellのindexPath:\(String(describing: indexPath?.row))")
+        }*/
+        
+        if (sender.state == .began){
+            print("長押し開始のタイミング")
+            /*
+             何かアラート処理を書いたり
+             */
+        } else if (sender.state == .ended) {
+            print("長押し終了のタイミング")
+        }
     }
     
     //11/14 json取り込み方法変更に伴う新規追加
@@ -708,3 +740,4 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     }
     
 }
+

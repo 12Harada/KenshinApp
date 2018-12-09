@@ -43,7 +43,6 @@
 		7378337221B3E9E90031731F /* kenshinCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7378337121B3E9E90031731F /* kenshinCustomCell.xib */; };
 		73997AD321BCCCAD007A7865 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73997AD121BCCCAD007A7865 /* ContactCell.swift */; };
 		73997AD421BCCCAD007A7865 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73997AD221BCCCAD007A7865 /* ContactCell.xib */; };
-		73997AD621BCDB1A007A7865 /* haradaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 73997AD521BCDB19007A7865 /* haradaImage.png */; };
 		73A6C49C21B69E2F00D11F1E /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 73A6C49B21B69E2F00D11F1E /* check.png */; };
 		8A0B364E213A474D00F196AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364D213A474D00F196AD /* AppDelegate.swift */; };
 		8A0B3650213A474D00F196AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364F213A474D00F196AD /* ViewController.swift */; };
@@ -61,6 +60,7 @@
 		8A5308A62160C40D0039A051 /* ViewController_CustomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5308A42160C40D0039A051 /* ViewController_CustomInfo.swift */; };
 		8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */; };
 		8A5308AA2160C4DF0039A051 /* ViewController_Kenshin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */; };
+		8A6E6DF021BCE4C20098A0CD /* haradaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E6DEF21BCE4C20098A0CD /* haradaImage.png */; };
 		8A70356F21A3A149001A0D36 /* kenshinCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */; };
 		8A7AF37A214295E000632788 /* ViewController_CustomNumberSerch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7AF378214295E000632788 /* ViewController_CustomNumberSerch.swift */; };
 		8A7AF37B214295E000632788 /* ViewController_CustomNumberSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */; };
@@ -135,7 +135,6 @@
 		7378337121B3E9E90031731F /* kenshinCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = kenshinCustomCell.xib; sourceTree = "<group>"; };
 		73997AD121BCCCAD007A7865 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		73997AD221BCCCAD007A7865 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
-		73997AD521BCDB19007A7865 /* haradaImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haradaImage.png; sourceTree = "<group>"; };
 		73A6C49B21B69E2F00D11F1E /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		8A0B364A213A474D00F196AD /* KenshinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0B364D213A474D00F196AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +158,7 @@
 		8A5308A42160C40D0039A051 /* ViewController_CustomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_CustomInfo.swift; sourceTree = "<group>"; };
 		8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_CustomInfo.xib; sourceTree = "<group>"; };
 		8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Kenshin.swift; sourceTree = "<group>"; };
+		8A6E6DEF21BCE4C20098A0CD /* haradaImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haradaImage.png; sourceTree = SOURCE_ROOT; };
 		8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kenshinCustomCell.swift; sourceTree = "<group>"; };
 		8A7AF378214295E000632788 /* ViewController_CustomNumberSerch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_CustomNumberSerch.swift; sourceTree = "<group>"; };
 		8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_CustomNumberSerch.xib; sourceTree = "<group>"; };
@@ -227,10 +227,10 @@
 		8A0B364C213A474D00F196AD /* KenshinApp */ = {
 			isa = PBXGroup;
 			children = (
-				73997AD521BCDB19007A7865 /* haradaImage.png */,
 				733621CF219806B7006BACE0 /* ViewController_Contact.swift */,
 				7349458321782C5B00DAF1FD /* meter.png */,
 				7349457B2177FCA500DAF1FD /* repeat.png */,
+				8A6E6DEF21BCE4C20098A0CD /* haradaImage.png */,
 				7349457C2177FCA600DAF1FD /* secret.png */,
 				734945772177FC8F00DAF1FD /* bicycle.png */,
 				734945782177FC8F00DAF1FD /* gear.png */,
@@ -431,6 +431,7 @@
 				9342E6D721ACD841001A733D /* YOTO_HOME_48.png in Resources */,
 				8A7AF382214297D600632788 /* ViewController_KenjunList.xib in Resources */,
 				733621C62197F1EF006BACE0 /* KenshinData.json in Resources */,
+				8A6E6DF021BCE4C20098A0CD /* haradaImage.png in Resources */,
 				7349457D2177FCA600DAF1FD /* repeat.png in Resources */,
 				9342E6D821ACD841001A733D /* YOTO_BUILDING_48.png in Resources */,
 				7349457A2177FC8F00DAF1FD /* gear.png in Resources */,
@@ -451,7 +452,6 @@
 				8A0B3658213A474E00F196AD /* LaunchScreen.storyboard in Resources */,
 				8A0B3655213A474E00F196AD /* Assets.xcassets in Resources */,
 				8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */,
-				73997AD621BCDB1A007A7865 /* haradaImage.png in Resources */,
 				8A8044A42162F9F2006DEA56 /* LoginList.json in Resources */,
 				733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */,
 				8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */,

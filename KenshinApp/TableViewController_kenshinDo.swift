@@ -58,15 +58,25 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         //ナビゲーションバーの右側に保存ボタンを表示
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(rightBarBtnClicked(sender:))), animated: true)
         
+        thisUseGas.addTarget(self, action: Selector(("textFieldDidChange:")),for: UIControlEvents.editingChanged)
+        
     }
 
+    func textFieldDidChange(textFiled: UITextField) {
+        //今回使用量を計算して表示
+        thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
+    }
+    
     @objc internal func rightBarBtnClicked(sender: UIButton){
-        
+                
         print("保存ボタンが押されたよ");
-        let alert = UIAlertController(title: "使用量確認", message: "今回使用量： + \nthisUseGasRyo.text + \nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "使用量確認", message: "今回指示数： \(self.thisUseGas.text!)\n今回使用量： \(self.thisUseGasRyo.text!)\nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
 
         let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(okButton)
+        
+        let cancelButton = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.default, handler: nil)
+        alert.addAction(cancelButton)
                 
         present(alert, animated: true, completion: nil)
 
@@ -75,6 +85,7 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
     override func viewWillAppear(_ animated: Bool) {
         thisUseGas.becomeFirstResponder()
     }
+/*
     //フォーカスが離れたらキーボードを閉じ、使用量を計算する
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //キーボードを閉じる
@@ -89,7 +100,7 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
         
     }
-
+*/
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

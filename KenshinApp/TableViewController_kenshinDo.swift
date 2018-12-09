@@ -57,20 +57,54 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         
         //ナビゲーションバーの右側に保存ボタンを表示
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(rightBarBtnClicked(sender:))), animated: true)
-        
-        thisUseGas.addTarget(self, action: Selector(("textFieldDidChange:")),for: UIControlEvents.editingChanged)
-        
+ 
+        let tf = UITextField()
+        tf.addTarget(self, action: Selector(("textFieldDidChange:")),for: UIControlEvents.editingChanged)
+        view.addSubview(tf)
+    }
+    //画面表示時にテキストへフォーカスし、キーボード表示
+    override func viewWillAppear(_ animated: Bool) {
+        thisUseGas.becomeFirstResponder()
     }
 
+    func textFieldShouldEndEditing(_ textField:UITextField) -> Bool {
+        print("キーボードを閉じる前")
+        return true
+    }
+    private func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        print("キーボードを閉じる前")
+        // キーボードを閉じる処理
+        self.view.endEditing(true)
+        print("キーボードを閉じたあと")
+        return true
+    }
+    
+   
+/*
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("テキストフィールがタップされ、入力可能になったあと")
+        if thisUseGasRyo.text != nil {
+            //今回使用量を計算して表示
+            thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
+        }
+    }
+ */
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("変更中")
+        thisUseGasRyo.text = String(Int(self.thisUseGas.text!)! - Int(beforeUseGas.text!)!)
+       return true
+    }
+/*
     func textFieldDidChange(textFiled: UITextField) {
         //今回使用量を計算して表示
         thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
     }
-    
+*/
     @objc internal func rightBarBtnClicked(sender: UIButton){
-                
         print("保存ボタンが押されたよ");
-        let alert = UIAlertController(title: "使用量確認", message: "今回指示数： \(self.thisUseGas.text!)\n今回使用量： \(self.thisUseGasRyo.text!)\nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
+        //キーボードを閉じる
+        view.endEditing(true)
+       let alert = UIAlertController(title: "使用量確認", message: "今回指示数： \(self.thisUseGas.text!)\n今回使用量： \(self.thisUseGasRyo.text!)\nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
 
         let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(okButton)
@@ -80,10 +114,6 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
                 
         present(alert, animated: true, completion: nil)
 
-    }
-    //画面表示時にテキストへフォーカスし、キーボード表示
-    override func viewWillAppear(_ animated: Bool) {
-        thisUseGas.becomeFirstResponder()
     }
 /*
     //フォーカスが離れたらキーボードを閉じ、使用量を計算する

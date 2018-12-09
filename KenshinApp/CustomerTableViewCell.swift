@@ -38,7 +38,6 @@ class CustomerTableViewCell: UITableViewCell {
         GMTImage.contentMode = UIViewContentMode.scaleAspectFill
         
         if(model.s_ShiyouRyo != ""){
-            print("使用量チェック")
             image2 = UIImage(named:"check.png")
             checkImage.image = image2
             checkImage.contentMode = UIViewContentMode.scaleAspectFill

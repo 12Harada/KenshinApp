@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 
-class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,MKMapViewDelegate,CLLocationManagerDelegate {
+class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,MKMapViewDelegate,CLLocationManagerDelegate,UIGestureRecognizerDelegate {
     
     
     var goh: [Goh] = []
@@ -58,20 +58,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         //カスタムセルを利用するためにビューに登録
         customerTableView.register (UINib(nibName: "CustomerTableViewCell", bundle: nil),forCellReuseIdentifier:"CustomerTableViewCell")
-        
-        
-        //セルの長押しで画面遷移を処理する
-        // UILongPressGestureRecognizer宣言
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: Selector(("cellLongPressed:")))
-        
-        // `UIGestureRecognizerDelegate`を設定するのをお忘れなく
-        longPressRecognizer.delegate = self as? UIGestureRecognizerDelegate
-        
-        // tableViewにrecognizerを設定
-        customerTableView.addGestureRecognizer(longPressRecognizer)
-        
-        
-        
+
         /*************************
          各Json情報の取得
          *************************/
@@ -539,12 +526,10 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     
     
     //セルを二回タップした場合（セル選択を解除した場合）
-    /*func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "CustomInfoSegue",sender: nil)
-    }*/
+    }
     
-    
-
     
     //検索ボタン押下時の呼び出しメソッド
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -602,7 +587,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         //選んだ号によって表示させるデータを絞る
         for (index,data) in self.kenshinData.enumerated(){
-            if(view.annotation!.title!! != "HM"){  //HM以外を出力させる
+            if(view.annotation!.title!! == "号1" || view.annotation!.title!! == "号2" || view.annotation!.title!! == "号3"){  //HM以外を出力させる
             if data.s_GouBan.contains(view.annotation!.title!!){
                 searchResult.append(data)
                 resultNumber.append(index)
@@ -636,28 +621,16 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     }
     
     /* 長押しした際に呼ばれるメソッド */
-    @objc func cellLongPressed(sender: UIGestureRecognizer) {
+   /* func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer){
+        print("ロングプレス実行")
         
-        // 押された位置でcellのPathを取得
-        /*let point = recognizer.location(in: customerTableView)
-        let indexPath = customerTableView.indexPathForRow(at: point)
-        
-        if indexPath == nil {
-            
-        } else if recognizer.state == UIGestureRecognizerState.began  {
-            // 長押しされた場合の処理
-            print("長押しされたcellのindexPath:\(String(describing: indexPath?.row))")
-        }*/
-        
-        if (sender.state == .began){
-            print("長押し開始のタイミング")
-            /*
-             何かアラート処理を書いたり
-             */
-        } else if (sender.state == .ended) {
-            print("長押し終了のタイミング")
+        if longPressGestureRecognizer.state == .began {
+            print("long press began")
         }
-    }
+        if longPressGestureRecognizer.state == .ended {
+            print("long press ended")
+        }
+    }*/
     
     //11/14 json取り込み方法変更に伴う新規追加
     // GohInfo.json変換用

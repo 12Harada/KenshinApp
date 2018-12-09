@@ -131,7 +131,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         print("次画面呼び出し実行")
         //        次の画面を取り出す
-        let viewController = segue.destination as! ViewController_Kenshin
+        let viewController = segue.destination as! TableViewController_kenshinDo
         viewController.selectedKenshinInput = self.selectedKenshinInput
         viewController.selectedNumber = self.selectedNumber;
         

@@ -14,7 +14,7 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
     @IBOutlet weak var thisUseGas: UITextField!
     @IBOutlet weak var kaikiSwitch: UISwitch!
     @IBOutlet weak var thisUseGasRyo: UILabel!
-    
+    @IBOutlet weak var kaikiSwitchState: UILabel!
     //データ領域の表示変数
     
     @IBOutlet weak var targetNumber: UILabel!
@@ -31,15 +31,22 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
     //viewDidLoad()のprint文みたいな方法で検針データを利用可能です
     var selectedNumber:Int = 0
 
+    @IBAction func switchState(_ sender: UISwitch) {
+        //回帰あり／なしの表示
+        kaikiSwitchState.text = sender.isOn ? "あり":"なし"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //お客さま情報
+        //お客さま情報表示
+        //お客さま番号ハイフン編集
         let gmtNum = selectedKenshinInput[selectedNumber].s_GasSecchi.splitInto(1)
-        
+        //お客さま番号
         targetNumber.text = gmtNum[0] + gmtNum[1] + gmtNum[2] + gmtNum[3] + "-" + gmtNum[4] + gmtNum[5] + gmtNum[6] + "-" + gmtNum[7] + gmtNum[8] + gmtNum[9] + gmtNum[10]
-
+        //お客さま名
         customName.text = self.selectedKenshinInput[selectedNumber].s_NameJ
+        //メータ番号
         meterNumber.text = self.selectedKenshinInput[selectedNumber].s_MeterNo
         
         //前回検針情報
@@ -56,9 +63,13 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
     @objc internal func rightBarBtnClicked(sender: UIButton){
         
         print("保存ボタンが押されたよ")
-        _ = UIAlertController(title: "使用量確認", message: "今回使用量：\n(thisUseGasRyo.text) \nこの使用量で登録してよろしいですか",  preferredStyle:UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "使用量確認", message: "今回使用量：\n(thisUseGasRyo.text) \nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
 
-    
+//        let okButton = UIAlertAction(title: okText, style: UIAlertActionStyle.cancel, handler: nil)
+//        alert.addAction(okayButton)
+        
+        present(alert, animated: true, completion: nil)
+
     }
     //画面表示時にテキストへフォーカスし、キーボード表示
     override func viewWillAppear(_ animated: Bool) {

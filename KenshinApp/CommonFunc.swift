@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+import MapKit
+import CoreLocation
 
 extension String {
     func splitInto(_ length: Int) -> [String] {
@@ -15,5 +18,17 @@ extension String {
             str.insert(",", at: str.index(str.startIndex, offsetBy: (i + 1) * max(length, 1) + i))
         }
         return str.components(separatedBy: ",")
+    }
+}
+
+/* 長押しした際に呼ばれるメソッド */
+func cellLongPressed(longPressGestureRecognizer: UILongPressGestureRecognizer){
+    print("ロングプレス実行")
+    
+    if longPressGestureRecognizer.state == .began {
+        print("long press began")
+    }
+    if longPressGestureRecognizer.state == .ended {
+        print("long press ended")
     }
 }

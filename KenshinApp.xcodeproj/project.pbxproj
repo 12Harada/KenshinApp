@@ -63,6 +63,8 @@
 		8A7AF37B214295E000632788 /* ViewController_CustomNumberSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */; };
 		8A7AF381214297D600632788 /* ViewController_KenjunList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7AF37F214297D600632788 /* ViewController_KenjunList.swift */; };
 		8A7AF382214297D600632788 /* ViewController_KenjunList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7AF380214297D600632788 /* ViewController_KenjunList.xib */; };
+		8A7F383E21BCACC900BCCCE9 /* TableViewController_kenshinDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F383C21BCACC900BCCCE9 /* TableViewController_kenshinDo.swift */; };
+		8A7F383F21BCACC900BCCCE9 /* TableViewController_kenshinDo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7F383D21BCACC900BCCCE9 /* TableViewController_kenshinDo.xib */; };
 		8A8044A42162F9F2006DEA56 /* LoginList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A8044A32162F9F2006DEA56 /* LoginList.json */; };
 		8AA8CEEB213BE09900D64FA1 /* CollectionViewController_Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8CEE9213BE09900D64FA1 /* CollectionViewController_Menu.swift */; };
 		8AA8CEEC213BE09900D64FA1 /* CollectionViewController_Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8CEEA213BE09900D64FA1 /* CollectionViewController_Menu.xib */; };
@@ -156,6 +158,8 @@
 		8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_CustomNumberSerch.xib; sourceTree = "<group>"; };
 		8A7AF37F214297D600632788 /* ViewController_KenjunList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_KenjunList.swift; sourceTree = "<group>"; };
 		8A7AF380214297D600632788 /* ViewController_KenjunList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_KenjunList.xib; sourceTree = "<group>"; };
+		8A7F383C21BCACC900BCCCE9 /* TableViewController_kenshinDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController_kenshinDo.swift; sourceTree = "<group>"; };
+		8A7F383D21BCACC900BCCCE9 /* TableViewController_kenshinDo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewController_kenshinDo.xib; sourceTree = "<group>"; };
 		8A8044A32162F9F2006DEA56 /* LoginList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginList.json; sourceTree = "<group>"; };
 		8AA8CEE9213BE09900D64FA1 /* CollectionViewController_Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController_Menu.swift; sourceTree = "<group>"; };
 		8AA8CEEA213BE09900D64FA1 /* CollectionViewController_Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController_Menu.xib; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				8A2F764F217393C900AD7F1F /* ViewController_KenshinConform.swift */,
 				8A2F7650217393C900AD7F1F /* ViewController_KenshinConform.xib */,
 				8A0B3651213A474D00F196AD /* Main.storyboard */,
+				8A7F383C21BCACC900BCCCE9 /* TableViewController_kenshinDo.swift */,
+				8A7F383D21BCACC900BCCCE9 /* TableViewController_kenshinDo.xib */,
 				736C1AFE21771D8A001784BF /* WeatherCustomCell.swift */,
 				736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */,
 				8A0B3654213A474E00F196AD /* Assets.xcassets */,
@@ -424,6 +430,7 @@
 				734235CA2169CE2D008A213E /* KenshinData3.json in Resources */,
 				8A0B367E213A4D9F00F196AD /* ViewController_SignIn.xib in Resources */,
 				7349457E2177FCA600DAF1FD /* secret.png in Resources */,
+				8A7F383F21BCACC900BCCCE9 /* TableViewController_kenshinDo.xib in Resources */,
 				8A7AF37B214295E000632788 /* ViewController_CustomNumberSerch.xib in Resources */,
 				73494582217828A200DAF1FD /* CollectionViewCell_KenshinLong.xib in Resources */,
 				7349458421782C5B00DAF1FD /* meter.png in Resources */,
@@ -519,6 +526,7 @@
 				734235A12169A61D008A213E /* WeatherClass.swift in Sources */,
 				8AA8CEEB213BE09900D64FA1 /* CollectionViewController_Menu.swift in Sources */,
 				734235A32169A644008A213E /* GohIndex.swift in Sources */,
+				8A7F383E21BCACC900BCCCE9 /* TableViewController_kenshinDo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

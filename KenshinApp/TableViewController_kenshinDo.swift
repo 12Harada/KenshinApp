@@ -35,7 +35,9 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         super.viewDidLoad()
         
         //お客さま情報
-        targetNumber.text = self.selectedKenshinInput[selectedNumber].s_GasSecchi
+        let gmtNum = selectedKenshinInput[selectedNumber].s_GasSecchi.splitInto(1)
+        targetNumber.text = gmtNum[0] + "-" + gmtNum[1] + "-" + gmtNum[2]
+        print(gmtNum[0] + "-" + gmtNum[1] + "-" + gmtNum[2])
         customName.text = self.selectedKenshinInput[selectedNumber].s_NameJ
         meterNumber.text = self.selectedKenshinInput[selectedNumber].s_MeterNo
         
@@ -47,12 +49,12 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         
         //ナビゲーションバーの右側に保存ボタンを表示
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(rightBarBtnClicked(sender:))), animated: true)
-
         
     }
 
-    @objc func rightBarBtnClicked(sender: UIButton){
+    @objc internal func rightBarBtnClicked(sender: UIButton){
         
+        print("保存ボタンが押されたよ")
         _ = UIAlertController(title: "使用量確認", message: "今回使用量：\n(thisUseGasRyo.text) \nこの使用量で登録してよろしいですか",  preferredStyle:UIAlertControllerStyle.alert)
 
     

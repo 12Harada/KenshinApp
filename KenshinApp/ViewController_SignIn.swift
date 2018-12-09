@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 extension String {
   // 半角英数字を判定
@@ -36,29 +37,7 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("【ログイン画面】")
-    
-    let str = "abcdefghijklmnopqrstuvwxyz"
-    let array = str.splitInto(1)
-    print(array)
-    
-    let str2 = array[0] + "-" + array[1] + "-" + array[2]
-    print(str2)
-    
-    /***************
-     背景の設定
-     ***************/
-    /*
-     // バンドルした画像ファイルを読み込み
-     let image = UIImage(named: "Aozora2.png")
-     
-     // Image Viewに画像を設定
-     //Aspect Fill = 縦横の比率はそのままで短い辺を基準に全体を表示する
-     backImage.image = image
-     self.view.sendSubview(toBack: backImage)
-     */
-    
-    
-    print("テスト（後で削除）")
+
     let borderID = CALayer()
     let widthID = CGFloat(2.0)
     let borderPass = CALayer()
@@ -88,7 +67,7 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     //テキストボックスフォーカス時に英字のみのキーボード表示
     passText.keyboardType = UIKeyboardType.numbersAndPunctuation
     
-    //11/14 jsonファイル取り込み方法変更による追加
+
     //11/14 jsonファイル取り込み方法変更による追加
     guard let data = try? getJSONData() else { return }
     login = try! JSONDecoder().decode([Login].self, from: data!)
@@ -261,6 +240,53 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     
   }
   
+    @IBAction func faceButton(_ sender: Any) {
+        print("faceID認証の実行")
+        //self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        var str:String = ""
+        let ctx = LAContext()
+        let localizedReasonString = "ロックを解除"
+        var error: NSError?
+        if ctx.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            ctx.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+                               localizedReason: localizedReasonString) { (success, evaluateError) in
+                                if success {
+                                    let ac = UIAlertController(title: "認証成功",
+                                                               message: "",
+                                                               preferredStyle: .alert)
+                                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                                    self.present(ac, animated: true)
+                                   // self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                                    print("str:",str)
+                                    str = "OK"
+                                    print("str:",str)
+                                } else {
+                                    let ac = UIAlertController(title: "認証失敗",
+                                                               message: evaluateError?.localizedDescription,
+                                                               preferredStyle: .alert)
+                                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                                    self.present(ac, animated: true)
+                                    str = "NG"
+                                }
+            }
+        } else {
+            print("Face IDが利用できない")
+            let ac = UIAlertController(title: "Error",
+                                       message: error?.localizedDescription,
+                                       preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5)) {
+        print("str:",str)
+        if(str == "OK"){
+        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+        }
+    }
+    
+    
+    
   //11/14 json取り込み方法変更に伴う新規追加
   // GohInfo.json変換用
   func getJSONData() throws -> Data? {

@@ -14,7 +14,7 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
     @IBOutlet weak var thisUseGas: UITextField!
     @IBOutlet weak var kaikiSwitch: UISwitch!
     @IBOutlet weak var thisUseGasRyo: UILabel!
-    
+    @IBOutlet weak var kaikiSwitchState: UILabel!
     //データ領域の表示変数
     
     @IBOutlet weak var targetNumber: UILabel!
@@ -31,36 +31,117 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
     //viewDidLoad()のprint文みたいな方法で検針データを利用可能です
     var selectedNumber:Int = 0
 
+    @IBAction func switchState(_ sender: UISwitch) {
+        //回帰あり／なしの表示
+        kaikiSwitchState.text = sender.isOn ? "あり":"なし"
+    }
+//    let tf = UITextField()
+
+    @IBAction func InputEnd(_ sender: Any) {
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //お客さま情報
-        targetNumber.text = self.selectedKenshinInput[selectedNumber].s_GasSecchi
+        //お客さま情報表示
+        //お客さま番号ハイフン編集
+        let gmtNum = selectedKenshinInput[selectedNumber].s_GasSecchi.splitInto(1)
+        //お客さま番号
+        targetNumber.text = gmtNum[0] + gmtNum[1] + gmtNum[2] + gmtNum[3] + "-" + gmtNum[4] + gmtNum[5] + gmtNum[6] + "-" + gmtNum[7] + gmtNum[8] + gmtNum[9] + gmtNum[10]
+        //お客さま名
         customName.text = self.selectedKenshinInput[selectedNumber].s_NameJ
+        //メータ番号
         meterNumber.text = self.selectedKenshinInput[selectedNumber].s_MeterNo
         
         //前回検針情報
         beforeUseGas.text = self.selectedKenshinInput[selectedNumber].s_OldShiji
         beforeUseGasRyo.text = self.selectedKenshinInput[selectedNumber].s_B1Ryo
         beforeYearUseGasRyo.text = self.selectedKenshinInput[selectedNumber].s_BB1Ryo
-        thisUseGas.delegate = self
+ //       tf.delegate = self
         
         //ナビゲーションバーの右側に保存ボタンを表示
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(rightBarBtnClicked(sender:))), animated: true)
-
-        
-    }
-
-    @objc func rightBarBtnClicked(sender: UIButton){
-        
-        _ = UIAlertController(title: "使用量確認", message: "今回使用量：\n(thisUseGasRyo.text) \nこの使用量で登録してよろしいですか",  preferredStyle:UIAlertControllerStyle.alert)
-
-    
+ 
+  /*      //入力している文字を全消しするclearボタンを設定(書いている時のみの設定)
+        tf.clearButtonMode = .whileEditing
+        //改行ボタン
+        tf.returnKeyType = .go
+       
+        tf.addTarget(self, action: Selector(("textFieldDidChange:")),for: UIControlEvents.editingChanged)
+        view.addSubview(tf)
+ */
     }
     //画面表示時にテキストへフォーカスし、キーボード表示
     override func viewWillAppear(_ animated: Bool) {
         thisUseGas.becomeFirstResponder()
     }
+
+    private func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        print("キーボードを閉じる前")
+        // キーボードを閉じる処理
+        self.view.endEditing(true)
+        //        rightBarBtnClicked(sender:)
+        print("キーボードを閉じたあと")
+        return true
+    }
+
+    func textFieldShouldEndEditing(_ textField:UITextField) -> Bool {
+        print("キーボードを閉じる前")
+        let inputData = self.thisUseGas.text
+        let minusData = self.beforeUseGas.text!
+        thisUseGasRyo.text = String(Int(inputData!)! - Int(minusData)!)
+
+        return true
+    }
+    
+/*
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("テキストフィールがタップされ、入力可能になったあと")
+        if thisUseGasRyo.text != nil {
+            //今回使用量を計算して表示
+            thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
+        }
+    }
+
+    //keyboard以外の画面を押すと、keyboardを閉じる処理
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (self.tf.isFirstResponder) {
+            self.tf.resignFirstResponder()
+        }
+    }
+
+    func textFieldDidChange(textFiled: UITextField) {
+        //今回使用量を計算して表示
+        thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
+    }
+*/
+    @objc func rightBarBtnClicked(sender: UIButton){
+        print("保存ボタンが押されたよ");
+        //キーボードを閉じる
+        view.endEditing(true)
+        let inputData = (thisUseGas.text!).trimmingCharacters(in: .whitespaces)
+        let minusData = (beforeUseGas.text!).trimmingCharacters(in: .whitespaces)
+        //画面に入力された今回指示数から前回指示数を引き算
+        if let data1 = Int(inputData){
+            if let data2 = Int(minusData){
+                thisUseGasRyo.text = String(data1 - data2)
+            }
+        }
+        //確認用のダイアログを表示
+        let alert = UIAlertController(title: "使用量確認", message: "今回指示数： \(self.thisUseGas.text!)\n今回使用量： \(self.thisUseGasRyo.text!)\nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
+        
+        //OKボタンを表示
+        let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alert.addAction(okButton)
+        //キャンセルボタンを表示
+        let cancelButton = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.default, handler: nil)
+        alert.addAction(cancelButton)
+                
+        present(alert, animated: true, completion: nil)
+
+    }
+/*
     //フォーカスが離れたらキーボードを閉じ、使用量を計算する
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //キーボードを閉じる
@@ -75,7 +156,7 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
         
     }
-
+*/
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

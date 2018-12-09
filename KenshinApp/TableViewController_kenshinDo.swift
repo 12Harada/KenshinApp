@@ -62,12 +62,12 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
 
     @objc internal func rightBarBtnClicked(sender: UIButton){
         
-        print("保存ボタンが押されたよ")
-        let alert = UIAlertController(title: "使用量確認", message: "今回使用量：\n(thisUseGasRyo.text) \nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
+        print("保存ボタンが押されたよ");
+        let alert = UIAlertController(title: "使用量確認", message: "今回使用量： + \nthisUseGasRyo.text + \nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
 
-//        let okButton = UIAlertAction(title: okText, style: UIAlertActionStyle.cancel, handler: nil)
-//        alert.addAction(okayButton)
-        
+        let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alert.addAction(okButton)
+                
         present(alert, animated: true, completion: nil)
 
     }

@@ -35,7 +35,8 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         //回帰あり／なしの表示
         kaikiSwitchState.text = sender.isOn ? "あり":"なし"
     }
-    
+    let tf = UITextField()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,12 +54,16 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         beforeUseGas.text = self.selectedKenshinInput[selectedNumber].s_OldShiji
         beforeUseGasRyo.text = self.selectedKenshinInput[selectedNumber].s_B1Ryo
         beforeYearUseGasRyo.text = self.selectedKenshinInput[selectedNumber].s_BB1Ryo
-        thisUseGas.delegate = self
+        tf.delegate = self
         
         //ナビゲーションバーの右側に保存ボタンを表示
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(rightBarBtnClicked(sender:))), animated: true)
  
-        let tf = UITextField()
+        //入力している文字を全消しするclearボタンを設定(書いている時のみの設定)
+        tf.clearButtonMode = .whileEditing
+        //改行ボタン
+        tf.returnKeyType = .go
+       
         tf.addTarget(self, action: Selector(("textFieldDidChange:")),for: UIControlEvents.editingChanged)
         view.addSubview(tf)
     }
@@ -67,19 +72,24 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         thisUseGas.becomeFirstResponder()
     }
 
-    func textFieldShouldEndEditing(_ textField:UITextField) -> Bool {
-        print("キーボードを閉じる前")
-        return true
-    }
     private func textFieldShouldReturn(_ textField:UITextField) -> Bool {
         print("キーボードを閉じる前")
         // キーボードを閉じる処理
         self.view.endEditing(true)
+        //        rightBarBtnClicked(sender:)
         print("キーボードを閉じたあと")
         return true
     }
+
+    func textFieldShouldEndEditing(_ textField:UITextField) -> Bool {
+        print("キーボードを閉じる前")
+        let inputData = self.thisUseGas.text
+        let minusData = self.beforeUseGas.text!
+        thisUseGasRyo.text = String(Int(inputData!)! - Int(minusData)!)
+
+        return true
+    }
     
-   
 /*
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print("テキストフィールがタップされ、入力可能になったあと")
@@ -89,10 +99,11 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         }
     }
  */
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print("変更中")
-        thisUseGasRyo.text = String(Int(self.thisUseGas.text!)! - Int(beforeUseGas.text!)!)
-       return true
+    //keyboard以外の画面を押すと、keyboardを閉じる処理
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (self.tf.isFirstResponder) {
+            self.tf.resignFirstResponder()
+        }
     }
 /*
     func textFieldDidChange(textFiled: UITextField) {
@@ -100,11 +111,21 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
     }
 */
-    @objc internal func rightBarBtnClicked(sender: UIButton){
+    @objc func rightBarBtnClicked(sender: UIButton){
         print("保存ボタンが押されたよ");
         //キーボードを閉じる
         view.endEditing(true)
-       let alert = UIAlertController(title: "使用量確認", message: "今回指示数： \(self.thisUseGas.text!)\n今回使用量： \(self.thisUseGasRyo.text!)\nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
+        let inputData = (thisUseGas.text!).trimmingCharacters(in: .whitespaces)
+        let minusData = (beforeUseGas.text!).trimmingCharacters(in: .whitespaces)
+        
+        if let data1 = Int(inputData){
+            if let data2 = Int(minusData){
+                thisUseGasRyo.text = String(data1 - data2)
+            }
+        }
+
+        
+        let alert = UIAlertController(title: "使用量確認", message: "今回指示数： \(self.thisUseGas.text!)\n今回使用量： \(self.thisUseGasRyo.text!)\nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
 
         let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(okButton)

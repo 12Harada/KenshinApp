@@ -12,11 +12,14 @@ import UIKit
 
 class ViewController_Contact: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var contactTableView: UITableView!
     var contact: [Contact] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        contactTableView.register (UINib(nibName: "ContactCell", bundle: nil),forCellReuseIdentifier:"ContactCell")
        
         /*
         var str = ""
@@ -62,9 +65,12 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("セルの取得実行")
         // セルを取得する
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        //et cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) //新セル
         // セルに表示する値を設定する
-        cell.textLabel!.text = contact[indexPath.row].name
+        if let cell = cell as? ContactCell {
+            cell.setupCell(model: contact[indexPath.row])
+        }
         return cell
     }
     

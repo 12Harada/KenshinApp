@@ -41,6 +41,9 @@
 		736C1B0121771D8A001784BF /* WeatherCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */; };
 		736DFC0A2175DAE0006698FC /* sun.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 736DFC092175DAE0006698FC /* sun.jpeg */; };
 		7378337221B3E9E90031731F /* kenshinCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7378337121B3E9E90031731F /* kenshinCustomCell.xib */; };
+		73997AD321BCCCAD007A7865 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73997AD121BCCCAD007A7865 /* ContactCell.swift */; };
+		73997AD421BCCCAD007A7865 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73997AD221BCCCAD007A7865 /* ContactCell.xib */; };
+		73997AD621BCDB1A007A7865 /* haradaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 73997AD521BCDB19007A7865 /* haradaImage.png */; };
 		73A6C49C21B69E2F00D11F1E /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 73A6C49B21B69E2F00D11F1E /* check.png */; };
 		8A0B364E213A474D00F196AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364D213A474D00F196AD /* AppDelegate.swift */; };
 		8A0B3650213A474D00F196AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364F213A474D00F196AD /* ViewController.swift */; };
@@ -130,6 +133,9 @@
 		736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCustomCell.xib; sourceTree = "<group>"; };
 		736DFC092175DAE0006698FC /* sun.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpeg; sourceTree = "<group>"; };
 		7378337121B3E9E90031731F /* kenshinCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = kenshinCustomCell.xib; sourceTree = "<group>"; };
+		73997AD121BCCCAD007A7865 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		73997AD221BCCCAD007A7865 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		73997AD521BCDB19007A7865 /* haradaImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haradaImage.png; sourceTree = "<group>"; };
 		73A6C49B21B69E2F00D11F1E /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		8A0B364A213A474D00F196AD /* KenshinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0B364D213A474D00F196AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 		8A0B364C213A474D00F196AD /* KenshinApp */ = {
 			isa = PBXGroup;
 			children = (
+				73997AD521BCDB19007A7865 /* haradaImage.png */,
 				733621CF219806B7006BACE0 /* ViewController_Contact.swift */,
 				7349458321782C5B00DAF1FD /* meter.png */,
 				7349457B2177FCA500DAF1FD /* repeat.png */,
@@ -240,6 +247,8 @@
 				733621C72197FF20006BACE0 /* Contact.json */,
 				732924112159D180005E4940 /* ViewController_AreaSerch.xib */,
 				7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */,
+				73997AD121BCCCAD007A7865 /* ContactCell.swift */,
+				73997AD221BCCCAD007A7865 /* ContactCell.xib */,
 				73A6C49B21B69E2F00D11F1E /* check.png */,
 				733621C32197D160006BACE0 /* GohObjectAnnotation.swift */,
 				7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */,
@@ -267,7 +276,6 @@
 				8A7AF378214295E000632788 /* ViewController_CustomNumberSerch.swift */,
 				8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */,
 				8A7AF37F214297D600632788 /* ViewController_KenjunList.swift */,
-				8A7AF380214297D600632788 /* ViewController_KenjunList.xib */,
 				8A5308A42160C40D0039A051 /* ViewController_CustomInfo.swift */,
 				8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */,
 				8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */,
@@ -275,13 +283,14 @@
 				7378337121B3E9E90031731F /* kenshinCustomCell.xib */,
 				8AEEC64821AEA30900ED33A2 /* kenshinCustomCellKaiki.swift */,
 				8AEEC64921AEA30900ED33A2 /* kenshinCustomCellKaiki.xib */,
-				8A2F764F217393C900AD7F1F /* ViewController_KenshinConform.swift */,
 				8A2F7650217393C900AD7F1F /* ViewController_KenshinConform.xib */,
+				8A7AF380214297D600632788 /* ViewController_KenjunList.xib */,
 				8A0B3651213A474D00F196AD /* Main.storyboard */,
 				8A7F383C21BCACC900BCCCE9 /* TableViewController_kenshinDo.swift */,
 				8A7F383D21BCACC900BCCCE9 /* TableViewController_kenshinDo.xib */,
 				736C1AFE21771D8A001784BF /* WeatherCustomCell.swift */,
 				736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */,
+				8A2F764F217393C900AD7F1F /* ViewController_KenshinConform.swift */,
 				8A0B3654213A474E00F196AD /* Assets.xcassets */,
 				8A0B3656213A474E00F196AD /* LaunchScreen.storyboard */,
 				8A0B3659213A474E00F196AD /* Info.plist */,
@@ -438,9 +447,11 @@
 				73A6C49C21B69E2F00D11F1E /* check.png in Resources */,
 				734235C92169CE2D008A213E /* KenshinData2.json in Resources */,
 				733621C82197FF20006BACE0 /* Contact.json in Resources */,
+				73997AD421BCCCAD007A7865 /* ContactCell.xib in Resources */,
 				8A0B3658213A474E00F196AD /* LaunchScreen.storyboard in Resources */,
 				8A0B3655213A474E00F196AD /* Assets.xcassets in Resources */,
 				8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */,
+				73997AD621BCDB1A007A7865 /* haradaImage.png in Resources */,
 				8A8044A42162F9F2006DEA56 /* LoginList.json in Resources */,
 				733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */,
 				8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */,
@@ -527,6 +538,7 @@
 				8AA8CEEB213BE09900D64FA1 /* CollectionViewController_Menu.swift in Sources */,
 				734235A32169A644008A213E /* GohIndex.swift in Sources */,
 				8A7F383E21BCACC900BCCCE9 /* TableViewController_kenshinDo.swift in Sources */,
+				73997AD321BCCCAD007A7865 /* ContactCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

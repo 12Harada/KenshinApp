@@ -41,6 +41,7 @@
 		736C1B0121771D8A001784BF /* WeatherCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */; };
 		736DFC0A2175DAE0006698FC /* sun.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 736DFC092175DAE0006698FC /* sun.jpeg */; };
 		7378337221B3E9E90031731F /* kenshinCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7378337121B3E9E90031731F /* kenshinCustomCell.xib */; };
+		73A6C49C21B69E2F00D11F1E /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 73A6C49B21B69E2F00D11F1E /* check.png */; };
 		8A0B364E213A474D00F196AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364D213A474D00F196AD /* AppDelegate.swift */; };
 		8A0B3650213A474D00F196AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B364F213A474D00F196AD /* ViewController.swift */; };
 		8A0B3653213A474D00F196AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B3651213A474D00F196AD /* Main.storyboard */; };
@@ -127,6 +128,7 @@
 		736C1AFF21771D8A001784BF /* WeatherCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCustomCell.xib; sourceTree = "<group>"; };
 		736DFC092175DAE0006698FC /* sun.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpeg; sourceTree = "<group>"; };
 		7378337121B3E9E90031731F /* kenshinCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = kenshinCustomCell.xib; sourceTree = "<group>"; };
+		73A6C49B21B69E2F00D11F1E /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		8A0B364A213A474D00F196AD /* KenshinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenshinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0B364D213A474D00F196AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A0B364F213A474D00F196AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -234,16 +236,17 @@
 				733621C72197FF20006BACE0 /* Contact.json */,
 				732924112159D180005E4940 /* ViewController_AreaSerch.xib */,
 				7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */,
+				73A6C49B21B69E2F00D11F1E /* check.png */,
 				733621C32197D160006BACE0 /* GohObjectAnnotation.swift */,
 				7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */,
 				733621A32197C5D6006BACE0 /* CommonFunc.swift */,
 				733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */,
 				733F6575218A8FA700657F81 /* ViewController_ToChange.swift */,
 				733F6579218A906B00657F81 /* ViewController_Setting.swift */,
+				734235C72169CE2C008A213E /* KenshinData3.json */,
 				734235C82169CE2C008A213E /* KenshinData1.json */,
 				733621C52197F1EE006BACE0 /* KenshinData.json */,
 				734235C62169CE2B008A213E /* KenshinData2.json */,
-				734235C72169CE2C008A213E /* KenshinData3.json */,
 				8A0B364D213A474D00F196AD /* AppDelegate.swift */,
 				8A0B367B213A4D9F00F196AD /* ViewController_SignIn.swift */,
 				8A0B367C213A4D9F00F196AD /* ViewController_SignIn.xib */,
@@ -425,6 +428,7 @@
 				73494582217828A200DAF1FD /* CollectionViewCell_KenshinLong.xib in Resources */,
 				7349458421782C5B00DAF1FD /* meter.png in Resources */,
 				73125DB42170C29B00980E62 /* paccho1.jpg in Resources */,
+				73A6C49C21B69E2F00D11F1E /* check.png in Resources */,
 				734235C92169CE2D008A213E /* KenshinData2.json in Resources */,
 				733621C82197FF20006BACE0 /* Contact.json in Resources */,
 				8A0B3658213A474E00F196AD /* LaunchScreen.storyboard in Resources */,

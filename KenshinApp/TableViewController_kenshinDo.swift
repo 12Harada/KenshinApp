@@ -36,8 +36,9 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         
         //お客さま情報
         let gmtNum = selectedKenshinInput[selectedNumber].s_GasSecchi.splitInto(1)
-        targetNumber.text = gmtNum[0] + "-" + gmtNum[1] + "-" + gmtNum[2]
-        print(gmtNum[0] + "-" + gmtNum[1] + "-" + gmtNum[2])
+        
+        targetNumber.text = gmtNum[0] + gmtNum[1] + gmtNum[2] + gmtNum[3] + "-" + gmtNum[4] + gmtNum[5] + gmtNum[6] + "-" + gmtNum[7] + gmtNum[8] + gmtNum[9] + gmtNum[10]
+
         customName.text = self.selectedKenshinInput[selectedNumber].s_NameJ
         meterNumber.text = self.selectedKenshinInput[selectedNumber].s_MeterNo
         

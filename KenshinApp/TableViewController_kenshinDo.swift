@@ -35,8 +35,12 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         //回帰あり／なしの表示
         kaikiSwitchState.text = sender.isOn ? "あり":"なし"
     }
-    let tf = UITextField()
+//    let tf = UITextField()
 
+    @IBAction func InputEnd(_ sender: Any) {
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,18 +58,19 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         beforeUseGas.text = self.selectedKenshinInput[selectedNumber].s_OldShiji
         beforeUseGasRyo.text = self.selectedKenshinInput[selectedNumber].s_B1Ryo
         beforeYearUseGasRyo.text = self.selectedKenshinInput[selectedNumber].s_BB1Ryo
-        tf.delegate = self
+ //       tf.delegate = self
         
         //ナビゲーションバーの右側に保存ボタンを表示
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(rightBarBtnClicked(sender:))), animated: true)
  
-        //入力している文字を全消しするclearボタンを設定(書いている時のみの設定)
+  /*      //入力している文字を全消しするclearボタンを設定(書いている時のみの設定)
         tf.clearButtonMode = .whileEditing
         //改行ボタン
         tf.returnKeyType = .go
        
         tf.addTarget(self, action: Selector(("textFieldDidChange:")),for: UIControlEvents.editingChanged)
         view.addSubview(tf)
+ */
     }
     //画面表示時にテキストへフォーカスし、キーボード表示
     override func viewWillAppear(_ animated: Bool) {
@@ -98,14 +103,14 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
             thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
         }
     }
- */
+
     //keyboard以外の画面を押すと、keyboardを閉じる処理
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (self.tf.isFirstResponder) {
             self.tf.resignFirstResponder()
         }
     }
-/*
+
     func textFieldDidChange(textFiled: UITextField) {
         //今回使用量を計算して表示
         thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
@@ -117,19 +122,19 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         view.endEditing(true)
         let inputData = (thisUseGas.text!).trimmingCharacters(in: .whitespaces)
         let minusData = (beforeUseGas.text!).trimmingCharacters(in: .whitespaces)
-        
+        //画面に入力された今回指示数から前回指示数を引き算
         if let data1 = Int(inputData){
             if let data2 = Int(minusData){
                 thisUseGasRyo.text = String(data1 - data2)
             }
         }
-
-        
+        //確認用のダイアログを表示
         let alert = UIAlertController(title: "使用量確認", message: "今回指示数： \(self.thisUseGas.text!)\n今回使用量： \(self.thisUseGasRyo.text!)\nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
-
+        
+        //OKボタンを表示
         let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(okButton)
-        
+        //キャンセルボタンを表示
         let cancelButton = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(cancelButton)
                 

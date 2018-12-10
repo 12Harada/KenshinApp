@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 extension String {
   // 半角英数字を判定
@@ -240,6 +241,48 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
   }
   
     @IBAction func faceButton(_ sender: Any) {
+        print("faceID認証の実行")
+        //self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        var str:String = ""
+        let ctx = LAContext()
+        let localizedReasonString = "ロックを解除"
+        var error: NSError?
+        if ctx.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            ctx.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+                               localizedReason: localizedReasonString) { (success, evaluateError) in
+                                if success {
+                                    let ac = UIAlertController(title: "認証成功",
+                                                               message: "",
+                                                               preferredStyle: .alert)
+                                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                                    self.present(ac, animated: true)
+                                   // self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                                    print("str:",str)
+                                    str = "OK"
+                                    print("str:",str)
+                                } else {
+                                    let ac = UIAlertController(title: "認証失敗",
+                                                               message: evaluateError?.localizedDescription,
+                                                               preferredStyle: .alert)
+                                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                                    self.present(ac, animated: true)
+                                    str = "NG"
+                                }
+            }
+        } else {
+            print("Face IDが利用できない")
+            let ac = UIAlertController(title: "Error",
+                                       message: error?.localizedDescription,
+                                       preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5)) {
+        print("str:",str)
+        if(str == "OK"){
+        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+        }
     }
     
     

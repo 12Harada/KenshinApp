@@ -17,9 +17,8 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
     var selectedNumber:Int = 0
     
     @IBOutlet weak var customerTableView: UITableView!
-    @IBOutlet weak var btnKenshinDo: UIButton!
     //表示する項目名を設定
-    var customItem: NSArray = ["お客さま名",
+    var customItem: NSMutableArray = ["お客さま名",
                                "住所",
                                "建物",
                                "ガスメーター設置場所番号",
@@ -27,9 +26,10 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
                                "契約小売",
                                "検針方法",
                                "お客さま電話番号",
-                               "犬情報"]
+                               "犬情報",
+                                "検針結果を報告"]
     
-    var customData: NSArray = []
+    var customData: NSMutableArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,16 +49,9 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
             self.selectedKenshinInput[selectedNumber].s_KeiyakuType,
             "はこ",
             self.selectedKenshinInput[selectedNumber].s_TelNo,
-            "犬あり小型犬"]
-        
-        // Status Barの高さを取得を.する.
-//        let barHeight = UIApplication.shared.statusBarFrame.size.height
-        // Viewの高さと幅を取得する.
-//        let displayWidth: CGFloat = self.view.frame.width
-//        let displayHeight: CGFloat = self.view.frame.height
-
-        // TableViewの生成( status barの高さ分ずらして表示 ).
-//        let customerTableView: UITableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
+            "犬あり小型犬",
+            ""
+        ]
         
         // Cell名の登録をおこなう.
         customerTableView.register(UITableViewCell.self, forCellReuseIdentifier: "customInfoCell")
@@ -66,8 +59,6 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         customerTableView.dataSource = self
         // Delegateを設定する.
         customerTableView.delegate = self
-        //編集中のセルの選択を許可
-//        customerTableView.allowsSelectionDuringEditing = true
         // Viewに追加する.
         self.view.addSubview(customerTableView)
 
@@ -75,9 +66,9 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         print(selectedNumber)
 
         //button1 文字や文字色を変更する
-        btnKenshinDo.setTitle("検針実施へ", for: UIControlState.normal)
-        btnKenshinDo.setTitleColor(UIColor.blue, for: UIControlState.normal)
-        btnKenshinDo.titleLabel?.font = UIFont.systemFont(ofSize: 27)
+//        btnKenshinDo.setTitle("検針実施へ", for: UIControlState.normal)
+ //       btnKenshinDo.setTitleColor(UIColor.blue, for: UIControlState.normal)
+ //       btnKenshinDo.titleLabel?.font = UIFont.systemFont(ofSize: 27)
 
         //ナビゲーションバーの右側に編集ボタンを表示
         self.navigationItem.setRightBarButton(self.editButtonItem, animated: true)
@@ -103,30 +94,63 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         }
     
     }
+    @objc func addCell(sender: AnyObject) {
+        print("追加")
+        
+        // myItemsに追加.
+        //        customData.add("add Cell")
+        
+        // TableViewを再読み込み.
+        customerTableView.reloadData()
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //dataを消してから
+        customData.removeObject(at: indexPath.row)
+        //tableViewCellの削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
     //テーブルに表示する配列の総数を返す.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return customItem.count
     }
     //Cellに値を設定する.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    
         let customInfoCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "customInfoCell")
-
         //横1行で表示できるように自動で調整してくれる
         customInfoCell.textLabel?.adjustsFontSizeToFitWidth = true
         //改行させない
         customInfoCell.textLabel?.numberOfLines = 0
-        //項目名のフォントサイズを指定
-        customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        // 選択された背景色を白に設定
+        let cellSelectedBgView = UIView()
+        cellSelectedBgView.backgroundColor = UIColor.white
+        customInfoCell.selectedBackgroundView = cellSelectedBgView
 
         print(customItem[indexPath.row])
         print(customData[indexPath.row])
+        //項目名のフォントサイズを指定
+        customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         customInfoCell.textLabel?.text = customItem[indexPath.row] as? String
         //データのフォントサイズを指定
-        customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 27)
+        customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 22)
         customInfoCell.detailTextLabel?.text = customData[indexPath.row] as? String
+        if indexPath.row == (customItem.count - 1) {
+            customInfoCell.textLabel?.textColor = UIColor.blue
+        }
+        print("indexPath.row: \(indexPath.row)")
+        print("customItem.count: \(customItem.count)")
         return customInfoCell
     }
+    
+    func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
+        print(indexPath.row)
+        
+        if indexPath.row == (customItem.count - 1) {
+            performSegue(withIdentifier: "kenshinDoSegue",sender: nil)
+        }
+    }
+
     //遷移先の画面を取り出す
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         print("次画面呼び出し実行")
@@ -136,17 +160,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         viewController.selectedNumber = self.selectedNumber;
         
     }
-    
-    
-    @objc func addCell(sender: AnyObject) {
-        print("追加")
-        
-        // myItemsに追加.
-//        customData.add("add Cell")
-        
-        // TableViewを再読み込み.
-        customerTableView.reloadData()
-    }
+
 
     
     

@@ -11,12 +11,11 @@ import UIKit
 class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate {
         
 
+    //データ領域の表示変数
     @IBOutlet weak var thisUseGas: UITextField!
     @IBOutlet weak var kaikiSwitch: UISwitch!
     @IBOutlet weak var thisUseGasRyo: UILabel!
     @IBOutlet weak var kaikiSwitchState: UILabel!
-    //データ領域の表示変数
-    
     @IBOutlet weak var targetNumber: UILabel!
     @IBOutlet weak var customName: UILabel!
     @IBOutlet weak var meterNumber: UILabel!
@@ -38,7 +37,7 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
 //    let tf = UITextField()
 
     @IBAction func InputEnd(_ sender: Any) {
-        
+        print("イベント拾ったよ")
         
     }
     override func viewDidLoad() {
@@ -132,7 +131,16 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         let alert = UIAlertController(title: "使用量確認", message: "今回指示数： \(self.thisUseGas.text!)\n今回使用量： \(self.thisUseGasRyo.text!)\nこの使用量で登録してよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
         
         //OKボタンを表示
-        let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        { action in
+
+            let storyboard: UIStoryboard = self.storyboard!
+            let nextView = storyboard.instantiateViewController(withIdentifier: "vcAreaSerch") as! ViewController_AreaSerch
+//            nextView.selectedKenshinInput = self.selectedKenshinInput
+            nextView.selectedNumber = self.selectedNumber + 1;
+
+            self.present(nextView, animated: true, completion: nil)
+        }
         alert.addAction(okButton)
         //キャンセルボタンを表示
         let cancelButton = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.default, handler: nil)

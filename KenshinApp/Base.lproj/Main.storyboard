@@ -588,7 +588,7 @@
         <!--View Controller Custom Info-->
         <scene sceneID="tuW-7J-dyr">
             <objects>
-                <viewController id="0vZ-oo-1I3" customClass="ViewController_CustomInfo" customModule="KenshinApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="customInfo" id="0vZ-oo-1I3" customClass="ViewController_CustomInfo" customModule="KenshinApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="icK-vw-Rol">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1034,6 +1034,7 @@
                         <outlet property="beforeUseGasRyo" destination="AJS-as-z4H" id="3gN-Jy-VIb"/>
                         <outlet property="beforeYearUseGasRyo" destination="wSj-ae-TK1" id="fEa-Zc-zGt"/>
                         <outlet property="customName" destination="yLz-0W-8Cl" id="ISM-3i-7aC"/>
+                        <outlet property="kaikiSwitch" destination="xWI-Em-o5r" id="SCB-d9-bId"/>
                         <outlet property="kaikiSwitchState" destination="SNG-4R-Jhf" id="Qyg-hk-3PJ"/>
                         <outlet property="meterNumber" destination="Jaa-to-cLT" id="sdS-c0-FvX"/>
                         <outlet property="targetNumber" destination="wyV-c7-yzw" id="izZ-PO-xcw"/>

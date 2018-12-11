@@ -38,17 +38,26 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         self.navigationItem.title = "お客さま情報表示"
         //表示するデータの設定（ファイルにデータが無いものはベタ書き。後で修正）
         //お客さま情報
+
+        //お客さま番号ハイフン編集
+        let gmtNum = selectedKenshinInput[selectedNumber].s_GasSecchi.splitInto(1)
+        
+        //お客さま番号
+        let gasSetti = gmtNum[0] + gmtNum[1] + gmtNum[2] + gmtNum[3] + "-" + gmtNum[4] + gmtNum[5] + gmtNum[6] + "-" + gmtNum[7] + gmtNum[8] + gmtNum[9] + gmtNum[10]
+        
+        let telNo = selectedKenshinInput[selectedNumber].s_TelNo.splitInto(1)
+        let sTelNo = telNo[0] + telNo[1] + "-" + telNo[2] + telNo[3] + telNo[4] + telNo[5] + "-" + telNo[6] + telNo[7] + telNo[8] + telNo[9]
         customData =
-            [self.selectedKenshinInput[selectedNumber].s_NameJ,
+            [trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_NameJ),
             "東京都中央区銀座４−３−２",
-            self.selectedKenshinInput[selectedNumber].s_AptJ +
-            self.selectedKenshinInput[selectedNumber].s_AptMeiC2 +
-            self.selectedKenshinInput[selectedNumber].s_AptMeiC3,
-            self.selectedKenshinInput[selectedNumber].s_GasSecchi,
+            trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_AptJ) +
+            trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_AptMeiC2) +
+            trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_AptMeiC3),
+            gasSetti,
             self.selectedKenshinInput[selectedNumber].s_UseCd,
             self.selectedKenshinInput[selectedNumber].s_KeiyakuType,
             "はこ",
-            self.selectedKenshinInput[selectedNumber].s_TelNo,
+            sTelNo,
             "犬あり小型犬",
             ""
         ]
@@ -157,7 +166,10 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         
     }
 
-
+    private func trimSpace(customInput: String) -> String {
+        let outData = customInput.trimmingCharacters(in: .whitespaces)
+        return outData
+    }
     
     
     override func didReceiveMemoryWarning() {

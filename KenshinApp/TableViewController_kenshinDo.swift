@@ -143,10 +143,10 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
             // 移動先ViewControllerのインスタンスを取得（ストーリーボードIDから）
             let storyboard: UIStoryboard = self.storyboard!
             let nextView = storyboard.instantiateViewController(withIdentifier: "vcAreaSerch")
+            
 //            nextView.selectedKenshinInput = self.selectedKenshinInput
 //            nextView.selectedNumber = self.selectedNumber + 1;
-            self.navigationController?.present(nextView, animated: true, completion: nil)
-//            self.present(nextView, animated: true, completion: nil)
+            self.navigationController?.pushViewController(nextView, animated: true)
         }
         alert.addAction(okButton)
         //キャンセルボタンを表示

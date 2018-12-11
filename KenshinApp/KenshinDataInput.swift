@@ -219,13 +219,13 @@ class KenshinInput: Codable {
     let s_Shiji:String
     
     //ガス使用量今回
-    let s_ShiyouRyo:String
+    var s_ShiyouRyo:String
     
     //検針担当社員番号
     let s_TantoCd:String
     
     //指示数回帰コード
-    let s_KaikiCd:String
+    var s_KaikiCd:String
     
     init(s_GasSecchi:String,s_TeireiDate:String,s_SokuDate:String,s_HasseiDate:String,s_NetsuCd:String,s_YotoCd:String,s_GyoseiCd:String,s_GouBan:String,s_IchiCd:String,s_KeiyakuType:String,s_UseCd:String,s_GhpCd:String,s_HohoCd:String,s_GkenSeq:String,s_KenSeq:String,s_Odog:String,s_Idog:String,s_ODogCd:String,s_IDogCd:String,s_NextDate:String,s_HeiKikan:String,s_MeterNo:String,s_SuiKaisu:String,s_MeterGou:String,s_MeterKata:String,s_MeterKeta:String,s_SyayoCd:String,s_TeiHomon:String,s_TeiTel:String,s_ShiteiKai:String,s_ShiteiCd:String,s_SeikyuScd:String,s_TelNo:String,s_SougouCd:String,s_Adrs1:String,s_Adrs2:String,s_Adrs3:String,s_AptMeiC1:String,s_AptC:String,s_AptJ:String,s_AptCJCd:String,s_AptMeiC2:String,s_AptMeiC3:String,s_YagoJ:String,s_YagoC:String,s_YagoHjnSyu:String,s_YagoHjnIchi:String,s_NameJ:String,s_HjnSyu:String,s_HjnIchi:String,s_ShiharaiCd:String,s_OldShiji:String,s_KyuShiji:String,s_KyuShiyou:String,s_B1Kikan:String,s_B1Ryo:String,s_BB2Kikan:String,s_BB2Ryo:String,s_BB1Kikan:String,s_BB1Ryo:String,s_BB3Kikan:String,s_BB3Ryo:String,s_MusenFlg:String,s_HukaUmuCd:String,s_CustTelNo:String,s_KaiSenDate:String,s_ElectricDate:String,s_ElectricKeiyakuFlag:String,s_YusoSetteiCode:String,s_Shiji:String,s_ShiyouRyo:String,s_TantoCd:String,s_KaikiCd:String){
         

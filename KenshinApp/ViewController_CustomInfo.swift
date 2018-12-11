@@ -35,7 +35,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         
         //画面名を作成
-        self.navigationItem.title = "CustomerInfo"
+        self.navigationItem.title = "お客さま情報表示"
         //表示するデータの設定（ファイルにデータが無いものはベタ書き。後で修正）
         //お客さま情報
         customData =
@@ -65,17 +65,12 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         print("画面名：お客さま情報画面")
         print(selectedNumber)
 
-        //button1 文字や文字色を変更する
-//        btnKenshinDo.setTitle("検針実施へ", for: UIControlState.normal)
- //       btnKenshinDo.setTitleColor(UIColor.blue, for: UIControlState.normal)
- //       btnKenshinDo.titleLabel?.font = UIFont.systemFont(ofSize: 27)
-
         //ナビゲーションバーの右側に編集ボタンを表示
         self.navigationItem.setRightBarButton(self.editButtonItem, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "編集", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "編集", style: .plain, target: nil, action: #selector(setEditing))
     }
     
-    //Editボタンが押された際に呼び出される
+    //編集ボタンが押された際に呼び出される
     override func setEditing(_ editing: Bool, animated: Bool) {
         //通常走っていた処理はそのまま走らせる。
         super.setEditing(editing, animated: true)
@@ -85,7 +80,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         // 編集中のときのみaddButtonをナビゲーションバーの左に表示する
         if editing {
             print("編集中")
-            let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action:#selector(ViewController_CustomInfo.addCell(sender:)))
+            let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action:#selector(self.addCell(sender:)))
                 
             self.navigationItem.setLeftBarButton(addButton, animated: true)
         } else {
@@ -117,11 +112,11 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
     //Cellに値を設定する.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        let customInfoCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "customInfoCell")
+        let customInfoCell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "customInfoCell")
         //横1行で表示できるように自動で調整してくれる
         customInfoCell.textLabel?.adjustsFontSizeToFitWidth = true
         //改行させない
-        customInfoCell.textLabel?.numberOfLines = 0
+ //       customInfoCell.textLabel?.numberOfLines = 0
         // 選択された背景色を白に設定
         let cellSelectedBgView = UIView()
         cellSelectedBgView.backgroundColor = UIColor.white
@@ -130,11 +125,12 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         print(customItem[indexPath.row])
         print(customData[indexPath.row])
         //項目名のフォントサイズを指定
-        customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 14)
         customInfoCell.textLabel?.text = customItem[indexPath.row] as? String
         //データのフォントサイズを指定
-        customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 22)
+        customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 17)
         customInfoCell.detailTextLabel?.text = customData[indexPath.row] as? String
+        customInfoCell.detailTextLabel?.textColor = UIColor.black
         if indexPath.row == (customItem.count - 1) {
             customInfoCell.textLabel?.textColor = UIColor.blue
         }
@@ -145,7 +141,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
         print(indexPath.row)
-        
+        //検針結果報告へをタップされたら次画面へ遷移させる
         if indexPath.row == (customItem.count - 1) {
             performSegue(withIdentifier: "kenshinDoSegue",sender: nil)
         }

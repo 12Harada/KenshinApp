@@ -90,7 +90,7 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         let inputData = self.thisUseGas.text
         let minusData = self.beforeUseGas.text!
         thisUseGasRyo.text = String(Int(inputData!)! - Int(minusData)!)
-
+        
         return true
     }
     
@@ -142,11 +142,17 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
             }
             // 移動先ViewControllerのインスタンスを取得（ストーリーボードIDから）
             let storyboard: UIStoryboard = self.storyboard!
-            let nextView = storyboard.instantiateViewController(withIdentifier: "vcAreaSerch")
+            let nextView = storyboard.instantiateViewController(withIdentifier: "vcAreaSerch")  as! ViewController_AreaSerch
             
-//            nextView.selectedKenshinInput = self.selectedKenshinInput
-//            nextView.selectedNumber = self.selectedNumber + 1;
             self.navigationController?.pushViewController(nextView, animated: true)
+            
+            //ガス使用量値を格納
+            self.selectedKenshinInput[self.selectedNumber].s_ShiyouRyo = self.thisUseGasRyo.text!
+            
+            print("Do側のselectedNumberの値：",self.selectedNumber + 1)
+            print("Do側の中田さん使用量の値",self.selectedKenshinInput[0].s_SuiKaisu)
+            nextView.kenshinData = self.selectedKenshinInput
+            nextView.selectedNumber = self.selectedNumber + 1;
         }
         alert.addAction(okButton)
         //キャンセルボタンを表示

@@ -189,15 +189,21 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         print(self.goh[0].s_MachiJ)
  
  */
+        //kenshinInputのデータが0であれば、初期表示のためJsonファイルを読み出す
+        print("selectedNumberの値：",selectedNumber)
+
+        if(selectedNumber == 0){
+            guard let data2 = try? getJSONData2() else { return }
+            kenshinData = try! JSONDecoder().decode([KenshinInput].self, from: data2!)
+        }
+        print("中田さんの検針値：",kenshinData[0].s_SuiKaisu)
         
+        //Gohは毎回Jsonファイルから読み出す
         //11/14 jsonファイル取り込み方法変更による追加
         guard let data1 = try? getJSONData1() else { return }
         goh = try! JSONDecoder().decode([Goh].self, from: data1!)
-        print(goh[0].s_GyoseiCd)
         
-        guard let data2 = try? getJSONData2() else { return }
-        kenshinData = try! JSONDecoder().decode([KenshinInput].self, from: data2!)
-        print(kenshinData[0].s_NameJ)
+        
         
         //初期データとして対象検針数を格納
         kenNumber.text = kenshinData.count.description

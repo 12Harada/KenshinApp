@@ -134,12 +134,19 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
         { action in
 
+            if let tabvc = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController  {
+                //左から２番目のタブアイコンを選択状態にする(0が一番左)
+                DispatchQueue.main.async {
+                    tabvc.selectedIndex = 1
+                }
+            }
+            // 移動先ViewControllerのインスタンスを取得（ストーリーボードIDから）
             let storyboard: UIStoryboard = self.storyboard!
-            let nextView = storyboard.instantiateViewController(withIdentifier: "vcAreaSerch") as! ViewController_AreaSerch
+            let nextView = storyboard.instantiateViewController(withIdentifier: "vcAreaSerch")
+            
 //            nextView.selectedKenshinInput = self.selectedKenshinInput
-            nextView.selectedNumber = self.selectedNumber + 1;
-
-            self.present(nextView, animated: true, completion: nil)
+//            nextView.selectedNumber = self.selectedNumber + 1;
+            self.navigationController?.pushViewController(nextView, animated: true)
         }
         alert.addAction(okButton)
         //キャンセルボタンを表示

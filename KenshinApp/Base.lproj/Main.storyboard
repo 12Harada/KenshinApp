@@ -194,11 +194,11 @@
             </objects>
             <point key="canvasLocation" x="5444" y="882.26600985221683"/>
         </scene>
-        <!--Item-->
+        <!--分担替-->
         <scene sceneID="Kol-qe-Efq">
             <objects>
                 <navigationController id="iLX-0t-1mW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Nh6-UP-5fH"/>
+                    <tabBarItem key="tabBarItem" title="分担替" image="update.png" id="Nh6-UP-5fH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="22I-M7-B7D">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -271,11 +271,13 @@
             </objects>
             <point key="canvasLocation" x="5444" y="2326.1083743842364"/>
         </scene>
-        <!--Item-->
+        <!--コンタクト-->
         <scene sceneID="yVH-A2-H7e">
             <objects>
                 <navigationController id="HeK-0z-9B8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gq2-Lk-eeY"/>
+                    <tabBarItem key="tabBarItem" title="コンタクト" image="Telephone2.png" id="gq2-Lk-eeY">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1QO-kQ-hSc">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -288,11 +290,11 @@
             </objects>
             <point key="canvasLocation" x="4335" y="2328"/>
         </scene>
-        <!--Item-->
+        <!--設定-->
         <scene sceneID="hWR-SK-gh3">
             <objects>
                 <navigationController id="wrS-pm-8h3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uKX-Og-GC1"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="gear2.png" id="uKX-Og-GC1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H2t-Hr-x24">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -323,14 +325,12 @@
             </objects>
             <point key="canvasLocation" x="5445" y="3033"/>
         </scene>
-        <!--エリア選択-->
+        <!--検針-->
         <scene sceneID="1RP-ST-qaX">
             <objects>
                 <navigationController id="q0p-Sr-rBB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="エリア選択" image="bike2.png" landscapeImage="bike2.png" largeContentSizeImage="bike2.png" id="4rS-pm-HSH">
-                        <inset key="imageInsets" minX="0.0" minY="50" maxX="0.0" maxY="50"/>
-                        <inset key="landscapeImageInsets" minX="0.0" minY="50" maxX="0.0" maxY="50"/>
-                        <inset key="largeContentSizeImageInsets" minX="1" minY="49" maxX="1" maxY="49"/>
+                    <tabBarItem key="tabBarItem" title="検針" image="meter2.png" id="4rS-pm-HSH">
+                        <inset key="largeContentSizeImageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sue-pX-4iF">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -348,7 +348,7 @@
         <scene sceneID="FGQ-A6-PLD">
             <objects>
                 <navigationController id="geV-GF-g5U" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ホーム" id="wqm-fA-cUw"/>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="home.png" id="wqm-fA-cUw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D9v-cI-a7l">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -469,7 +469,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="afL-iU-Y55"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="エリア選択" id="1LI-XH-w9c"/>
+                    <tabBarItem key="tabBarItem" title="エリア選択" image="meter.png" id="1LI-XH-w9c">
+                        <inset key="imageInsets" minX="0.0" minY="55" maxX="0.0" maxY="55"/>
+                        <inset key="landscapeImageInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="50" maxX="0.0" maxY="50"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="iXu-ln-JBr"/>
                     <connections>
                         <outlet property="AreaMapView" destination="QGR-FH-csd" id="9sM-kb-0yF"/>
@@ -1301,7 +1305,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bike2.png" width="30" height="30"/>
+        <image name="Telephone2.png" width="40" height="40"/>
+        <image name="gear2.png" width="40" height="40"/>
+        <image name="home.png" width="40" height="40"/>
+        <image name="meter.png" width="256" height="256"/>
+        <image name="meter2.png" width="40" height="40"/>
         <image name="paccho1.jpg" width="588" height="872"/>
+        <image name="update.png" width="40" height="40"/>
     </resources>
 </document>

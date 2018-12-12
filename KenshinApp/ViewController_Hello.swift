@@ -30,17 +30,17 @@ class ViewController_Hello: UIViewController{
     override func viewDidLoad() {
         
         // バンドルした画像ファイルを読み込み
-        let image = UIImage(named: "paccho1.jpg")
+        let image = UIImage(named: "haradaImage.png")
         
         // Image Viewに画像を設定
         faceImage.image = image
         faceImage.contentMode = UIViewContentMode.scaleAspectFit
         //枠線を適用。色は黒
-        self.faceImage.layer.borderColor = UIColor.black.cgColor
-        self.faceImage.layer.borderWidth = 3
+        //self.faceImage.layer.borderColor = UIColor.black.cgColor
+        //self.faceImage.layer.borderWidth = 3
         
         //角丸を適用
-        self.faceImage.layer.cornerRadius = 50
+        self.faceImage.layer.cornerRadius = 100
         
         //角丸に合わせて画像をマスク
         self.faceImage.layer.masksToBounds = true

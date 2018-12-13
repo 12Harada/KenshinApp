@@ -22,7 +22,7 @@ class ViewController_Hello: UIViewController{
     
     
     //ログイン管理用変数
-    let loginUser = [Login]()
+    var loginUser = [Login]()
     var weather = [Weather]()
     
     
@@ -46,7 +46,7 @@ class ViewController_Hello: UIViewController{
         self.faceImage.layer.masksToBounds = true
         
         //拠点名格納
-        baseLabel.text = "東京ガスライフバル千代田中央"
+        baseLabel.text = "東京ガスライフバル目黒"
         
         //ハローメイト名前格納
         nameLabel.text = "山田　太郎"

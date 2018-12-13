@@ -33,7 +33,7 @@
                                 <state key="normal" title="ログイン"/>
                                 <connections>
                                     <action selector="buttonSignin:" destination="aAP-ao-Wki" eventType="touchUpInside" id="sSY-rP-jYI"/>
-                                    <segue destination="XM0-IE-rNQ" kind="show" id="nny-iI-gqy"/>
+                                    <segue destination="XM0-IE-rNQ" kind="show" identifier="loginSegue" id="nny-iI-gqy"/>
                                 </connections>
                             </button>
                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjZ-sy-cRU" userLabel="passText">

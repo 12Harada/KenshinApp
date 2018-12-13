@@ -132,7 +132,6 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
           }
           print("■天気情報の取得（東京地区限定）")
           for w in self.weather {
-            //    print("\(w.dateLabel):\(w.telop):\(w.telop):\(w.date):\(w.minTemperatureCcelsius):\(w.maxTemperatureCcelsius):\(w.url)")
             print("\(w.date)")
             print(self.weather[1].telop)
           }
@@ -151,10 +150,6 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     textField.resignFirstResponder()
     return true
   }
-  //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-  //        textField.resignFirstResponder()
-  //    }
-  
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -200,13 +195,6 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     let decoder: JSONDecoder = JSONDecoder()
     do {
       let newJson: [Login] = try decoder.decode([Login].self, from: lecturerData)
-      //print(newJson[0]) //Success!!!
-      
-      // let loginlists = (newJson["loginlist"] as? NSArray)!
-      /* for divloginlist in newJson{
-       let person =  (divloginlist["person"]as? String)
-       let password = (divloginlist["password"]as? String)
-       }*/
       
       for w in newJson {
         print("IDは" + "\(w.person)")
@@ -218,31 +206,10 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
       print("json convert failed in JSONDecoder", error.localizedDescription)
     }
     
-    //Jsonデータをデコードする
-    /* let decoder: JSONDecoder = JSONDecoder()
-     do {
-     let loginList: LoginList = try decoder.decode(LoginList.self, from: lecturerData)
-     print("ログインリストはこちら")
-     print(loginList) //Success!!!
-     } catch {
-     print("json convert failed in JSONDecoder", error.localizedDescription)
-     }*/
-    
-    //入力されたID,パスワードとファイル内容（リスト）のチェック
-    //        if let i = LoginList.indexOf({ $0.characters=signText.Text}) {
-    //            [i] // "123
-    //        }
-    
-    //ID、パスワードを次画面遷移用変数に格納
-    //loginUser.person = signText.text!
-    //loginUser.password = passText.text!
-    
-    
   }
   
     @IBAction func faceButton(_ sender: Any) {
         print("faceID認証の実行")
-        //self.performSegue(withIdentifier: "loginSegue", sender: nil)
         var str:String = ""
         let ctx = LAContext()
         let localizedReasonString = "ロックを解除"
@@ -285,8 +252,6 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    
   //11/14 json取り込み方法変更に伴う新規追加
   // GohInfo.json変換用
   func getJSONData() throws -> Data? {
@@ -295,6 +260,23 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     
     return try Data(contentsOf: url)
   }
+    
+    //遷移先の画面を取り出す
+   override func prepare(for segue:UIStoryboardSegue, sender: Any?){
+        
+        //次の画面を取り出す
+      /*  let viewController = segue.destination as! ViewController_Hello
+        viewController.loginUser = login
+        viewController.weather = weather*/
+    
+    let barViewControllers = segue.destination as! UITabBarController
+    let nav = barViewControllers.viewControllers![0] as! UINavigationController
+    //let destinationViewController = nav.topviewcontroller as ViewController_Hello
+    let destinationViewController = nav.viewControllers[0] as! ViewController_Hello
+    destinationViewController.loginUser = login
+    destinationViewController.weather = weather
+        
+    }
   
 }
 

@@ -109,7 +109,7 @@
         <scene sceneID="fGb-Yy-rrx">
             <objects>
                 <viewController id="mz7-CJ-Ufa" customClass="ViewController_Hello" customModule="KenshinApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FeN-IZ-Xqi">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="FeN-IZ-Xqi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -164,6 +164,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="歩数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmv-Mm-TIT">
+                                <rect key="frame" x="4" y="383" width="358" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PH4-ZR-iKr">
+                                <rect key="frame" x="79.590021735775736" y="520" width="215" height="29.999999999999773"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ランキングを表示する"/>
+                                <connections>
+                                    <segue destination="aBn-q0-rDb" kind="show" id="ho3-k2-lMi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="DNC-ai-2EU"/>
@@ -177,12 +193,28 @@
                         <outlet property="faceImage" destination="zAx-0x-fRy" id="uiN-EZ-gT7"/>
                         <outlet property="nameLabel" destination="zAs-bP-LdA" id="JWr-QO-rWg"/>
                         <outlet property="nameLabelk" destination="A4P-pm-Q1e" id="ONX-75-bPM"/>
+                        <outlet property="step" destination="nmv-Mm-TIT" id="T2d-s2-4tp"/>
                         <outlet property="weatherPoint" destination="QRW-G3-vpv" id="9MJ-Fn-UXS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0K-V5-ca9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5444" y="882.26600985221683"/>
+        </scene>
+        <!--View Controller Ranking-->
+        <scene sceneID="5P1-RZ-gRe">
+            <objects>
+                <viewController id="aBn-q0-rDb" customClass="ViewController_Ranking" customModule="KenshinApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oVd-zX-zqZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eel-w9-00C"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NUd-om-0CA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6492" y="881"/>
         </scene>
         <!--分担替-->
         <scene sceneID="Kol-qe-Efq">
@@ -555,7 +587,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Weq-sC-ayn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6372.4637681159429" y="805.43478260869574"/>
+            <point key="canvasLocation" x="6351" y="-525"/>
         </scene>
         <!--View Controller Kenjun List-->
         <scene sceneID="4SX-3c-uy0">
@@ -579,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVp-JJ-0Uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7066" y="806"/>
+            <point key="canvasLocation" x="7220" y="-530"/>
         </scene>
         <!--View Controller Custom Info-->
         <scene sceneID="tuW-7J-dyr">

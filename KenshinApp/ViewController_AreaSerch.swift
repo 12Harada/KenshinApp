@@ -46,6 +46,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     @IBOutlet weak var gohAbb: UILabel! //号の略称を表示する
     @IBOutlet weak var gohName: UILabel!//号の和名を格納する
     @IBOutlet weak var kenNumber: UILabel!
+  
+    @IBOutlet weak var nextButton: UIButton!
+    
     
     
     
@@ -55,6 +58,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         AreaMapView.delegate = self
         
+        //nextButtonの非活性化
+        nextButton.alpha = 0
+        nextButton.isEnabled = false
         
         //カスタムセルを利用するためにビューに登録
         customerTableView.register (UINib(nibName: "CustomerTableViewCell", bundle: nil),forCellReuseIdentifier:"CustomerTableViewCell")
@@ -480,12 +486,18 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
             cell.setupCell(model: searchResult[indexPath.row])
         }
         
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator // ここで「>」ボタンを設定
+        //cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator // ここで「>」ボタンを設定
         
         return cell
     }
     // Cell が選択された場合
     func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
+        
+        //nextButtonを表示させる
+        nextButton.alpha = 100
+        nextButton.isEnabled = true
+        
+        
         // 選択した列を変数に格納。格納する際にInt型をString型に型変換
         self.selectedNumber = resultNumber[indexPath.row]
         
@@ -533,7 +545,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     
     //セルを二回タップした場合（セル選択を解除した場合）
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "CustomInfoSegue",sender: nil)
+       // performSegue(withIdentifier: "CustomInfoSegue",sender: nil)
     }
     
     

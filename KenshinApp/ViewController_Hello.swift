@@ -11,14 +11,13 @@ import UIKit
 class ViewController_Hello: UIViewController{
     
 
-    @IBOutlet weak var NextButton: UIButton!
+
     @IBOutlet weak var weatherPoint: UILabel!
     @IBOutlet weak var faceImage: UIImageView!
     @IBOutlet weak var baseLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameLabelk: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var infoMessage: UILabel!
     
     
     //ログイン管理用変数
@@ -40,22 +39,22 @@ class ViewController_Hello: UIViewController{
         //self.faceImage.layer.borderWidth = 3
         
         //角丸を適用
-        self.faceImage.layer.cornerRadius = 100
+        //self.faceImage.layer.cornerRadius = 80
         
         //角丸に合わせて画像をマスク
-        self.faceImage.layer.masksToBounds = true
+        //self.faceImage.layer.masksToBounds = true
         
         //拠点名格納
         baseLabel.text = "東京ガスライフバル目黒"
         
         //ハローメイト名前格納
-        nameLabel.text = "山田　太郎"
+        nameLabel.text = "原田　弘章"
         
         //ハローメイト名前（カナ）格納
-        nameLabelk.text = "ヤマダ　タロウ"
+        nameLabelk.text = "ハラダ　ヒロアキ"
         
         
-        weatherPoint.text = "千代田中央の天気"
+        weatherPoint.text = "目黒区の天気"
         super.viewDidLoad()
         print(weather.count)
         // Do any additional setup after loading the view.
@@ -71,9 +70,6 @@ class ViewController_Hello: UIViewController{
         //print("パスワードの値：" + login.password)
         
         //お知らせ情報
-        infoMessage.text = "ここにシステム側からのお知らせを記載したい"
-        infoMessage.layer.borderColor = UIColor.blue.cgColor
-        infoMessage.layer.borderWidth = 0.5
         
         
         /*********************************

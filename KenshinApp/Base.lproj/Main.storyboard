@@ -33,7 +33,6 @@
                                 <state key="normal" title="ログイン"/>
                                 <connections>
                                     <action selector="buttonSignin:" destination="aAP-ao-Wki" eventType="touchUpInside" id="sSY-rP-jYI"/>
-                                    <segue destination="XM0-IE-rNQ" kind="show" identifier="loginSegue" id="nny-iI-gqy"/>
                                 </connections>
                             </button>
                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjZ-sy-cRU" userLabel="passText">
@@ -78,6 +77,7 @@
                         <outlet property="lblErrorMsg" destination="k1g-cU-hvV" id="InT-lA-LNb"/>
                         <outlet property="passText" destination="mjZ-sy-cRU" id="kN0-62-vcP"/>
                         <outlet property="signText" destination="mlx-mB-ay8" id="YFg-Zp-9Bg"/>
+                        <segue destination="XM0-IE-rNQ" kind="show" identifier="loginSegue" id="Ilb-zh-53y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtY-Cz-6Fx" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -32,6 +32,10 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
   var weather = [Weather]()
   var login: [Login] = []
   var loginUser = [Login]()
+    var usrAuth:String = "false"
+    var passAuth:String = "false"
+    
+
   
   
   override func viewDidLoad() {
@@ -159,29 +163,37 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
   
   @IBAction func buttonSignin(_ sender: UIButton) {
     print("ここにきていない？")
-    //        //DukeIDチェック
-    //        if signText.text!.isNumeric(){
-    //            //ID、パスワードを次画面遷移用変数に格納
-    //            login.person = signText.text!
-    //        }
-    //        else{
-    //            lblErrorMsg.textColor = UIColor.red
-    //            lblErrorMsg.text = "IDかパスワードが正しくありません！"
-    //        }
-    //        //パスワードチェック
-    //        if passText.text!.isAlphanumeric(){
-    //            //ID、パスワードを次画面遷移用変数に格納
-    //            login.password = signText.text!
-    //        }
-    //        else{
-    //            lblErrorMsg.textColor = UIColor.red
-    //            lblErrorMsg.text = "IDかパスワードが正しくありません！"
-    //        }
+            //DukeIDチェック
+            if signText.text!.isNumeric(){
+                //ID、パスワードを次画面遷移用変数に格納
+                if(signText.text! == "6033740"){
+                    usrAuth = "true"
+                }
+            }
+            else{
+                lblErrorMsg.textColor = UIColor.red
+                lblErrorMsg.text = "IDかパスワードが正しくありません！"
+            }
+            //パスワードチェック
+            if passText.text!.isAlphanumeric(){
+                //ID、パスワードを次画面遷移用変数に格納
+                if(passText.text! == "9999"){
+                    passAuth = "true"
+                }
+            }
+            else{
+                lblErrorMsg.textColor = UIColor.red
+                lblErrorMsg.text = "IDかパスワードが正しくありません！"
+            }
+    if(usrAuth == "true" && passAuth == "true"){
+        print("ログイン画面突破")
+        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+    }
     
     //ファイルの内容読み込み(ユーザー情報)
 
 
-    
+    /*
     var str = ""
     let importURL:URL = URL(fileURLWithPath: "/LoginList.json")
     do {
@@ -204,7 +216,7 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
       
     } catch {
       print("json convert failed in JSONDecoder", error.localizedDescription)
-    }
+    }*/
     
   }
   

@@ -268,10 +268,6 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         //キャンセルボタンの追加
         customerSearchBar.showsCancelButton = true
         
-        print("searchResultの値は出せるか")
-        print(searchResult[1].s_NameJ)
-        
-        
         
         
         /****************************
@@ -406,11 +402,17 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
             
             
             //自分の現在地座標を登録
-            let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: 35.635531, longitude: 139.706093), glyphText:"HM", glyphTintColor: .white, markerTintColor: .blue,title: "HM")
+            let ano1 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: 35.635531, longitude: 139.706093), glyphText:"現在地", glyphTintColor: .white, markerTintColor: .blue,title: "現在地")
+            
+            //近くのハローメイトを登録
+            let ano2 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: 35.639831, longitude: 139.709593), glyphText:"橋爪", glyphTintColor: .white, markerTintColor: .blue,title: "橋爪")
             
             self.annotation.append(ano1)
             self.annotation2.append(ano1)
+            self.annotation.append(ano2)
+            self.annotation.append(ano2)
             self.AreaMapView.addAnnotations(self.annotation)
+            
             
             self.userLocation = CLLocationCoordinate2DMake(35.635531, 139.706093)
             
@@ -537,9 +539,55 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                    // self.AreaMapView.removeAnnotation(self.cellAannotation)
                     self.cellAannotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                     self.AreaMapView.addAnnotation(self.cellAannotation)
+                    self.destLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                 }
             }
         })
+        
+        
+        /***********************
+        ここから経路表示
+        ***********************/
+        let userPlaceMark = MKPlacemark(coordinate: userLocation)
+        let destinationPlaceMark = MKPlacemark(coordinate: destLocation)
+        
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = MKMapItem(placemark: userPlaceMark)//出発元を指定
+        directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)//到着先を指定
+        directionRequest.transportType = .walking//歩いていくってよ
+        
+        //経路計算
+        //前回のルートを削除する
+        self.AreaMapView.removeOverlays(AreaMapView.overlays)
+        
+        
+        let directions = MKDirections(request: directionRequest)
+        directions.calculate { (response, error) in
+            guard let directionResonse = response else {
+                if let error = error {
+                    print("we have error getting directions==\(error.localizedDescription)")
+                }
+                return
+            }
+            let route = directionResonse.routes[0]
+            self.AreaMapView.add(route.polyline, level: .aboveRoads)//絶対エラーとなる気がする
+            //self.AreaMapView?.addOverlays(route.polyline, level: .aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.AreaMapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)//ここも変えてしまったが行けるのだろうか
+        }
+        //set delegate for mapview
+        self.AreaMapView.delegate = self
+        
+        
+    }
+    
+    //MARK:- MapKit delegates
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 4.0
+        return renderer
     }
     
     
@@ -561,6 +609,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         if(customerSearchBar.text == "") {
             //検索文字列が空の場合はすべてを表示する。
             searchResult = self.kenshinData
+            for (index,_) in searchResult.enumerated(){
+                resultNumber.append(index)
+            }
         } else {
             //検索文字列を含むデータを検索結果配列に追加する。
             for (index,data) in self.kenshinData.enumerated() {

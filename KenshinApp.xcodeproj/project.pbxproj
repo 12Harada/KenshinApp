@@ -12,6 +12,8 @@
 		731C39F021C3D6700046C25B /* ViewController_Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731C39EF21C3D6700046C25B /* ViewController_Ranking.swift */; };
 		731C39F221C3D72D0046C25B /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731C39F121C3D72D0046C25B /* Motion.swift */; };
 		731C39F421C4756D0046C25B /* haradaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 731C39F321C4756D0046C25B /* haradaImage.png */; };
+		731C39F721C4A0260046C25B /* HealthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731C39F521C4A0260046C25B /* HealthCell.swift */; };
+		731C39F821C4A0260046C25B /* HealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 731C39F621C4A0260046C25B /* HealthCell.xib */; };
 		732924102159D172005E4940 /* ViewController_AreaSerch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */; };
 		732924122159D181005E4940 /* ViewController_AreaSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732924112159D180005E4940 /* ViewController_AreaSerch.xib */; };
 		732924162159D870005E4940 /* LoginClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732924152159D870005E4940 /* LoginClass.swift */; };
@@ -111,6 +113,8 @@
 		731C39EF21C3D6700046C25B /* ViewController_Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Ranking.swift; sourceTree = "<group>"; };
 		731C39F121C3D72D0046C25B /* Motion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
 		731C39F321C4756D0046C25B /* haradaImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haradaImage.png; sourceTree = "<group>"; };
+		731C39F521C4A0260046C25B /* HealthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCell.swift; sourceTree = "<group>"; };
+		731C39F621C4A0260046C25B /* HealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthCell.xib; sourceTree = "<group>"; };
 		7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController_AreaSerch.swift; sourceTree = "<group>"; };
 		732924112159D180005E4940 /* ViewController_AreaSerch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_AreaSerch.xib; sourceTree = "<group>"; };
 		732924152159D870005E4940 /* LoginClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginClass.swift; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				8A0B364F213A474D00F196AD /* ViewController.swift */,
 				8A0B367C213A4D9F00F196AD /* ViewController_SignIn.xib */,
 				8A0B367F213A4DD900F196AD /* ViewController_Hello.swift */,
+				731C39F521C4A0260046C25B /* HealthCell.swift */,
+				731C39F621C4A0260046C25B /* HealthCell.xib */,
 				731C39EF21C3D6700046C25B /* ViewController_Ranking.swift */,
 				8A0B3680213A4DD900F196AD /* ViewController_Hello.xib */,
 				8AA8CEE9213BE09900D64FA1 /* CollectionViewController_Menu.swift */,
@@ -479,6 +485,7 @@
 				8A8044A42162F9F2006DEA56 /* LoginList.json in Resources */,
 				736B62D821C13A2400FAC1E9 /* meter2.png in Resources */,
 				733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */,
+				731C39F821C4A0260046C25B /* HealthCell.xib in Resources */,
 				8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */,
 				734235C52169C8F8008A213E /* GohInfo.json in Resources */,
 				736C1B0121771D8A001784BF /* WeatherCustomCell.xib in Resources */,
@@ -542,6 +549,7 @@
 				8A7AF37A214295E000632788 /* ViewController_CustomNumberSerch.swift in Sources */,
 				8A5308A62160C40D0039A051 /* ViewController_CustomInfo.swift in Sources */,
 				8AA8CEEF213BE0D300D64FA1 /* CollectionViewCell_Kenshin.swift in Sources */,
+				731C39F721C4A0260046C25B /* HealthCell.swift in Sources */,
 				734945AA21797D0D00DAF1FD /* triangleButton.swift in Sources */,
 				733F6576218A8FA700657F81 /* ViewController_ToChange.swift in Sources */,
 				8AEEC64A21AEA30900ED33A2 /* kenshinCustomCellKaiki.swift in Sources */,

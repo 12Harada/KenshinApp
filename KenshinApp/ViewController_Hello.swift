@@ -39,9 +39,9 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
         //motionに初期値を格納
         motion.append(Motion(healthName:"歩数",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[0]に歩数を登録
         motion.append(Motion(healthName:"距離",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[1]に距離を登録
-        motion.append(Motion(healthName:"期間",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[2]に期間を登録
-        motion.append(Motion(healthName:"速度",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[3]に速度を登録
-        motion.append(Motion(healthName:"平均速度",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[4]に平均速度を登録
+        //motion.append(Motion(healthName:"期間",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[2]に期間を登録
+        //motion.append(Motion(healthName:"速度",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[3]に速度を登録
+        motion.append(Motion(healthName:"平均速度",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[2]に平均速度を登録
         
         //カスタムセルを利用するためにビューに登録
         healthTableView.register (UINib(nibName: "HealthCell", bundle: nil),forCellReuseIdentifier:"HealthCell")
@@ -132,6 +132,7 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
                         self.motion[1].healthValue1 = Int(distance)
                          
                          // 期間
+                        /*
                          let period = data!.endDate.timeIntervalSince(data!.startDate)
                         self.motion[2].healthValue3 = period
                         
@@ -140,14 +141,14 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
                          results += String(format: "スピード（秒速m/s）: %f", speed)
                          results += "\n"
                         
-                        self.motion[3].healthValue2 = speed
+                        self.motion[3].healthValue2 = speed*/
                          
                          // 平均ペース NSNumber?
                          let averageActivePace = data!.averageActivePace
                          results += String(format: "平均ペース: %f", averageActivePace!.doubleValue)
                          results += "\n"
                         
-                        self.motion[4].healthValue2 = averageActivePace!.doubleValue
+                        self.motion[2].healthValue2 = averageActivePace!.doubleValue
                          /*
                          // ペース NSNumber?
                          let currentPace = data!.currentPace
@@ -208,7 +209,6 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
         if let cell = cell as? HealthCell {
             cell.setupCell(model: motion[indexPath.row])
         }
-        //cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator // ここで「>」ボタンを設定
         return cell
     }
     

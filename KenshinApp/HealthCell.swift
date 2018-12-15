@@ -36,6 +36,13 @@ class HealthCell: UITableViewCell {
         //画像
         if(model.healthName == "歩数"){
             image3 = UIImage(named:"walking.png")
+            healthValue2.alpha = 0
+        }else if(model.healthName == "距離"){
+            image3 = UIImage(named:"distance.png")
+            healthValue2.alpha = 0
+        }else{
+            image3 = UIImage(named:"secret.png")
+            healthValue1.alpha = 0
         }
         healthImage.image = image3
         

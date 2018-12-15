@@ -175,6 +175,9 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
                         
                         self.step.text = results
                         
+                        //テーブルビューデータをリロードする
+                        self.healthTableView.reloadData()
+                        
                     }
                     
                 })

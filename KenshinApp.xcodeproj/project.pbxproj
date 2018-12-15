@@ -18,6 +18,8 @@
 		732924122159D181005E4940 /* ViewController_AreaSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732924112159D180005E4940 /* ViewController_AreaSerch.xib */; };
 		732924162159D870005E4940 /* LoginClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732924152159D870005E4940 /* LoginClass.swift */; };
 		7332D6BA21C4CB0C00B539CE /* walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 7332D6B921C4CB0B00B539CE /* walking.png */; };
+		7332D6BC21C4CE5700B539CE /* distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 7332D6BB21C4CE5600B539CE /* distance.png */; };
+		7332D6BE21C4CFCB00B539CE /* ave_speed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7332D6BD21C4CFCB00B539CE /* ave_speed.png */; };
 		733621A12197BB5F006BACE0 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */; };
 		733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */; };
 		733621A42197C5D6006BACE0 /* CommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733621A32197C5D6006BACE0 /* CommonFunc.swift */; };
@@ -120,6 +122,8 @@
 		732924112159D180005E4940 /* ViewController_AreaSerch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_AreaSerch.xib; sourceTree = "<group>"; };
 		732924152159D870005E4940 /* LoginClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginClass.swift; sourceTree = "<group>"; };
 		7332D6B921C4CB0B00B539CE /* walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walking.png; sourceTree = "<group>"; };
+		7332D6BB21C4CE5600B539CE /* distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distance.png; sourceTree = "<group>"; };
+		7332D6BD21C4CFCB00B539CE /* ave_speed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ave_speed.png; sourceTree = "<group>"; };
 		7336219F2197BB5F006BACE0 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
 		733621A02197BB5F006BACE0 /* CustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerTableViewCell.xib; sourceTree = "<group>"; };
 		733621A32197C5D6006BACE0 /* CommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunc.swift; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 		8A0B364C213A474D00F196AD /* KenshinApp */ = {
 			isa = PBXGroup;
 			children = (
+				7332D6BD21C4CFCB00B539CE /* ave_speed.png */,
+				7332D6BB21C4CE5600B539CE /* distance.png */,
 				733621CF219806B7006BACE0 /* ViewController_Contact.swift */,
 				731C39F321C4756D0046C25B /* haradaImage.png */,
 				7349457B2177FCA500DAF1FD /* repeat.png */,
@@ -468,9 +474,11 @@
 				736B62D621C1394300FAC1E9 /* update.png in Resources */,
 				7349457D2177FCA600DAF1FD /* repeat.png in Resources */,
 				9342E6D821ACD841001A733D /* YOTO_BUILDING_48.png in Resources */,
+				7332D6BE21C4CFCB00B539CE /* ave_speed.png in Resources */,
 				7349457A2177FC8F00DAF1FD /* gear.png in Resources */,
 				736DFC0A2175DAE0006698FC /* sun.jpeg in Resources */,
 				731C39F421C4756D0046C25B /* haradaImage.png in Resources */,
+				7332D6BC21C4CE5700B539CE /* distance.png in Resources */,
 				734945792177FC8F00DAF1FD /* bicycle.png in Resources */,
 				734235CA2169CE2D008A213E /* KenshinData3.json in Resources */,
 				8A0B367E213A4D9F00F196AD /* ViewController_SignIn.xib in Resources */,

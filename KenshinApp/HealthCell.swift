@@ -16,8 +16,6 @@ class HealthCell: UITableViewCell {
     
     var image3 = UIImage(named:"secret.png")
     
-    
-    
     func setupCell(model:Motion ) {
         //顔写真
        
@@ -31,17 +29,21 @@ class HealthCell: UITableViewCell {
         healthValue1.text = String(model.healthValue1)
         
         //項目値2
+        //mをKmに変換
         healthValue2.text = String(model.healthValue2)
         
         //画像
         if(model.healthName == "歩数"){
             image3 = UIImage(named:"walking.png")
+            healthValue1.text = String(model.healthValue1) + " 歩"
             healthValue2.alpha = 0
         }else if(model.healthName == "距離"){
             image3 = UIImage(named:"distance.png")
+            healthValue1.text = String(model.healthValue1) + " Km"
             healthValue2.alpha = 0
         }else{
-            image3 = UIImage(named:"secret.png")
+            image3 = UIImage(named:"ave_speed.png")
+            healthValue2.text = String(model.healthValue2) + " Km/s（仮）"
             healthValue1.alpha = 0
         }
         healthImage.image = image3

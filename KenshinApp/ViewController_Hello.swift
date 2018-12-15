@@ -9,7 +9,7 @@
 import UIKit
 import CoreMotion //歩数カウントのため
 
-class ViewController_Hello: UIViewController{
+class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
 
 
@@ -21,6 +21,7 @@ class ViewController_Hello: UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var step:UILabel!
     @IBOutlet weak var labelMotion: UILabel!
+    @IBOutlet weak var healthTableView: UITableView!
     
     //ログイン管理用変数
     var loginUser = [Login]()
@@ -30,12 +31,20 @@ class ViewController_Hello: UIViewController{
     // class wide constant !!
     let pedometer = CMPedometer()
     
+    let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"]
     
     
     override func viewDidLoad() {
         
         //motionに初期値を格納
-        motion.append(Motion(steps:0,distance:0,period:0,speed:0,averageActivePace:0))
+        motion.append(Motion(healthName:"歩数",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[0]に歩数を登録
+        motion.append(Motion(healthName:"距離",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[1]に距離を登録
+        motion.append(Motion(healthName:"期間",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[2]に期間を登録
+        motion.append(Motion(healthName:"速度",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[3]に速度を登録
+        motion.append(Motion(healthName:"平均速度",healthValue1:0,healthValue2:0.0,healthValue3:0)) //motion[4]に平均速度を登録
+        
+        //カスタムセルを利用するためにビューに登録
+        healthTableView.register (UINib(nibName: "HealthCell", bundle: nil),forCellReuseIdentifier:"HealthCell")
         
         // バンドルした画像ファイルを読み込み
         let image = UIImage(named: "haradaImage.png")
@@ -99,7 +108,7 @@ class ViewController_Hello: UIViewController{
         /**********************************
          万歩計の実装
         **********************************/
-        labelMotion.text = String(motion[0].speed)
+       // labelMotion.text = String(motion[0].speed)
         
         // CMPedometerの確認
         if(CMPedometer.isStepCountingAvailable()){
@@ -113,32 +122,32 @@ class ViewController_Hello: UIViewController{
                         var results:String = String(format:"歩数: %d", steps.intValue)
                         results += "\n"
                         
-                        self.motion[0].steps = steps.intValue
+                        self.motion[0].healthValue1 = steps.intValue
                         
                          // 距離 NSNumber?
                          let distance = data!.distance!.doubleValue
                          results += String(format: "距離: %d", Int(distance))
                          results += "\n"
                         
-                        self.motion[0].distance = Int(distance)
+                        self.motion[1].healthValue1 = Int(distance)
                          
                          // 期間
                          let period = data!.endDate.timeIntervalSince(data!.startDate)
-                        self.motion[0].period = period
+                        self.motion[2].healthValue3 = period
                         
                          // スピード
                          let speed = distance / period
                          results += String(format: "スピード（秒速m/s）: %f", speed)
                          results += "\n"
                         
-                        self.motion[0].speed = speed
+                        self.motion[3].healthValue2 = speed
                          
                          // 平均ペース NSNumber?
                          let averageActivePace = data!.averageActivePace
                          results += String(format: "平均ペース: %f", averageActivePace!.doubleValue)
                          results += "\n"
                         
-                        self.motion[0].averageActivePace = averageActivePace!.doubleValue
+                        self.motion[4].healthValue2 = averageActivePace!.doubleValue
                          /*
                          // ペース NSNumber?
                          let currentPace = data!.currentPace
@@ -180,6 +189,28 @@ class ViewController_Hello: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return motion.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // セルを取得する
+        /*let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "healthCell", for: indexPath)
+        // セルに表示する値を設定する
+        cell.textLabel!.text = TODO[indexPath.row]
+ */
+        
+        
+        // セルを取得する
+        // let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "KenshinDataCell", for: indexPath) //旧セル
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "HealthCell", for: indexPath) //新セル
+        // セルに表示する値を設定する
+        if let cell = cell as? HealthCell {
+            cell.setupCell(model: motion[indexPath.row])
+        }
+        //cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator // ここで「>」ボタンを設定
+        return cell
+    }
     
 }
     /*********************************

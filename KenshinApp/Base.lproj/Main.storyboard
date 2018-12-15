@@ -216,6 +216,7 @@
                         <outlet property="baseLabel" destination="ONg-wV-Kli" id="Zex-ue-bfu"/>
                         <outlet property="collectionView" destination="XB9-BX-d8k" id="Q2w-Sq-9Rc"/>
                         <outlet property="faceImage" destination="zAx-0x-fRy" id="uiN-EZ-gT7"/>
+                        <outlet property="healthTableView" destination="UKF-vy-iil" id="aHB-Xi-Vqp"/>
                         <outlet property="labelMotion" destination="TsG-QP-qq7" id="B5o-WJ-eg1"/>
                         <outlet property="nameLabel" destination="zAs-bP-LdA" id="JWr-QO-rWg"/>
                         <outlet property="nameLabelk" destination="A4P-pm-Q1e" id="ONX-75-bPM"/>

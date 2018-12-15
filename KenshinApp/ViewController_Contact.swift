@@ -20,7 +20,6 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         contactTableView.register (UINib(nibName: "ContactCell", bundle: nil),forCellReuseIdentifier:"ContactCell")
-       
         /*
         var str = ""
         

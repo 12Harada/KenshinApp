@@ -605,13 +605,13 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         //選んだ号によって表示させるデータを絞る
         for (index,data) in self.kenshinData.enumerated(){
-            if(view.annotation!.title!! == "号1" || view.annotation!.title!! == "号2" || view.annotation!.title!! == "号3"){  //HM以外を出力させる
+           // if(view.annotation!.title!! == "号1" || view.annotation!.title!! == "号2" || view.annotation!.title!! == "号3"){  //HM以外を出力させる
             if data.s_GouBan.contains(view.annotation!.title!!){
                 searchResult.append(data)
                 resultNumber.append(index)
                 
             }
-            }
+           // }
         }
 
         //テーブルを再読み込みする

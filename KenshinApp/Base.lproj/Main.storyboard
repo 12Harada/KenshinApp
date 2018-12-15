@@ -180,6 +180,13 @@
                                     <segue destination="aBn-q0-rDb" kind="show" id="ho3-k2-lMi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsG-QP-qq7">
+                                <rect key="frame" x="223" y="413" width="143" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="DNC-ai-2EU"/>
@@ -187,10 +194,10 @@
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="SeF-eD-zJJ"/>
                     <navigationItem key="navigationItem" title="ホーム" id="FG8-vs-9xf"/>
                     <connections>
-                        <outlet property="FaceImage" destination="zAx-0x-fRy" id="0XP-RN-VJ6"/>
                         <outlet property="baseLabel" destination="ONg-wV-Kli" id="Zex-ue-bfu"/>
                         <outlet property="collectionView" destination="XB9-BX-d8k" id="Q2w-Sq-9Rc"/>
                         <outlet property="faceImage" destination="zAx-0x-fRy" id="uiN-EZ-gT7"/>
+                        <outlet property="labelMotion" destination="TsG-QP-qq7" id="B5o-WJ-eg1"/>
                         <outlet property="nameLabel" destination="zAs-bP-LdA" id="JWr-QO-rWg"/>
                         <outlet property="nameLabelk" destination="A4P-pm-Q1e" id="ONX-75-bPM"/>
                         <outlet property="step" destination="nmv-Mm-TIT" id="T2d-s2-4tp"/>
@@ -260,15 +267,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uuB-Z0-qny">
-                                <rect key="frame" x="0.0" y="102" width="377" height="627"/>
+                                <rect key="frame" x="0.0" y="90" width="377" height="639"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="dR3-FY-w8K">
-                                        <rect key="frame" x="0.0" y="28" width="377" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="63" id="dR3-FY-w8K">
+                                        <rect key="frame" x="0.0" y="28" width="377" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dR3-FY-w8K" id="9oP-S0-RUL">
-                                            <rect key="frame" x="0.0" y="0.0" width="377" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="377" height="62.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

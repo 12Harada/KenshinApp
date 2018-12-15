@@ -20,7 +20,7 @@ class ViewController_Hello: UIViewController{
     @IBOutlet weak var nameLabelk: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var step:UILabel!
-    
+    @IBOutlet weak var labelMotion: UILabel!
     
     //ログイン管理用変数
     var loginUser = [Login]()
@@ -48,10 +48,10 @@ class ViewController_Hello: UIViewController{
         //self.faceImage.layer.borderWidth = 3
         
         //角丸を適用
-        //self.faceImage.layer.cornerRadius = 80
+        self.faceImage.layer.cornerRadius = 80
         
         //角丸に合わせて画像をマスク
-        //self.faceImage.layer.masksToBounds = true
+        self.faceImage.layer.masksToBounds = true
         
         //拠点名格納
         baseLabel.text = "東京ガスライフバル目黒"
@@ -99,6 +99,7 @@ class ViewController_Hello: UIViewController{
         /**********************************
          万歩計の実装
         **********************************/
+        labelMotion.text = String(motion[0].speed)
         
         // CMPedometerの確認
         if(CMPedometer.isStepCountingAvailable()){

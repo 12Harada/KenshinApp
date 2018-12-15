@@ -11,6 +11,7 @@
 		731C39EE21C3D5ED0046C25B /* ViewController_ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731C39ED21C3D5ED0046C25B /* ViewController_ranking.swift */; };
 		731C39F021C3D6700046C25B /* ViewController_Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731C39EF21C3D6700046C25B /* ViewController_Ranking.swift */; };
 		731C39F221C3D72D0046C25B /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731C39F121C3D72D0046C25B /* Motion.swift */; };
+		731C39F421C4756D0046C25B /* haradaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 731C39F321C4756D0046C25B /* haradaImage.png */; };
 		732924102159D172005E4940 /* ViewController_AreaSerch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */; };
 		732924122159D181005E4940 /* ViewController_AreaSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732924112159D180005E4940 /* ViewController_AreaSerch.xib */; };
 		732924162159D870005E4940 /* LoginClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732924152159D870005E4940 /* LoginClass.swift */; };
@@ -67,7 +68,6 @@
 		8A5308A62160C40D0039A051 /* ViewController_CustomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5308A42160C40D0039A051 /* ViewController_CustomInfo.swift */; };
 		8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */; };
 		8A5308AA2160C4DF0039A051 /* ViewController_Kenshin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */; };
-		8A6E6DF021BCE4C20098A0CD /* haradaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E6DEF21BCE4C20098A0CD /* haradaImage.png */; };
 		8A70356F21A3A149001A0D36 /* kenshinCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */; };
 		8A7AF37A214295E000632788 /* ViewController_CustomNumberSerch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7AF378214295E000632788 /* ViewController_CustomNumberSerch.swift */; };
 		8A7AF37B214295E000632788 /* ViewController_CustomNumberSerch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */; };
@@ -110,6 +110,7 @@
 		731C39ED21C3D5ED0046C25B /* ViewController_ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController_ranking.swift; path = ../../../ViewController_ranking.swift; sourceTree = "<group>"; };
 		731C39EF21C3D6700046C25B /* ViewController_Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Ranking.swift; sourceTree = "<group>"; };
 		731C39F121C3D72D0046C25B /* Motion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
+		731C39F321C4756D0046C25B /* haradaImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haradaImage.png; sourceTree = "<group>"; };
 		7329240F2159D171005E4940 /* ViewController_AreaSerch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController_AreaSerch.swift; sourceTree = "<group>"; };
 		732924112159D180005E4940 /* ViewController_AreaSerch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_AreaSerch.xib; sourceTree = "<group>"; };
 		732924152159D870005E4940 /* LoginClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginClass.swift; sourceTree = "<group>"; };
@@ -172,7 +173,6 @@
 		8A5308A42160C40D0039A051 /* ViewController_CustomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_CustomInfo.swift; sourceTree = "<group>"; };
 		8A5308A52160C40D0039A051 /* ViewController_CustomInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_CustomInfo.xib; sourceTree = "<group>"; };
 		8A5308A82160C4DF0039A051 /* ViewController_Kenshin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Kenshin.swift; sourceTree = "<group>"; };
-		8A6E6DEF21BCE4C20098A0CD /* haradaImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haradaImage.png; sourceTree = SOURCE_ROOT; };
 		8A70356D21A3A149001A0D36 /* kenshinCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kenshinCustomCell.swift; sourceTree = "<group>"; };
 		8A7AF378214295E000632788 /* ViewController_CustomNumberSerch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_CustomNumberSerch.swift; sourceTree = "<group>"; };
 		8A7AF379214295E000632788 /* ViewController_CustomNumberSerch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController_CustomNumberSerch.xib; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				733621CF219806B7006BACE0 /* ViewController_Contact.swift */,
+				731C39F321C4756D0046C25B /* haradaImage.png */,
 				7349457B2177FCA500DAF1FD /* repeat.png */,
-				8A6E6DEF21BCE4C20098A0CD /* haradaImage.png */,
 				7349457C2177FCA600DAF1FD /* secret.png */,
 				734945772177FC8F00DAF1FD /* bicycle.png */,
 				734945782177FC8F00DAF1FD /* gear.png */,
@@ -454,12 +454,12 @@
 				8A7AF382214297D600632788 /* ViewController_KenjunList.xib in Resources */,
 				733621C62197F1EF006BACE0 /* KenshinData.json in Resources */,
 				736B62D221C137CE00FAC1E9 /* home.png in Resources */,
-				8A6E6DF021BCE4C20098A0CD /* haradaImage.png in Resources */,
 				736B62D621C1394300FAC1E9 /* update.png in Resources */,
 				7349457D2177FCA600DAF1FD /* repeat.png in Resources */,
 				9342E6D821ACD841001A733D /* YOTO_BUILDING_48.png in Resources */,
 				7349457A2177FC8F00DAF1FD /* gear.png in Resources */,
 				736DFC0A2175DAE0006698FC /* sun.jpeg in Resources */,
+				731C39F421C4756D0046C25B /* haradaImage.png in Resources */,
 				734945792177FC8F00DAF1FD /* bicycle.png in Resources */,
 				734235CA2169CE2D008A213E /* KenshinData3.json in Resources */,
 				8A0B367E213A4D9F00F196AD /* ViewController_SignIn.xib in Resources */,

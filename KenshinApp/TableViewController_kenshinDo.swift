@@ -94,27 +94,6 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         return true
     }
     
-/*
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("テキストフィールがタップされ、入力可能になったあと")
-        if thisUseGasRyo.text != nil {
-            //今回使用量を計算して表示
-            thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
-        }
-    }
-
-    //keyboard以外の画面を押すと、keyboardを閉じる処理
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (self.tf.isFirstResponder) {
-            self.tf.resignFirstResponder()
-        }
-    }
-
-    func textFieldDidChange(textFiled: UITextField) {
-        //今回使用量を計算して表示
-        thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
-    }
-*/
     @objc func rightBarBtnClicked(sender: UIButton){
         print("保存ボタンが押されたよ");
         //キーボードを閉じる

@@ -23,6 +23,8 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     var i:Int = 0
     var count2:Int = 0
     var resultNumber:[Int] = [] //kenshinDataからどのデータがsearchResultに格納されたのか保管する配列
+    var m:Int = 0 //時間計算用（分）
+    var s:Int = 0 //時間計算用（秒）
     
     var locationManager: CLLocationManager!//位置情報の機能を管理するためのインスタンス
     //アノテーションをクラスタリングさせるための変数
@@ -196,13 +198,11 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
  
  */
         //kenshinInputのデータが0であれば、初期表示のためJsonファイルを読み出す
-        print("selectedNumberの値：",selectedNumber)
 
         if(selectedNumber == 0){
             guard let data2 = try? getJSONData2() else { return }
             kenshinData = try! JSONDecoder().decode([KenshinInput].self, from: data2!)
         }
-        print("中田さんの検針値：",kenshinData[0].s_SuiKaisu)
         
         //Gohは毎回Jsonファイルから読み出す
         //11/14 jsonファイル取り込み方法変更による追加
@@ -241,10 +241,6 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                 i = i+1
                 count = count + 1
             }
-        }
-        for w in devideArray{
-            print("devideArrayの値")
-            print(w)
         }
         
         
@@ -407,10 +403,14 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
             //近くのハローメイトを登録
             let ano2 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: 35.639831, longitude: 139.709593), glyphText:"橋爪", glyphTintColor: .white, markerTintColor: .blue,title: "橋爪")
             
+            let ano3 = GohObjectAnnotation(CLLocationCoordinate2D(latitude: 35.633231, longitude: 139.700593), glyphText:"野中", glyphTintColor: .white, markerTintColor: .blue,title: "野中")
+            
             self.annotation.append(ano1)
             self.annotation2.append(ano1)
             self.annotation.append(ano2)
             self.annotation.append(ano2)
+            self.annotation.append(ano3)
+            self.annotation.append(ano3)
             self.AreaMapView.addAnnotations(self.annotation)
             
             
@@ -495,6 +495,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     // Cell が選択された場合
     func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
         
+        
         //nextButtonを表示させる
         nextButton.alpha = 100
         nextButton.isEnabled = true
@@ -538,8 +539,9 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
                     //地図にピンを立てる。
                    // self.AreaMapView.removeAnnotation(self.cellAannotation)
                     self.cellAannotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-                    self.AreaMapView.addAnnotation(self.cellAannotation)
+                   // self.AreaMapView.addAnnotation(self.cellAannotation)
                     self.destLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                   // self.AreaMapView.selectAnnotation(self.cellAannotation, animated: true)
                 }
             }
         })
@@ -555,13 +557,15 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         directionRequest.source = MKMapItem(placemark: userPlaceMark)//出発元を指定
         directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)//到着先を指定
         directionRequest.transportType = .walking//歩いていくってよ
+        //directionRequest.transportType = .any//この移動手段は何？
         
         //経路計算
         //前回のルートを削除する
         self.AreaMapView.removeOverlays(AreaMapView.overlays)
         
         
-        let directions = MKDirections(request: directionRequest)
+        let directions = MKDirections(request: directionRequest)//ルート計算
+        let directions2 = MKDirections(request: directionRequest)//時間計算
         directions.calculate { (response, error) in
             guard let directionResonse = response else {
                 if let error = error {
@@ -579,6 +583,32 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         //set delegate for mapview
         self.AreaMapView.delegate = self
         
+        directions2.calculateETA { (response, error) in
+            guard let directionResonse2 = response else {
+                if let error = error {
+                    print("we have error getting directions==\(error.localizedDescription)")
+                }
+                return
+            }
+            let time = directionResonse2.expectedTravelTime
+            print("予測時間（秒）",time)
+            
+            //秒を分に変換
+            self.m = Int(time) / 60
+            self.s = Int(time) % 60
+            if(self.s != 0){
+                self.m = self.m + 1  //秒が１秒でもあれば1分繰り上げる
+            }
+            print("予測時間（分）",self.m)
+            
+            let subtitle = "徒歩" + String(self.m) + "分"
+            
+            self.cellAannotation.subtitle = String(subtitle)
+            self.AreaMapView.addAnnotation(self.cellAannotation)
+            self.AreaMapView.selectAnnotation(self.cellAannotation, animated: true)
+        }
+        
+
         
     }
     
@@ -648,7 +678,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     }
     
     // ピンが選択された際に入る
-    func mapView(_ mapView : MKMapView,didSelect view : MKAnnotationView){
+    /* func mapView(_ mapView : MKMapView,didSelect view : MKAnnotationView){
         //検索結果配列を空にする。
         searchResult.removeAll()
         resultNumber.removeAll()
@@ -657,7 +687,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         //選んだ号によって表示させるデータを絞る
         for (index,data) in self.kenshinData.enumerated(){
            // if(view.annotation!.title!! == "号1" || view.annotation!.title!! == "号2" || view.annotation!.title!! == "号3"){  //HM以外を出力させる
-            if data.s_GouBan.contains(view.annotation!.title!!){
+          //  if data.s_GouBan.contains(view.annotation!.title!!){
                 searchResult.append(data)
                 resultNumber.append(index)
                 
@@ -682,7 +712,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         //号の件数を表示させる
         kenNumber.text = searchResult.count.description
-    }
+    }*/
     
     //テーブルビュー スクロール
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -100,7 +100,7 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
         
         // セルの大きさを設定
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width:131, height:100)
+        layout.itemSize = CGSize(width:120, height:100)
        // layout.itemSize = CGSize(width: collectionView.frame.width, height: 20)
         collectionView.collectionViewLayout = layout
         

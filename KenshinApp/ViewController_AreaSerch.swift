@@ -53,8 +53,12 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     
     
     
-    
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("selectedNumberの値：",selectedNumber)
+        let indexpath2: IndexPath = IndexPath(row: selectedNumber, section: 0)
+        customerTableView.selectRow(at: indexpath2, animated: false, scrollPosition: .bottom)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -423,40 +427,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         gohName.text = "本日対象"
         
         
-        //HMから距離を測る
-        // 現在地と目的地のMKPlacemarkを生成
-        /*
-        let fromPlacemark = MKPlacemark(coordinate:self.userLocation!, addressDictionary:nil)
-        let toPlacemark   = MKPlacemark(coordinate:self.destLocation!, addressDictionary:nil)
         
-        // MKPlacemark から MKMapItem を生成
-        let fromItem = MKMapItem(placemark:fromPlacemark)
-        let toItem   = MKMapItem(placemark:toPlacemark)
-        
-        // MKMapItem をセットして MKDirectionsRequest を生成
-        let request = MKDirectionsRequest()
-        
-        request.source = fromItem
-        //request.setSource(fromItem)
-        request.destination = toItem
-        request.requestsAlternateRoutes = false // 単独の経路を検索
-        request.transportType = MKDirectionsTransportType.any
-        
-        let directions = MKDirections(request:request)
-        directions.calculate(completionHandler: {
-            (response:MKDirectionsResponse!, error:NSError!) -> Void in
-            
-            response.routes.count
-            if (error != nil || response.routes.isEmpty) {
-                return
-            }
-            var route: MKRoute = response.routes[0] as MKRoute
-            // 経路を描画
-           // AreaMapView.addOverlays(route.polyline)
-            self.AreaMapView.add(route.polyline)
-            
-            } as! MKDirectionsHandler)
- */
     }
     
     func action(){
@@ -790,13 +761,14 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         //セルの背景色を変更する
         cell.contentView.backgroundColor = UIColor.white
-        self.selectedNumber = resultNumber[indexPath.row]
-        print(self.kenshinData[self.selectedNumber])
-        if (self.kenshinData[self.selectedNumber].s_YusoSetteiCode == "2"){
+        var select:Int = 0
+        select = resultNumber[indexPath.row]
+        
+        if (self.kenshinData[select].s_YusoSetteiCode == "2"){
             //cell.accessoryType = .checkmark
             cell.contentView.backgroundColor = UIColor.gray
         }
-        if (self.kenshinData[self.selectedNumber].s_YusoSetteiCode == "3"){
+        if (self.kenshinData[select].s_YusoSetteiCode == "3"){
             //cell.accessoryType = .checkmark
             cell.contentView.backgroundColor = UIColor.yellow
         }

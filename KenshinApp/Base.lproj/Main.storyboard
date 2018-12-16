@@ -359,20 +359,79 @@
         <!--設定-->
         <scene sceneID="Gi1-pg-zfp">
             <objects>
-                <viewController id="rup-m5-Yuj" sceneMemberID="viewController">
+                <viewController id="rup-m5-Yuj" customClass="ViewController_config" customModule="KenshinApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QT1-wH-ktC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bKh-dj-vRT">
+                                <rect key="frame" x="1" y="97" width="372" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="manualCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ICo-vA-UuP">
+                                        <rect key="frame" x="0.0" y="28" width="372" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ICo-vA-UuP" id="F6d-o0-yg6">
+                                            <rect key="frame" x="0.0" y="0.0" width="372" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="FwT-0A-yne" kind="show" identifier="manualSegue" id="uFV-3I-SP7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rup-m5-Yuj" id="AvF-N5-rIN"/>
+                                    <outlet property="delegate" destination="rup-m5-Yuj" id="xxi-gI-8kb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="t2S-Du-UgC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" id="ONQ-Bq-OfK"/>
                     <navigationItem key="navigationItem" title="設定" id="RfM-YE-Oic"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="manualTable" destination="bKh-dj-vRT" id="zE1-eo-Nke"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pkQ-8Y-aAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5445" y="3033"/>
+            <point key="canvasLocation" x="5444" y="3032.5123152709361"/>
+        </scene>
+        <!--View Controller Manual-->
+        <scene sceneID="f1H-F0-7ND">
+            <objects>
+                <viewController id="FwT-0A-yne" customClass="ViewController_Manual" customModule="KenshinApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="brJ-Vd-nPa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="manu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yE-gQ-0nR">
+                                <rect key="frame" x="170" y="108" width="43" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="95W-Ts-uZd">
+                                <rect key="frame" x="-1" y="160" width="377" height="564"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GNY-D1-oNn"/>
+                    </view>
+                    <connections>
+                        <outlet property="pdfView" destination="95W-Ts-uZd" id="IP7-hR-3se"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sOx-NZ-zpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6420" y="3033.9901477832514"/>
         </scene>
         <!--検針-->
         <scene sceneID="1RP-ST-qaX">

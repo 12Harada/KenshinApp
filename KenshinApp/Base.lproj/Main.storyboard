@@ -138,7 +138,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="拠点名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONg-wV-Kli">
-                                <rect key="frame" x="7" y="318" width="374" height="21"/>
+                                <rect key="frame" x="7" y="339" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
@@ -164,23 +164,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="歩数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmv-Mm-TIT">
-                                <rect key="frame" x="5" y="115" width="97" height="134"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsG-QP-qq7">
-                                <rect key="frame" x="276" y="134" width="95" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UKF-vy-iil">
-                                <rect key="frame" x="-1" y="346" width="377" height="200"/>
+                                <rect key="frame" x="-1" y="375" width="377" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -217,10 +202,8 @@
                         <outlet property="collectionView" destination="XB9-BX-d8k" id="Q2w-Sq-9Rc"/>
                         <outlet property="faceImage" destination="zAx-0x-fRy" id="uiN-EZ-gT7"/>
                         <outlet property="healthTableView" destination="UKF-vy-iil" id="aHB-Xi-Vqp"/>
-                        <outlet property="labelMotion" destination="TsG-QP-qq7" id="B5o-WJ-eg1"/>
                         <outlet property="nameLabel" destination="zAs-bP-LdA" id="JWr-QO-rWg"/>
                         <outlet property="nameLabelk" destination="A4P-pm-Q1e" id="ONX-75-bPM"/>
-                        <outlet property="step" destination="nmv-Mm-TIT" id="T2d-s2-4tp"/>
                         <outlet property="weatherPoint" destination="QRW-G3-vpv" id="9MJ-Fn-UXS"/>
                     </connections>
                 </viewController>

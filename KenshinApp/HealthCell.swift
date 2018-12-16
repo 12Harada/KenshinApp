@@ -39,11 +39,11 @@ class HealthCell: UITableViewCell {
             healthValue2.alpha = 0
         }else if(model.healthName == "距離"){
             image3 = UIImage(named:"distance.png")
-            healthValue1.text = String(model.healthValue1) + " Km"
+            healthValue1.text = String(model.healthValue1) + " m"
             healthValue2.alpha = 0
         }else{
             image3 = UIImage(named:"ave_speed.png")
-            healthValue2.text = String(model.healthValue2) + " Km/s（仮）"
+            healthValue2.text = String(model.healthValue2) + " Km/時"
             healthValue1.alpha = 0
         }
         healthImage.image = image3

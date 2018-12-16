@@ -19,8 +19,6 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameLabelk: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet var step:UILabel!
-    @IBOutlet weak var labelMotion: UILabel!
     @IBOutlet weak var healthTableView: UITableView!
     
     //ログイン管理用変数
@@ -30,8 +28,6 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
     
     // class wide constant !!
     let pedometer = CMPedometer()
-    
-    let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"]
     
     
     override func viewDidLoad() {
@@ -100,8 +96,8 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
         
         // セルの大きさを設定
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width:120, height:100)
-       // layout.itemSize = CGSize(width: collectionView.frame.width, height: 20)
+        layout.itemSize = CGSize(width:131, height:100)
+        //layout.itemSize = CGSize(width: collectionView.frame.width/3, height: 100)
         collectionView.collectionViewLayout = layout
         
         
@@ -119,15 +115,12 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
                     if(error == nil){
                         // 歩数 NSNumber?
                         let steps = data!.numberOfSteps
-                        var results:String = String(format:"歩数: %d", steps.intValue)
-                        results += "\n"
                         
                         self.motion[0].healthValue1 = steps.intValue
                         
                          // 距離 NSNumber?
                          let distance = data!.distance!.doubleValue
-                         results += String(format: "距離: %d", Int(distance))
-                         results += "\n"
+
                         
                         self.motion[1].healthValue1 = Int(distance)
                          
@@ -145,10 +138,10 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
                          
                          // 平均ペース NSNumber?
                          let averageActivePace = data!.averageActivePace
-                         results += String(format: "平均ペース: %f", averageActivePace!.doubleValue)
-                         results += "\n"
+                         let averageActivePace2 = round(averageActivePace!.doubleValue * 3.6 * 10)/10
                         
-                        self.motion[2].healthValue2 = averageActivePace!.doubleValue
+                        //self.motion[2].healthValue2 = averageActivePace!.doubleValue
+                        self.motion[2].healthValue2 = averageActivePace2
                          /*
                          // ペース NSNumber?
                          let currentPace = data!.currentPace
@@ -170,10 +163,6 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
                          results += String(format: "floorsDescended: %d", floorsDescended!.intValue)
                          results += "\n"
                          */
-                        // ライン数
-                        self.step.numberOfLines = 20
-                        
-                        self.step.text = results
                         
                         //テーブルビューデータをリロードする
                         self.healthTableView.reloadData()

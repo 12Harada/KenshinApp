@@ -789,6 +789,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         //セルの背景色を変更する
+        cell.contentView.backgroundColor = UIColor.white
         self.selectedNumber = resultNumber[indexPath.row]
         print(self.kenshinData[self.selectedNumber])
         if (self.kenshinData[self.selectedNumber].s_YusoSetteiCode == "2"){
@@ -800,7 +801,7 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
             cell.contentView.backgroundColor = UIColor.yellow
         }
     }
-    
+
     //遷移先の画面を取り出す
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         print("次画面呼び出し実行")

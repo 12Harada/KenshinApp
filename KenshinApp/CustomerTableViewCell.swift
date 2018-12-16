@@ -25,6 +25,8 @@ class CustomerTableViewCell: UITableViewCell {
         
         var image = UIImage(named:"secret.png")
         var image2 = UIImage(named:"Secret.png")
+        //var image:UIImage! = nil
+        //var image2:UIImage! = nil
         
         //用途コード画像貼り付け
         if(model.s_YotoCd == "11000"){
@@ -44,6 +46,14 @@ class CustomerTableViewCell: UITableViewCell {
         }
         
         
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        print("セルの再利用")
+        // 再利用時にdisposeBagに溜まっていたものを破棄
+        self.GMTImage.image = nil
+        self.checkImage.image = nil
     }
     
 }

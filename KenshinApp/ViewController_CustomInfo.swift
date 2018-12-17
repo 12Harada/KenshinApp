@@ -150,7 +150,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         }
         if indexPath.row == (customItem.count - 1) {
             customInfoCell.textLabel?.textColor = UIColor.blue
-            customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+            customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 17)
 
         }
         print("indexPath.row: \(indexPath.row)")

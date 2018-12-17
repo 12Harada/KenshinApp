@@ -61,7 +61,16 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         
         //ナビゲーションバーの右側に保存ボタンを表示
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(rightBarBtnClicked(sender:))), animated: true)
- 
+        //キーボードにも保存ボタンを表示（上部の保存ボタンと同じ動作）
+        let tools = UIToolbar()
+        tools.frame = CGRect(x: 0, y: 0, width: tools.frame.width, height: 40)
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let closeButton = UIBarButtonItem(title: "保存", style: .plain, target: nil, action: #selector(rightBarBtnClicked(sender:)))
+        tools.items = [spacer, closeButton]
+        thisUseGas.inputAccessoryView = tools
+
+        
+/*
         // ボタンビュー作成
         let myKeyboard = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
 //        myKeyboard.backgroundColor = UIColor.white
@@ -78,30 +87,14 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         // ビューをフィールドに設定
         thisUseGas.inputAccessoryView = myKeyboard
         thisUseGas.delegate = self
+ */
     }
     //画面表示時にテキストへフォーカスし、キーボード表示
     override func viewWillAppear(_ animated: Bool) {
         thisUseGas.becomeFirstResponder()
     }
 
-    private func textFieldShouldReturn(_ textField:UITextField) -> Bool {
-        print("キーボードを閉じる前")
-        // キーボードを閉じる処理
-        self.view.endEditing(true)
-        //        rightBarBtnClicked(sender:)
-        print("キーボードを閉じたあと")
-        return true
-    }
 
-/*    func textFieldShouldEndEditing(_ textField:UITextField) -> Bool {
-        print("キーボードを閉じる前")
-        let inputData = self.thisUseGas.text
-        let minusData = self.beforeUseGas.text!
-        thisUseGasRyo.text = String(Int(inputData!)! - Int(minusData)!)
-        
-        return true
-    }
-*/
     
     @objc func rightBarBtnClicked(sender: UIButton){
         print("保存ボタンが押されたよ");

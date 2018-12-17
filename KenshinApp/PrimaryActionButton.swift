@@ -45,8 +45,8 @@ class PrimaryActionButton: UIButton {
   }
   
   private func configure() {
-    backgroundColor = #colorLiteral(red: 0, green: 0.5008062124, blue: 1, alpha: 1)
-    //layer.cornerRadius = 20
+    backgroundColor = #colorLiteral(red: 0, green: 0.4483889341, blue: 0.5636606812, alpha: 1)
+    layer.cornerRadius = 5
     titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
     setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
     

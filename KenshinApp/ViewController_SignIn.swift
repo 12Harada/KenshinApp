@@ -43,34 +43,37 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     super.viewDidLoad()
     print("【ログイン画面】")
 
-    let borderID = CALayer()
-    let widthID = CGFloat(2.0)
+    //let borderID = CALayer()
+    //let widthID = CGFloat(2.0)
     let borderPass = CALayer()
     let widthPass = CGFloat(2.0)
     
     signText.delegate = self
     passText.delegate = self
     //ID入力テキストの設定
-    borderID.borderColor = UIColor.blue.cgColor
-    borderID.frame = CGRect(x:0, y: signText.frame.size.height - widthID, width: signText.frame.size.width, height: 2)
-    borderID.borderWidth = widthID
+    //borderID.borderColor = UIColor.blue.cgColor
+    //borderID.frame = CGRect(x:0, y: signText.frame.size.height - widthID, width: signText.frame.size.width, height: 2)
+    //borderID.borderWidth = widthID
     
     //ID入力テキストの初期表示をDukeIDとする
-    signText.placeholder = "Duke ID"
-    signText.layer.addSublayer(borderID)
+    signText.placeholder = " Duke ID"
+    //signText.layer.addSublayer(borderID)
     //テキストボックスフォーカス時に数字のみのキーボード表示
     signText.keyboardType = UIKeyboardType.numberPad
+    signText.layer.cornerRadius = 5
     
     //パスワード入力テキストの設定
-    borderPass.borderColor = UIColor.blue.cgColor
-    borderPass.frame = CGRect(x:0, y: passText.frame.size.height - widthPass, width: passText.frame.size.width, height: 2)
-    borderPass.borderWidth = widthPass
+    //borderPass.borderColor = UIColor.blue.cgColor
+    //borderPass.frame = CGRect(x:0, y: passText.frame.size.height - widthPass, width: passText.frame.size.width, height: 2)
+    //borderPass.borderWidth = widthPass
     
     //パスワード入力テキストの初期表示をPasswordとする
-    passText.placeholder = "Password"
+    passText.placeholder = " Password"
     passText.layer.addSublayer(borderPass)
     //テキストボックスフォーカス時に英字のみのキーボード表示
     passText.keyboardType = UIKeyboardType.numbersAndPunctuation
+    passText.layer.cornerRadius = 5
+
     
     //11/14 jsonファイル取り込み方法変更による追加
     guard let data = try? getJSONData() else { return }

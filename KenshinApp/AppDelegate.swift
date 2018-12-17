@@ -31,12 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       //　通知設定に必要なクラスをインスタンス化
       let trigger: UNNotificationTrigger
       let content = UNMutableNotificationContent()
-      var notificationTime = DateComponents()
+      //var notificationTime = DateComponents()
       
       // トリガー設定
-      notificationTime.hour = 17
-      notificationTime.minute = 0
-      trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: false)
+      //notificationTime.hour = 17
+      //notificationTime.minute = 0
+      //trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: false)
+      trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
+      
       
       // 通知内容の設定
       content.title = ""

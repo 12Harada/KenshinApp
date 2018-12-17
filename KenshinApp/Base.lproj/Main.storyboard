@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aR-My-ToI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aR-My-ToI" userLabel="backLabel">
                                 <rect key="frame" x="0.0" y="189" width="374" height="319"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -25,7 +25,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ER-r9-XdY" customClass="PrimaryActionButton" customModule="KenshinApp">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ER-r9-XdY" userLabel="loginButton" customClass="PrimaryActionButton" customModule="KenshinApp">
                                 <rect key="frame" x="60" y="422" width="256" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,13 +68,20 @@
                                     <action selector="faceButton:" destination="aAP-ao-Wki" eventType="touchUpInside" id="Vqs-M8-oG0"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HxH_White.png" translatesAutoresizingMaskIntoConstraints="NO" id="7lq-ma-mbB" userLabel="Logo">
+                                <rect key="frame" x="67" y="536" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="rKw-wk-yF3"/>
                     </view>
                     <navigationItem key="navigationItem" title="SignIn" id="GRC-bS-tcR"/>
                     <connections>
+                        <outlet property="LogoImage" destination="7lq-ma-mbB" id="HYk-oq-au7"/>
+                        <outlet property="backLabel" destination="9aR-My-ToI" id="lJC-et-JSJ"/>
                         <outlet property="lblErrorMsg" destination="k1g-cU-hvV" id="InT-lA-LNb"/>
+                        <outlet property="loginButton" destination="3ER-r9-XdY" id="6bb-5t-v7k"/>
                         <outlet property="passText" destination="mjZ-sy-cRU" id="kN0-62-vcP"/>
                         <outlet property="signText" destination="mlx-mB-ay8" id="YFg-Zp-9Bg"/>
                         <segue destination="XM0-IE-rNQ" kind="show" identifier="loginSegue" id="Ilb-zh-53y"/>
@@ -1398,6 +1405,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="HxH_White.png" width="381" height="400"/>
         <image name="Telephone2.png" width="40" height="40"/>
         <image name="gear2.png" width="40" height="40"/>
         <image name="home.png" width="40" height="40"/>

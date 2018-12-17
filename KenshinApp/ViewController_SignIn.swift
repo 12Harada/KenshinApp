@@ -25,8 +25,9 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var signText: UITextField!
   @IBOutlet weak var passText: UITextField!
   @IBOutlet weak var lblErrorMsg: UILabel!
-  @IBOutlet weak var backImage: UIImageView!
-  
+  @IBOutlet weak var loginButton: PrimaryActionButton!
+  @IBOutlet weak var backLabel: UILabel!
+  @IBOutlet weak var LogoImage: UIImageView!
   
   //原田追加
   var weather = [Weather]()
@@ -71,7 +72,6 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
     //テキストボックスフォーカス時に英字のみのキーボード表示
     passText.keyboardType = UIKeyboardType.numbersAndPunctuation
     
-
     //11/14 jsonファイル取り込み方法変更による追加
     guard let data = try? getJSONData() else { return }
     login = try! JSONDecoder().decode([Login].self, from: data!)

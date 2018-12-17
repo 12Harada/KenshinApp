@@ -95,6 +95,7 @@
 		9342E6D621ACD841001A733D /* YOTO_SHOP_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D221ACD840001A733D /* YOTO_SHOP_48.png */; };
 		9342E6D721ACD841001A733D /* YOTO_HOME_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D321ACD840001A733D /* YOTO_HOME_48.png */; };
 		9342E6D821ACD841001A733D /* YOTO_BUILDING_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9342E6D421ACD841001A733D /* YOTO_BUILDING_48.png */; };
+		938BF2C521C63C7400CCCAF7 /* HxH_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 938BF2C421C63C7100CCCAF7 /* HxH_White.png */; };
 		93D317D32191342500BC0A95 /* PrimaryActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D317D22191342500BC0A95 /* PrimaryActionButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +211,7 @@
 		9342E6D221ACD840001A733D /* YOTO_SHOP_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_SHOP_48.png; sourceTree = "<group>"; };
 		9342E6D321ACD840001A733D /* YOTO_HOME_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_HOME_48.png; sourceTree = "<group>"; };
 		9342E6D421ACD841001A733D /* YOTO_BUILDING_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YOTO_BUILDING_48.png; sourceTree = "<group>"; };
+		938BF2C421C63C7100CCCAF7 /* HxH_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HxH_White.png; sourceTree = "<group>"; };
 		93D317D22191342500BC0A95 /* PrimaryActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -343,6 +345,7 @@
 				73858B7921C5FFBC0090D825 /* ViewController_Manual.swift */,
 				736B62D721C13A2300FAC1E9 /* meter2.png */,
 				736B62D521C1394200FAC1E9 /* update.png */,
+				938BF2C421C63C7100CCCAF7 /* HxH_White.png */,
 				736B62D321C1393900FAC1E9 /* gear2.png */,
 				8A7F383C21BCACC900BCCCE9 /* TableViewController_kenshinDo.swift */,
 				8A7F383D21BCACC900BCCCE9 /* TableViewController_kenshinDo.xib */,
@@ -488,6 +491,7 @@
 				731C39F821C4A0260046C25B /* HealthCell.xib in Resources */,
 				7332D6BA21C4CB0C00B539CE /* walking.png in Resources */,
 				7378337221B3E9E90031731F /* kenshinCustomCell.xib in Resources */,
+				938BF2C521C63C7400CCCAF7 /* HxH_White.png in Resources */,
 				8AEEC64B21AEA30900ED33A2 /* kenshinCustomCellKaiki.xib in Resources */,
 				8A0B3682213A4DD900F196AD /* ViewController_Hello.xib in Resources */,
 				736B62D021C1362900FAC1E9 /* Telephone2.png in Resources */,

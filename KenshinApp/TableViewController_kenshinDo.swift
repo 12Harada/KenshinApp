@@ -61,60 +61,22 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         
         //ナビゲーションバーの右側に保存ボタンを表示
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(rightBarBtnClicked(sender:))), animated: true)
- 
-  /*      //入力している文字を全消しするclearボタンを設定(書いている時のみの設定)
-        tf.clearButtonMode = .whileEditing
-        //改行ボタン
-        tf.returnKeyType = .go
-       
-        tf.addTarget(self, action: Selector(("textFieldDidChange:")),for: UIControlEvents.editingChanged)
-        view.addSubview(tf)
- */
+        //キーボードにも保存ボタンを表示（上部の保存ボタンと同じ動作）
+        let tools = UIToolbar()
+        tools.frame = CGRect(x: 0, y: 0, width: tools.frame.width, height: 40)
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let closeButton = UIBarButtonItem(title: "保存", style: .plain, target: nil, action: #selector(rightBarBtnClicked(sender:)))
+        tools.items = [spacer, closeButton]
+        thisUseGas.inputAccessoryView = tools
+        
     }
     //画面表示時にテキストへフォーカスし、キーボード表示
     override func viewWillAppear(_ animated: Bool) {
         thisUseGas.becomeFirstResponder()
     }
 
-    private func textFieldShouldReturn(_ textField:UITextField) -> Bool {
-        print("キーボードを閉じる前")
-        // キーボードを閉じる処理
-        self.view.endEditing(true)
-        //        rightBarBtnClicked(sender:)
-        print("キーボードを閉じたあと")
-        return true
-    }
 
-    func textFieldShouldEndEditing(_ textField:UITextField) -> Bool {
-        print("キーボードを閉じる前")
-        let inputData = self.thisUseGas.text
-        let minusData = self.beforeUseGas.text!
-        thisUseGasRyo.text = String(Int(inputData!)! - Int(minusData)!)
-        
-        return true
-    }
     
-/*
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("テキストフィールがタップされ、入力可能になったあと")
-        if thisUseGasRyo.text != nil {
-            //今回使用量を計算して表示
-            thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
-        }
-    }
-
-    //keyboard以外の画面を押すと、keyboardを閉じる処理
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (self.tf.isFirstResponder) {
-            self.tf.resignFirstResponder()
-        }
-    }
-
-    func textFieldDidChange(textFiled: UITextField) {
-        //今回使用量を計算して表示
-        thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
-    }
-*/
     @objc func rightBarBtnClicked(sender: UIButton){
         print("保存ボタンが押されたよ");
         //キーボードを閉じる
@@ -162,22 +124,10 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         present(alert, animated: true, completion: nil)
 
     }
-/*
-    //フォーカスが離れたらキーボードを閉じ、使用量を計算する
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //キーボードを閉じる
-        view.endEditing(true)
-        
-        if (thisUseGas?.text) == nil {
-            print("ERROR!!")
-            //アラートを表示する。
-            _ = UIAlertController(title: "使用量", message: "使用量が入力されていません！正しい指示数を入力して下さい。", preferredStyle: UIAlertControllerStyle.alert)
-        }
-        //今回使用量を計算して表示
-        thisUseGasRyo.text = String(Int(beforeUseGas.text!)! - Int(beforeUseGas.text!)!)
-        
+    func onSaveButton(){
+        self.view.endEditing(true)
     }
-*/
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

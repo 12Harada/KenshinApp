@@ -202,7 +202,12 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
  
  */
         //kenshinInputのデータが0であれば、初期表示のためJsonファイルを読み出す
+        // 検針結果入力画面には戻れないようにする
+        self.navigationItem.hidesBackButton = true
+        //タイトルを「お客さま選択」に設定
+        self.navigationItem.title = "お客さま選択"
 
+        
         if(selectedNumber == 0){
             guard let data2 = try? getJSONData2() else { return }
             kenshinData = try! JSONDecoder().decode([KenshinInput].self, from: data2!)

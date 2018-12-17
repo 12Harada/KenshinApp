@@ -27,7 +27,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
                                "検針方法",
                                "お客さま電話番号",
                                "犬情報",
-                                "検針結果を報告"]
+                                ""]
     
     var customData: NSMutableArray = []
     
@@ -44,9 +44,12 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         
         //お客さま番号
         let gasSetti = gmtNum[0] + gmtNum[1] + gmtNum[2] + gmtNum[3] + "-" + gmtNum[4] + gmtNum[5] + gmtNum[6] + "-" + gmtNum[7] + gmtNum[8] + gmtNum[9] + gmtNum[10]
-        
-        let telNo = selectedKenshinInput[selectedNumber].s_TelNo.splitInto(1)
-        let sTelNo = telNo[0] + telNo[1] + "-" + telNo[2] + telNo[3] + telNo[4] + telNo[5] + "-" + telNo[6] + telNo[7] + telNo[8] + telNo[9]
+        //開閉栓状態
+        let kaiheiCode = decodeMeterState(code: selectedKenshinInput[selectedNumber].s_UseCd)
+        //検針方法
+        let kenshinMethod = decodeKenshinMethod(code: selectedKenshinInput[selectedNumber].s_HohoCd)
+        //契約種別
+        let keiyakuContract = decodeContract(code: self.selectedKenshinInput[selectedNumber].s_KeiyakuType)
         customData =
             [trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_NameJ),
             "東京都中央区銀座４−３−２",
@@ -54,12 +57,12 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
             trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_AptMeiC2) +
             trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_AptMeiC3),
             gasSetti,
-            self.selectedKenshinInput[selectedNumber].s_UseCd,
-            self.selectedKenshinInput[selectedNumber].s_KeiyakuType,
-            "はこ",
-            sTelNo,
+            kaiheiCode,
+            keiyakuContract,
+            kenshinMethod,
+            selectedKenshinInput[selectedNumber].s_TelNo,
             "犬あり小型犬",
-            ""
+            "検針結果を報告する"
         ]
         
         // Cell名の登録をおこなう.
@@ -77,19 +80,20 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         //ナビゲーションバーの右側に編集ボタンを表示
         self.navigationItem.setRightBarButton(self.editButtonItem, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "編集", style: .plain, target: nil, action: #selector(setEditing))
+        
+
     }
     
     //編集ボタンが押された際に呼び出される
-    override func setEditing(_ editing: Bool, animated: Bool) {
+    @objc override func setEditing(_ editing: Bool, animated: Bool) {
         //通常走っていた処理はそのまま走らせる。
         super.setEditing(editing, animated: true)
         //自分が持っているテーブルビューのeditingを更新する。
-        self.customerTableView.setEditing(editing, animated: animated)
-
+        self.customerTableView.setEditing(editing, animated: true)
         // 編集中のときのみaddButtonをナビゲーションバーの左に表示する
         if editing {
             print("編集中")
-            let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action:#selector(self.addCell(sender:)))
+            let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.addCell(sender:)))
                 
             self.navigationItem.setLeftBarButton(addButton, animated: true)
         } else {
@@ -140,8 +144,14 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 17)
         customInfoCell.detailTextLabel?.text = customData[indexPath.row] as? String
         customInfoCell.detailTextLabel?.textColor = UIColor.black
+        if indexPath.row == (customItem.count - 2) {
+            customInfoCell.textLabel?.textColor = UIColor.red
+            customInfoCell.detailTextLabel?.textColor = UIColor.red
+        }
         if indexPath.row == (customItem.count - 1) {
-            customInfoCell.textLabel?.textColor = UIColor.blue
+            customInfoCell.detailTextLabel?.textColor = UIColor.blue
+            customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 17)
+
         }
         print("indexPath.row: \(indexPath.row)")
         print("customItem.count: \(customItem.count)")
@@ -171,7 +181,48 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         return outData
     }
     
-    
+    //開閉栓状態のデコード
+    private func decodeMeterState(code :String) -> String {
+        
+        switch code {
+        case "1":
+            return "開栓中"
+        case "2":
+            return "閉栓中"
+        default:
+            return "開栓中"
+        }
+        
+    }
+    //検針方法のデコード
+    private func decodeKenshinMethod(code :String) -> String {
+        
+        switch code {
+        case "11":
+            return "電話"
+        case "21":
+            return "はこ"
+        case "31":
+            return "帳票"
+        default:
+            return "はこ"
+        }
+        
+    }
+
+    //検針方法のデコード
+    private func decodeContract(code :String) -> String {
+        
+        switch code {
+        case "101":
+            return "一般契約"
+        case "226":
+            return "ゆったりエコプラン"
+        default:
+            return "一般契約"
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

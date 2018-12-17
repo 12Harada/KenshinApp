@@ -84,7 +84,7 @@
                         <outlet property="loginButton" destination="3ER-r9-XdY" id="6bb-5t-v7k"/>
                         <outlet property="passText" destination="mjZ-sy-cRU" id="kN0-62-vcP"/>
                         <outlet property="signText" destination="mlx-mB-ay8" id="YFg-Zp-9Bg"/>
-                        <segue destination="XM0-IE-rNQ" kind="show" identifier="loginSegue" id="Ilb-zh-53y"/>
+                        <segue destination="XM0-IE-rNQ" kind="show" identifier="loginSegue" animates="NO" id="Ilb-zh-53y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtY-Cz-6Fx" userLabel="First Responder" sceneMemberID="firstResponder"/>

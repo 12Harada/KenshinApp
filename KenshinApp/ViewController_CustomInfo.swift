@@ -27,7 +27,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
                                "検針方法",
                                "お客さま電話番号",
                                "犬情報",
-                                "検針結果を報告"]
+                                ""]
     
     var customData: NSMutableArray = []
     
@@ -62,7 +62,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
             kenshinMethod,
             selectedKenshinInput[selectedNumber].s_TelNo,
             "犬あり小型犬",
-            ""
+            "検針結果を報告する"
         ]
         
         // Cell名の登録をおこなう.
@@ -149,8 +149,8 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
             customInfoCell.detailTextLabel?.textColor = UIColor.red
         }
         if indexPath.row == (customItem.count - 1) {
-            customInfoCell.textLabel?.textColor = UIColor.blue
-            customInfoCell.textLabel?.font = UIFont.systemFont(ofSize: 17)
+            customInfoCell.detailTextLabel?.textColor = UIColor.blue
+            customInfoCell.detailTextLabel?.font = UIFont.systemFont(ofSize: 17)
 
         }
         print("indexPath.row: \(indexPath.row)")

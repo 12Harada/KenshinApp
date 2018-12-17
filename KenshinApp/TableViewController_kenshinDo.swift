@@ -68,26 +68,7 @@ class TableViewController_kenshinDo: UITableViewController, UITextFieldDelegate 
         let closeButton = UIBarButtonItem(title: "保存", style: .plain, target: nil, action: #selector(rightBarBtnClicked(sender:)))
         tools.items = [spacer, closeButton]
         thisUseGas.inputAccessoryView = tools
-
         
-/*
-        // ボタンビュー作成
-        let myKeyboard = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
-//        myKeyboard.backgroundColor = UIColor.white
-         // Doneボタン作成
-        let myButton = UIButton(frame: CGRect(x: 5, y: 5, width: 50, height: 30))
-        myButton.backgroundColor = UIColor.white
-        myButton.setTitleColor(UIColor.blue, for: .normal)
-
-        myButton.setTitle("保存", for: UIControlState.normal)
-        myButton.addTarget(self, action: #selector(rightBarBtnClicked(sender: )), for: UIControlEvents.touchUpInside)
-        // ボタンをビューに追加
-        myKeyboard.addSubview(myButton)
-        
-        // ビューをフィールドに設定
-        thisUseGas.inputAccessoryView = myKeyboard
-        thisUseGas.delegate = self
- */
     }
     //画面表示時にテキストへフォーカスし、キーボード表示
     override func viewWillAppear(_ animated: Bool) {

@@ -43,6 +43,10 @@
 		73494581217828A200DAF1FD /* CollectionViewCell_KenshinLong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349457F217828A200DAF1FD /* CollectionViewCell_KenshinLong.swift */; };
 		73494582217828A200DAF1FD /* CollectionViewCell_KenshinLong.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73494580217828A200DAF1FD /* CollectionViewCell_KenshinLong.xib */; };
 		734945AA21797D0D00DAF1FD /* triangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734945A921797D0D00DAF1FD /* triangleButton.swift */; };
+		734C235921C876840048B305 /* ranking2.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C235821C876840048B305 /* ranking2.png */; };
+		734C235B21C87A750048B305 /* haradaImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C235A21C87A740048B305 /* haradaImage2.png */; };
+		734C235D21C87ED90048B305 /* yokomizuImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C235C21C87ED90048B305 /* yokomizuImage.png */; };
+		734C235F21C87EE90048B305 /* nonakaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C235E21C87EE80048B305 /* nonakaImage.png */; };
 		735FC71B2171CC11002265FC /* pacchoKenshin.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 735FC71A2171CC10002265FC /* pacchoKenshin.jpeg */; };
 		736B62D021C1362900FAC1E9 /* Telephone2.png in Resources */ = {isa = PBXBuildFile; fileRef = 736B62CF21C1362800FAC1E9 /* Telephone2.png */; };
 		736B62D221C137CE00FAC1E9 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 736B62D121C137CE00FAC1E9 /* home.png */; };
@@ -153,6 +157,10 @@
 		7349457F217828A200DAF1FD /* CollectionViewCell_KenshinLong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell_KenshinLong.swift; sourceTree = "<group>"; };
 		73494580217828A200DAF1FD /* CollectionViewCell_KenshinLong.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell_KenshinLong.xib; sourceTree = "<group>"; };
 		734945A921797D0D00DAF1FD /* triangleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triangleButton.swift; sourceTree = "<group>"; };
+		734C235821C876840048B305 /* ranking2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking2.png; sourceTree = "<group>"; };
+		734C235A21C87A740048B305 /* haradaImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haradaImage2.png; sourceTree = "<group>"; };
+		734C235C21C87ED90048B305 /* yokomizuImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yokomizuImage.png; sourceTree = "<group>"; };
+		734C235E21C87EE80048B305 /* nonakaImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nonakaImage.png; sourceTree = "<group>"; };
 		735FC71A2171CC10002265FC /* pacchoKenshin.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pacchoKenshin.jpeg; sourceTree = "<group>"; };
 		736B62CF21C1362800FAC1E9 /* Telephone2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Telephone2.png; sourceTree = "<group>"; };
 		736B62D121C137CE00FAC1E9 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -273,6 +281,9 @@
 		8A0B364C213A474D00F196AD /* KenshinApp */ = {
 			isa = PBXGroup;
 			children = (
+				734C235E21C87EE80048B305 /* nonakaImage.png */,
+				734C235C21C87ED90048B305 /* yokomizuImage.png */,
+				734C235821C876840048B305 /* ranking2.png */,
 				73858B7D21C60C390090D825 /* FanHeater.pdf */,
 				73858B7B21C60C2A0090D825 /* yuwakashi.pdf */,
 				7332D6BD21C4CFCB00B539CE /* ave_speed.png */,
@@ -342,6 +353,7 @@
 				8A2F7650217393C900AD7F1F /* ViewController_KenshinConform.xib */,
 				8A7AF380214297D600632788 /* ViewController_KenjunList.xib */,
 				8A0B3651213A474D00F196AD /* Main.storyboard */,
+				734C235A21C87A740048B305 /* haradaImage2.png */,
 				73911C0721C5EC0C00F3EFE6 /* ViewController_config.swift */,
 				73858B7921C5FFBC0090D825 /* ViewController_Manual.swift */,
 				736B62D721C13A2300FAC1E9 /* meter2.png */,
@@ -490,6 +502,7 @@
 			files = (
 				731C39F821C4A0260046C25B /* HealthCell.xib in Resources */,
 				7332D6BA21C4CB0C00B539CE /* walking.png in Resources */,
+				734C235D21C87ED90048B305 /* yokomizuImage.png in Resources */,
 				7378337221B3E9E90031731F /* kenshinCustomCell.xib in Resources */,
 				938BF2C521C63C7400CCCAF7 /* HxH_White.png in Resources */,
 				8AEEC64B21AEA30900ED33A2 /* kenshinCustomCellKaiki.xib in Resources */,
@@ -513,9 +526,11 @@
 				7349457E2177FCA600DAF1FD /* secret.png in Resources */,
 				8A7F383F21BCACC900BCCCE9 /* TableViewController_kenshinDo.xib in Resources */,
 				8A7AF37B214295E000632788 /* ViewController_CustomNumberSerch.xib in Resources */,
+				734C235F21C87EE90048B305 /* nonakaImage.png in Resources */,
 				73494582217828A200DAF1FD /* CollectionViewCell_KenshinLong.xib in Resources */,
 				73125DB42170C29B00980E62 /* paccho1.jpg in Resources */,
 				73A6C49C21B69E2F00D11F1E /* check.png in Resources */,
+				734C235B21C87A750048B305 /* haradaImage2.png in Resources */,
 				73911C0C21C5F56700F3EFE6 /* FCUnit.pdf in Resources */,
 				734235C92169CE2D008A213E /* KenshinData2.json in Resources */,
 				733621C82197FF20006BACE0 /* Contact.json in Resources */,
@@ -527,6 +542,7 @@
 				8A0B3655213A474E00F196AD /* Assets.xcassets in Resources */,
 				8A5308A72160C40D0039A051 /* ViewController_CustomInfo.xib in Resources */,
 				8A8044A42162F9F2006DEA56 /* LoginList.json in Resources */,
+				734C235921C876840048B305 /* ranking2.png in Resources */,
 				736B62D821C13A2400FAC1E9 /* meter2.png in Resources */,
 				733621A22197BB5F006BACE0 /* CustomerTableViewCell.xib in Resources */,
 				8AA8CEF0213BE0D300D64FA1 /* CollectionViewCell_Kenshin.xib in Resources */,

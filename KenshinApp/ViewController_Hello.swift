@@ -13,6 +13,7 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
     
 
 
+    @IBOutlet weak var baseName: UILabel!
     @IBOutlet weak var weatherPoint: UILabel!
     @IBOutlet weak var faceImage: UIImageView!
     @IBOutlet weak var baseLabel: UILabel!
@@ -43,7 +44,7 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
         healthTableView.register (UINib(nibName: "HealthCell", bundle: nil),forCellReuseIdentifier:"HealthCell")
         
         // バンドルした画像ファイルを読み込み
-        let image = UIImage(named: "haradaImage.png")
+        let image = UIImage(named: "haradaImage2.png")
         
         // Image Viewに画像を設定
         faceImage.image = image
@@ -59,7 +60,8 @@ class ViewController_Hello: UIViewController, UITableViewDelegate, UITableViewDa
         self.faceImage.layer.masksToBounds = true
         
         //拠点名格納
-        baseLabel.text = "東京ガスライフバル目黒"
+        //baseLabel.text = "東京ガスライフバル目黒"
+        baseName.text = "東京ガスライフバル目黒"
         
         //ハローメイト名前格納
         nameLabel.text = "原田　弘章"

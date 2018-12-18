@@ -20,11 +20,11 @@ class ContactCell: UITableViewCell {
     func setupCell(model:Contact ) {
         //顔写真
         if(model.telNum == "08084006082"){//原田
-            image3 = UIImage(named:"haradaImage.png")
+            image3 = UIImage(named:"haradaImage2.png")
         }else if(model.telNum == "08021578366"){//橋爪
-            image3 = UIImage(named:"YOTO_SHOP_48.png")
+            image3 = UIImage(named:"yokomizuImage.png")
         }else if(model.telNum == "08021576528"){//野中
-            image3 = UIImage(named:"YOTO_BUILDING_48.png")
+            image3 = UIImage(named:"nonakaImage.png")
         }else{
             image3 = UIImage(named:"secret.png")
         }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 
 
 class ViewController_Contact: UIViewController, UITableViewDelegate, UITableViewDataSource{
@@ -18,6 +19,22 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /******************
+         通知実装
+         *********************/
+        let contents = UNMutableNotificationContent()
+        contents.title = "システム連絡"
+        contents.body = "通信障害発生中。１６時まで通信業務が行えません。"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let identifier = NSUUID().uuidString
+        let request = UNNotificationRequest(identifier: identifier, content: contents, trigger: trigger)
+        UNUserNotificationCenter.current().add(request){
+            error in
+            print(error?.localizedDescription)
+        }
+        
         
         contactTableView.register (UINib(nibName: "ContactCell", bundle: nil),forCellReuseIdentifier:"ContactCell")
         /*

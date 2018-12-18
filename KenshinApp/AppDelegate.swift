@@ -17,31 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-      if #available(iOS 10.0, *) {
-        // iOS 10
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
-          if error != nil {
-            return
-          }
-          
-          if granted {
-            print("通知許可")
-            
-            let center = UNUserNotificationCenter.current()
-            center.delegate = self as? UNUserNotificationCenterDelegate
-            
-          } else {
-            print("通知拒否")
-          }
-        })
+        // 通知許可の取得
+        UNUserNotificationCenter.current().requestAuthorization(
+        options: [.alert, .sound, .badge]){
+            (granted, _) in
+            if granted{
+                UNUserNotificationCenter.current().delegate = self
+            }
+        }
         
-      } else {
-        // iOS 9以下
-        let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-        UIApplication.shared.registerUserNotificationSettings(settings)
-      }
-
         return true
     }
 
@@ -91,3 +75,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate:UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // アプリ起動中でもアラート&音で通知
+        completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+}

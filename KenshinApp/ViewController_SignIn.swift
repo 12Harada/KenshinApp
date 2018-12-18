@@ -9,6 +9,7 @@
 import UIKit
 import LocalAuthentication
 
+
 extension String {
   // 半角英数字を判定
   func isAlphanumeric() -> Bool {
@@ -42,6 +43,11 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    
+    
+    
+    
     print("【ログイン画面】")
 
     //let borderID = CALayer()

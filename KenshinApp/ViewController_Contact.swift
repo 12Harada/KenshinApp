@@ -20,6 +20,8 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        contactTableView.rowHeight = 100
+        
         /******************
          通知実装
          *********************/

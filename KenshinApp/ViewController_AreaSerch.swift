@@ -614,10 +614,13 @@ class ViewController_AreaSerch: UIViewController, UITableViewDataSource,UITableV
         
         if(customerSearchBar.text == "") {
             //検索文字列が空の場合はすべてを表示する。
+            gohName.text = "本日対象"
             searchResult = self.kenshinData
             for (index,_) in searchResult.enumerated(){
                 resultNumber.append(index)
             }
+            //画面に検索結果件数を表示
+            kenNumber.text = searchResult.count.description
         } else {
             //検索文字列を含むデータを検索結果配列に追加する。
             for (index,data) in self.kenshinData.enumerated() {

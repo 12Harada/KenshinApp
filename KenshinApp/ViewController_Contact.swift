@@ -96,12 +96,10 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
         print(indexPath.row)
         // 選択した列を変数に格納。格納する際にInt型をString型に型変換
         let tmpText = "tel://"
-        
-        let tmpText1 = tmpText + contact[indexPath.count].telNum
-        print("電話番号" ,contact[indexPath.row].telNum)
+        let tmpText1 = tmpText + contact[indexPath.row].telNum
         let url = NSURL(string: tmpText1)!
-        
         if #available(iOS 10.0, *) {
+            
             UIApplication.shared.open(url as URL)
         } else {
             UIApplication.shared.openURL(url as URL)

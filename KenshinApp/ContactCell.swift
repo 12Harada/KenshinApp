@@ -25,6 +25,8 @@ class ContactCell: UITableViewCell {
             image3 = UIImage(named:"yokomizuImage.png")
         }else if(model.telNum == "08021576528"){//野中
             image3 = UIImage(named:"nonakaImage.png")
+        }else if(model.telNum == "08021576667"){//横水
+            image3 = UIImage(named:"yokomizuImage.png")
         }else{
             image3 = UIImage(named:"secret.png")
         }

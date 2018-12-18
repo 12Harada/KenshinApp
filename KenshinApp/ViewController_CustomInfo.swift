@@ -52,7 +52,7 @@ class ViewController_CustomInfo: UIViewController, UITableViewDelegate, UITableV
         let keiyakuContract = decodeContract(code: self.selectedKenshinInput[selectedNumber].s_KeiyakuType)
         customData =
             [trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_NameJ),
-            "東京都中央区銀座４−３−２",
+            "東京都目黒区目黒４−３−２",
             trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_AptJ) +
             trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_AptMeiC2) +
             trimSpace(customInput: self.selectedKenshinInput[selectedNumber].s_AptMeiC3),

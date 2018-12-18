@@ -261,7 +261,7 @@ class ViewController_SignIn: UIViewController, UITextFieldDelegate {
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         }
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
         print("str:",str)
         if(str == "OK"){
         self.performSegue(withIdentifier: "loginSegue", sender: nil)

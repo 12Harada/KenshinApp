@@ -34,7 +34,7 @@ class ViewController_Contact: UIViewController, UITableViewDelegate, UITableView
         let request = UNNotificationRequest(identifier: identifier, content: contents, trigger: trigger)
         UNUserNotificationCenter.current().add(request){
             error in
-            print(error?.localizedDescription)
+          print(error?.localizedDescription as Any)
         }
         
         

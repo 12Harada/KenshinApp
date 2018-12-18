@@ -37,27 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-      //　通知設定に必要なクラスをインスタンス化
-      let trigger: UNNotificationTrigger
-      let content = UNMutableNotificationContent()
-      //var notificationTime = DateComponents()
-      
-      // トリガー設定
-      //notificationTime.hour = 17
-      //notificationTime.minute = 0
-      //trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: false)
-      trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
-      
-      
-      // 通知内容の設定
-      content.title = ""
-      content.body = "システムメンテナンスのため本日14:30より通信機能を停止します"
-      content.sound = UNNotificationSound.default()
-      
-      // 通知スタイルを指定
-      let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
-      // 通知をセット
-      UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
   }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
